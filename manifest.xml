@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest version="2.0">
+ <packages>
+  <package type="part" key="ELB.KR-163B" name="ELB.KR-163B">
+   <items>
+     <item type="partxml" name="part" locator="ELB.KR-163B.part.xml"/>
+     <item type="partxml" name="manufacturer" locator="ELB.manufacturer.xml"/>
+     <item type="partxml" name="supplier" locator="ELB.manufacturer.xml"/>
+     <item type="picture" name="picturefile" locator="ELB\KR-163B.png"/>
+     <item type="document" name="externalDocument1" locator="ELB\10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf"/>
+     <item type="document" name="externalDocument2" locator="ELB\Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf"/>
+   </items>
+  </package>
+ </packages>
+</manifest>
