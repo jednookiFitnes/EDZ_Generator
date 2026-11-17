@@ -403,6 +403,32 @@ const KNOWN_MANUFACTURERS = {
     zipTown: '32602',
     state: 'DEUTSCHLAND',
   },
+  PHG: {
+    shortName: 'PHG',
+    longName: 'phg Peter Hengstler GmbH + Co. KG',
+    name1: 'phg Peter Hengstler GmbH + Co. KG',
+    name2: 'Datentechnik & Verbindungstechnik',
+    email: 'datentechnik@phg.de',
+    phone: '+49 7420 89-0',
+    note: '??_??@www.phg.de;',
+    street: 'Dauchinger Straße 12',
+    town: 'Deißlingen',
+    zipTown: '78652',
+    state: 'DEUTSCHLAND',
+  },
+  TPL: {
+    shortName: 'TPL',
+    longName: 'TP-Link Technologies Co., Ltd.',
+    name1: 'TP-Link Technologies Co., Ltd.',
+    name2: 'Networking & Smart Home Solutions',
+    email: 'support@tp-link.com',
+    phone: '+86 755 2650 4400',
+    note: '??_??@www.tp-link.com;',
+    street: 'Building 24 (floors 1,3,4,5) and 28 (floors 1-4) Central Science and Tech Park, Nanshan',
+    town: 'Shenzhen',
+    zipTown: '518057',
+    state: 'CHINA',
+  },
 };
 
 function buildManufacturerXml(mfgData) {
@@ -491,6 +517,12 @@ function generateEDZ(options) {
     );
   });
 
+  if (options.constructionXml) {
+    manifestItems.push(
+      `     <item type="partxml" name="construction" locator="${partNr}.construction.xml"/>`
+    );
+  }
+
   const manifestXml = `<?xml version="1.0" encoding="utf-8" ?>\n<manifest version="2.0">\n <packages>\n  <package type="part" key="${partNr}" name="${partNr}">\n   <items>\n${manifestItems.join('\n')}\n   </items>\n  </package>\n </packages>\n</manifest>\n`;
 
   // 2. Build manufacturer.xml
@@ -511,6 +543,10 @@ function generateEDZ(options) {
 
   const picAttr = pictureRelPath
     ? ` P_ARTICLE_PICTUREFILE="$(MD_IMG)\\${pictureRelPath.replace(/\//g, '\\')}"`
+    : '';
+
+  const constructionAttr = options.constructionXml
+    ? ` P_ARTICLE_CONSTRUCTION_FILE="$(MD_PARTS)\\items\\partxml\\${partNr}.construction.xml"`
     : '';
 
   const functionTemplatesXml = functionTemplates
@@ -534,7 +570,7 @@ function generateEDZ(options) {
         .join('')
     : '';
 
-  const partXml = `<?xml version="1.0" encoding="utf-8" ?>\n<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">\n <part P_ARTICLE_PARTTYPE="1" P_ARTICLE_PARTNR="${partNr}" P_ARTICLE_TYPENR="${typeNr}" P_ARTICLE_ORDERNR="${orderNr}" P_ARTICLE_MANUFACTURER="${manufacturer}" P_ARTICLE_SUPPLIER="${manufacturer}" P_ARTICLE_PRODUCTTOPGROUP="${productTopGroup}" P_ARTICLE_PRODUCTGROUP="${productGroup}" P_ARTICLE_PRODUCTSUBGROUP="${productSubGroup}" P_ARTICLE_CRAFT_ELECTRICAL="${craftElectrical}" P_ARTICLE_CODELETTER="${codeLetter}" P_ARTICLE_WEIGHT="${weight}" P_ARTICLE_WIDTH="${width}" P_ARTICLE_HEIGHT="${height}" P_ARTICLE_DEPTH="${depth}" P_ARTICLE_MOUNTINGSPACE="${mountingSpace}"${picAttr}${extDocAttrs}${extraAttrsStr} P_ARTICLE_DESCR1="${descr1Str}" P_ARTICLE_DESCR2="${descr2Str}" P_ARTICLE_NOTE="${noteStr}" P_ARTICLE_DISCONTINUED="0" P_ARTICLE_IS_ACCESSORY="${isAccessory}" P_ARTICLE_EXTERNAL_PLACEMENT="0" P_ARTICLE_CAN_BE_LINED_UP="0" P_ARTICLE_PACKAGINGQUANTITY="1">\n${variantXml}\n </part>\n</partsmanagement>\n`;
+  const partXml = `<?xml version="1.0" encoding="utf-8" ?>\n<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">\n <part P_ARTICLE_PARTTYPE="1" P_ARTICLE_PARTNR="${partNr}" P_ARTICLE_TYPENR="${typeNr}" P_ARTICLE_ORDERNR="${orderNr}" P_ARTICLE_MANUFACTURER="${manufacturer}" P_ARTICLE_SUPPLIER="${manufacturer}" P_ARTICLE_PRODUCTTOPGROUP="${productTopGroup}" P_ARTICLE_PRODUCTGROUP="${productGroup}" P_ARTICLE_PRODUCTSUBGROUP="${productSubGroup}" P_ARTICLE_CRAFT_ELECTRICAL="${craftElectrical}" P_ARTICLE_CODELETTER="${codeLetter}" P_ARTICLE_WEIGHT="${weight}" P_ARTICLE_WIDTH="${width}" P_ARTICLE_HEIGHT="${height}" P_ARTICLE_DEPTH="${depth}" P_ARTICLE_MOUNTINGSPACE="${mountingSpace}"${picAttr}${extDocAttrs}${constructionAttr}${extraAttrsStr} P_ARTICLE_DESCR1="${descr1Str}" P_ARTICLE_DESCR2="${descr2Str}" P_ARTICLE_NOTE="${noteStr}" P_ARTICLE_DISCONTINUED="0" P_ARTICLE_IS_ACCESSORY="${isAccessory}" P_ARTICLE_EXTERNAL_PLACEMENT="0" P_ARTICLE_CAN_BE_LINED_UP="0" P_ARTICLE_PACKAGINGQUANTITY="1">\n${variantXml}\n </part>\n</partsmanagement>\n`;
 
   // 4. Assemble files list for ZIP
   const zipFiles = [];
@@ -555,6 +591,13 @@ function generateEDZ(options) {
     path: `items/partxml/${manufacturer}.manufacturer.xml`,
     data: Buffer.from(manufacturerXml, 'utf8'),
   });
+
+  if (options.constructionXml) {
+    zipFiles.push({
+      path: `items/partxml/${partNr}.construction.xml`,
+      data: Buffer.from(options.constructionXml, 'utf8'),
+    });
+  }
 
   // items/picture/
   if (pictureLocalPath && fs.existsSync(pictureLocalPath)) {
@@ -2071,6 +2114,59 @@ const CATALOG = {
     outputEdzPath: 'EDZ/261028/HP.2FT00AA/HP.2FT00AA.edz',
   },
 
+  'HP.9UB87AA': {
+    partNr: 'HP.9UB87AA',
+    typeNr: '9UB87AA',
+    orderNr: '9UB87AA',
+    manufacturer: 'HP',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.MECHANICS, // 3 (Mechanika)
+    productGroup: EPLAN_PRODUCT_GROUPS.HOUSING_ACCESSORIES_EXTERNAL, // 50 (Akcesoria obudowy, rozbudowa zewnętrzna)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL, // 1 (Ogólne)
+    craftElectrical: 1,
+    codeLetter: 'W',
+    isAccessory: 1,
+    weight: '0.725',
+    width: '166.0',
+    height: '275.2',
+    depth: '62.5',
+    descr1: {
+      pl_PL: 'Podwójny uchwyt montażowy HP Dual VESA Mount Bracket do Thin Client',
+      en_US: 'HP Dual VESA Mount Bracket for HP Thin Client',
+      de_DE: 'HP Dual-VESA-Montagehalterung für HP Thin Clients',
+    },
+    descr2: {
+      pl_PL: 'VESA 100x100 mm, nośność do 10,5 kg / 32", uchwyt zasilacza',
+      en_US: 'VESA 100x100 mm, load up to 10.5 kg / 32", power supply holder',
+      de_DE: 'VESA 100x100 mm, Traglast bis 10,5 kg / 32", Netzteilhalterung',
+    },
+    note: {
+      pl_PL: 'Wytrzymały podwójny zestaw montażowy HP Dual VESA Mount Bracket (kod produktu: 9UB87AA / 9UB87AA#ABB) renomowanej marki HP Inc. Umożliwia jednoczesną, zwartą instalację terminala HP Thin Client (m.in. t640, t540, t430, t240, Elite t655, Pro t550) oraz monitora o przekątnej do 32 cali i masie do 10,5 kg (23,15 lbs) na pojedynczym ramieniu nośnym ze standardem VESA 100x100 mm, na ścianie, wózku mobilnym lub w szafie sterowniczej. Solidna konstrukcja ze stali malowanej proszkowo w kolorze czarnym (Jet Black). Wymiary gabarytowe: 166 x 275,2 x 62,5 mm, waga: 0,725 kg. Wyposażony w mechanizm Quick Release ze śrubami radełkowanymi do szybkiej wymiany terminala bez demontażu monitora, dedykowany uchwyt na zasilacz sieciowy oraz zintegrowane prowadzenie przewodów. GTIN/EAN: 0194850785189.',
+      en_US: 'Rugged dual-sided HP Dual VESA Mount Bracket mounting kit (part number: 9UB87AA / 9UB87AA#ABB) by HP Inc. Enables simultaneous, compact mounting of an HP Thin Client (including t640, t540, t430, t240, Elite t655, Pro t550) and a display up to 32 inches and 10.5 kg (23.15 lbs) onto a single VESA 100x100 mm monitor arm, wall mount, mobile cart, or control cabinet. Heavy-duty powder-coated sheet steel construction in matte black (Jet Black). Dimensions: 166 x 275.2 x 62.5 mm, weight: 0.725 kg. Equipped with a built-in Quick Release mechanism with thumb screws for rapid thin client swap-out without dismantling the display, a dedicated power supply holder, and clean cable routing. GTIN/EAN: 0194850785189.',
+      de_DE: 'Robuste zweiseitige HP Dual VESA Mount Bracket Montagehalterung (Artikel-Nr.: 9UB87AA / 9UB87AA#ABB) von HP Inc. Ermöglicht die gleichzeitige, platzsparende Montage eines HP Thin Clients (u. a. t640, t540, t430, t240, Elite t655, Pro t550) und eines Monitors bis zu 32 Zoll und 10,5 kg (23,15 lbs) an einem VESA 100x100 mm Monitor-Tragarm, einer Wand, einem mobilen Gerätewagen oder im Schaltschrank. Robuste Stahlblechkonstruktion in Mattschwarz (Jet Black). Abmessungen: 166 x 275,2 x 62,5 mm, Gewicht: 0,725 kg. Ausgestattet mit Quick-Release-Mechanismus mit Rändelschrauben für schnellen Gerätetausch ohne Monitordemontage, separater Netzteilaufnahme und optimierter Kabelführung. GTIN/EAN: 0194850785189.',
+    },
+    characteristics: 'VESA 100x100, max. 10.5 kg / 32", stal / steel, czarny / black',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'VESA 100x100 Mounting Interface',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'HP/9UB87AA.png',
+    pictureLocalPath: 'EDZ/261109/HP.9UB87AA/9UB87AA.png',
+    docs: [
+      {
+        relPath: 'HP/9UB87AA_datasheet.pdf',
+        localPath: 'EDZ/261109/HP.9UB87AA/9UB87AA_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261109/HP.9UB87AA/HP.9UB87AA.edz',
+  },
+
   'BIR.5AP112M-2K': {
     partNr: 'BIR.5AP112M-2K',
     typeNr: '5AP112M-2K',
@@ -2188,15 +2284,142 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261029/STU.7AA112M-02/STU.7AA112M-02.edz',
   },
+  'PHG.ADMITTO-D': {
+    partNr: 'PHG.ADMITTO-D',
+    typeNr: 'ADMITTO-D',
+    orderNr: 'ADMITTO-D',
+    manufacturer: 'PHG',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.SENSORS_SWITCHES_BUTTONS,     // 12
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'B',
+    isAccessory: 0,
+    weight: '0.18',
+    width: '110.0',
+    height: '62.0',
+    depth: '24.0',
+    descr1: {
+      pl_PL: 'Czytnik kart zbliżeniowych OEM RFID (Ethernet z PoE, RJ45)',
+      en_US: 'OEM RFID proximity reader module (Ethernet with PoE, RJ45)',
+      de_DE: 'OEM-RFID-Lesemodul (Ethernet mit PoE, RJ45)',
+    },
+    descr2: {
+      pl_PL: 'Multi-ISO 13,56 MHz i 125 kHz, TCP/IP, PoE Class 0',
+      en_US: 'Multi-ISO 13.56 MHz and 125 kHz, TCP/IP, PoE Class 0',
+      de_DE: 'Multi-ISO 13,56 MHz und 125 kHz, TCP/IP, PoE Class 0',
+    },
+    note: {
+      pl_PL: 'Wieloczęstotliwościowy czytnik transponderów RFID OEM serii ADMITTO-D (phg Peter Hengstler). Zintegrowany interfejs sieciowy Ethernet 10/100 Mbps ze złączem RJ45 i bezpośrednim zasilaniem Power over Ethernet (PoE, IEEE 802.3af, Class 0, max. 2,2 W). Obsługa technologii RFID: LEGIC prime/advant, MIFARE Classic/DESFire EV1-EV3, 125 kHz (EM4102/Hitag), ISO 14443A/B, ISO 15693, Sony FeliCa. 3 diody sygnalizacyjne LED (zielona/żółta/czerwona). Stopień ochrony IP40. Temperatura pracy 0 °C do +50 °C. Zgodność z RED 2014/53/EU, RoHS.',
+      en_US: 'Multi-frequency OEM RFID transponder reader ADMITTO-D series by phg Peter Hengstler. Integrated Ethernet 10/100 Mbps network interface with RJ45 socket and direct Power over Ethernet (PoE, IEEE 802.3af, Class 0, max. 2.2 W) power supply. Supports RFID technologies: LEGIC prime/advant, MIFARE Classic/DESFire EV1-EV3, 125 kHz (EM4102/Hitag), ISO 14443A/B, ISO 15693, Sony FeliCa. 3 front status LEDs (green/yellow/red). Degree of protection IP40. Operating temperature 0 °C to +50 °C. Compliant with RED 2014/53/EU, RoHS.',
+      de_DE: 'Multifrequenz-OEM-RFID-Transponderleser der Baureihe ADMITTO-D von phg Peter Hengstler. Integrierte Ethernet 10/100 Mbit/s Netzwerkschnittstelle mit RJ45-Buchse und direkter Stromversorgung über Power over Ethernet (PoE, IEEE 802.3af, Class 0, max. 2,2 W). Unterstützt RFID-Technologien: LEGIC prime/advant, MIFARE Classic/DESFire EV1-EV3, 125 kHz (EM4102/Hitag), ISO 14443A/B, ISO 15693, Sony FeliCa. 3 Front-Status-LEDs (grün/gelb/rot). Schutzart IP40. Betriebstemperatur 0 °C bis +50 °C. Konform mit RED 2014/53/EU, RoHS.',
+    },
+    characteristics: 'Multi-ISO, 125kHz, Ethernet PoE, RJ45, 110x62x24mm',
+    functionTemplates: [
+      {
+        connectionDesignation: 'ETH / PoE',
+        connectionDescription: 'Ethernet 10/100 Mbps / Power over Ethernet (IEEE 802.3af)',
+        functiondefcategory: '2600',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'PHG/ADMITTO-D.png',
+    pictureLocalPath: 'EDZ/261109/PHG.ADMITTO-D/ADMITTO-D.png',
+    docs: [
+      {
+        relPath: 'PHG/ADMITTO-D_datasheet.pdf',
+        localPath: 'EDZ/261109/PHG.ADMITTO-D/ADMITTO-D_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261109/PHG.ADMITTO-D/PHG.ADMITTO-D.edz',
+    constructionXml: `<?xml version="1.0" encoding="utf-8" ?>\n<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">\n <construction class="6" P_PART_CONSTRUCTION_NAME="PHG.ADMITTO-D" P_PART_CONSTRUCTION_CREATE="2026-11-09" P_PART_CONSTRUCTION_LASTCHANGE="2026-11-09">\n  <P_PART_CONSTRUCTION_DESCRIPTION>pl_PL@Szablon wycięcia płyty czołowej czytnika RFID ADMITTO-D (110x62 mm, montaż wpuszczany);en_US@Front panel cutout pattern for ADMITTO-D RFID reader (110x62 mm, flush mount);de_DE@Frontplatten-Ausschnitt für ADMITTO-D RFID-Leser (110x62 mm, Paneleinbau);</P_PART_CONSTRUCTION_DESCRIPTION>\n  <drillingpattern P_DRILLING_NAME="PHG.ADMITTO-D" P_DRILLING_WIDTH="110.0" P_DRILLING_HEIGHT="62.0" P_DRILLING_DEPTH="24.0">\n    <cutout type="cutout" shape="rectangle" width="110.0" height="62.0" x="0.0" y="0.0" depth="24.0" usage="flush_panel_cutout"/>\n  </drillingpattern>\n </construction>\n</partsmanagement>\n`,
+  },
+  'TPL.TL-POE150S': {
+    partNr: 'TPL.TL-POE150S',
+    typeNr: 'TL-POE150S',
+    orderNr: 'TL-POE150S',
+    manufacturer: 'TPL',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.POWER_SUPPLY_PLANTS,           // 30
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'G',
+    isAccessory: 0,
+    weight: '0.10',
+    width: '80.8',
+    height: '54.0',
+    depth: '24.0',
+    descr1: {
+      pl_PL: 'Injektor Gigabit PoE (IEEE 802.3af, max. 15,4W)',
+      en_US: 'Gigabit PoE Injector (IEEE 802.3af, max. 15.4W)',
+      de_DE: 'Gigabit-PoE-Injektor (IEEE 802.3af, max. 15,4W)',
+    },
+    descr2: {
+      pl_PL: '1x LAN IN, 1x PoE OUT, 48V DC, zasięg do 100m',
+      en_US: '1x LAN IN, 1x PoE OUT, 48V DC, range up to 100m',
+      de_DE: '1x LAN IN, 1x PoE OUT, 48V DC, Reichweite bis 100m',
+    },
+    note: {
+      pl_PL: 'Gigabitowy injektor Power over Ethernet (PoE) model TL-POE150S producenta TP-Link Technologies Co., Ltd. Pełna zgodność ze standardem IEEE 802.3af. Zapewnia równoczesną transmisję danych gigabitowych oraz zasilania 48V DC (maksymalnie 15,4 W) pojedynczym przewodem skrętkowym na dystans do 100 m. Wyposażony w port wejściowy 10/100/1000 Mbps RJ45 (LAN IN), port wyjściowy 10/100/1000 Mbps RJ45 PoE (POWER+DATA OUT) oraz gniazdo zasilacza zewnętrznego 48V DC. Automatyczne wykrywanie odbiorników PD (Auto-Sensing) oraz zabezpieczenie przeciwzwarciowe. Certyfikaty: FCC, CE, RoHS.',
+      en_US: 'Gigabit Power over Ethernet (PoE) Injector model TL-POE150S by TP-Link Technologies Co., Ltd. Fully compliant with IEEE 802.3af standard. Delivers simultaneous gigabit data transmission and 48V DC power (up to 15.4 W) over a single twisted-pair cable up to 100 m. Equipped with 1x 10/100/1000 Mbps RJ45 input port (LAN IN), 1x 10/100/1000 Mbps RJ45 PoE output port (POWER+DATA OUT), and external 48V DC power adapter socket. Auto-Sensing algorithm detects IEEE 802.3af compliant PDs and provides short circuit protection. Certifications: FCC, CE, RoHS.',
+      de_DE: 'Gigabit-PoE-Injektor Modell TL-POE150S von TP-Link Technologies Co., Ltd. Vollständig konform zum Standard IEEE 802.3af. Liefert simultane Gigabit-Datenübertragung und 48V DC Betriebsspannung (max. 15,4 W) über ein einziges Twisted-Pair-Kabel bis zu 100 m. Ausgestattet mit 1x 10/100/1000 Mbit/s RJ45 Eingangsport (LAN IN), 1x 10/100/1000 Mbit/s RJ45 PoE-Ausgangsport (POWER+DATA OUT) und 48V DC Hohlsteckerbuchse für externes Netzteil. Auto-Sensing Erkennungsalgorithmus für 802.3af PD-Endgeräte und Kurzschlussschutz. Zertifizierungen: FCC, CE, RoHS.',
+    },
+    characteristics: 'IEEE 802.3af, 10/100/1000M, 48V DC In, max. 15.4W Out',
+    functionTemplates: [
+      {
+        connectionDesignation: 'LAN IN',
+        connectionDescription: 'Data In (10/100/1000 Mbps RJ45)',
+        functiondefcategory: '2600',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: 'PoE OUT',
+        connectionDescription: 'Data + Power Out (48V DC / 15.4W IEEE 802.3af RJ45)',
+        functiondefcategory: '2600',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: '+\n-',
+        connectionDescription: 'DC 48V In\nGND',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 3,
+      },
+    ],
+    pictureRelPath: 'TPL/TL-POE150S.png',
+    pictureLocalPath: 'EDZ/261109/TPL.TL-POE150S/TL-POE150S.png',
+    docs: [
+      {
+        relPath: 'TPL/TL-POE150S_datasheet.pdf',
+        localPath: 'EDZ/261109/TPL.TL-POE150S/TL-POE150S_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261109/TPL.TL-POE150S/TPL.TL-POE150S.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
+CATALOG['ADMITTO-D'] = CATALOG['PHG.ADMITTO-D'];
+CATALOG['TL-POE150S'] = CATALOG['TPL.TL-POE150S'];
 CATALOG['RL28-8-H-2000-IR-3974/47/112'] = CATALOG['PF.205804'];
 CATALOG['3270531'] = CATALOG['PXC.3270531'];
 CATALOG['LPO 16/E'] = CATALOG['PXC.3270531'];
 CATALOG['LPO16/E'] = CATALOG['PXC.3270531'];
 CATALOG['2FT00AA'] = CATALOG['HP.2FT00AA'];
 CATALOG['2FT00AA#ABB'] = CATALOG['HP.2FT00AA'];
+CATALOG['9UB87AA'] = CATALOG['HP.9UB87AA'];
+CATALOG['9UB87AA#ABB'] = CATALOG['HP.9UB87AA'];
 CATALOG['5AP112M-2K'] = CATALOG['BIR.5AP112M-2K'];
 CATALOG['5AP112M'] = CATALOG['BIR.5AP112M-2K'];
 CATALOG['7AA112M-02'] = CATALOG['STU.7AA112M-02'];
