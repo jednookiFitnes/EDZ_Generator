@@ -15,7 +15,7 @@
 
 **EPLAN EDZ Generator** automates the creation of structurally valid **`.edz`** (*EPLAN Data Archive Zipped*) article exchange packages for **EPLAN Electric P8** and **EPLAN Pro Panel** based on PDF datasheets, technical specifications, manufacturer URLs, and product images.
 
-* **Project Root**: `G:\Mój dysk\Projekty Antigravity\Eplan EDZ generator\`
+* **Project Root**: `C:\Dev\Trinitec\Eplan EDZ generator\`
 
 * **`EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/`**: Daily article working directory (e.g., `EDZ/261030/PXC.3270531/`) containing:
 
@@ -260,10 +260,10 @@ At the end of every completion report:
 2. **STRICT REQUIREMENT**: Provide clickable `file:///` Markdown links (with URL-encoded spaces `%20` and Polish diacritics, e.g., `M%C3%B3j%20dysk`, and forward slashes `/`) pointing to:
 
    * Every created article folder:
-     `[EDZ/261030/PXC.3270531](file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261030/PXC.3270531)`
+     `[EDZ/261030/PXC.3270531](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261030/PXC.3270531)`
 
    * The generated batch ZIP archive:
-     `[Pobierz paczkę EDZ: 261030-115721.zip](file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261030/261030-115721.zip)`
+     `[Pobierz paczkę EDZ: 261030-115721.zip](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261030/261030-115721.zip)`
 
 ## 4. Critical Rules & Guardrails
 
