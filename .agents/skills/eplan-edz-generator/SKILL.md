@@ -182,7 +182,7 @@ Podgrupa doprecyzowuje pozycję artykułu w poddrzewie danej grupy:
 * **Numer katalogowy** (`P_ARTICLE_ORDERNR`): Kod zamówieniowy / katalogowy.
 * **Producent** (`P_ARTICLE_MANUFACTURER`): Skrót producenta (np. `ELB`, `SIEMENS`, `PXC`).
 * **Oznaczenie 1** (`P_ARTICLE_DESCR1`) – **Wielojęzyczne** (`pl_PL`, `en_US`, `de_DE`):
-  * Krótki, zwięzły opis charakteryzujący dany element (np. `Przekaźnik ochrony styków / przetwornik pomiarowy 1-kanałowy`).
+  * Krótki, zwięzły opis charakteryzujący dany element wraz z najważniejszymi parametrami technicznymi (np. `Obudowa górna revos 24 - boczna, z dławikiem M32, Ø 16 - 25 mm`, `Przekaźnik ochrony styków / przetwornik pomiarowy 1-kanałowy`).
   * Format ciągu wielojęzycznego: `pl_PL@...;en_US@...;de_DE@...;`
 * **Oznaczenie 2** (`P_ARTICLE_DESCR2`) – Opcjonalna seria lub podtyp.
 * **Opis** (`P_ARTICLE_NOTE`) – **Wielojęzyczne** (`pl_PL`, `en_US`, `de_DE`):

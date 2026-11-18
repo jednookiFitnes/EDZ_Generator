@@ -59,7 +59,7 @@ Every generated article must include complete, accurate metadata adhering to the
 
 * **Designation 1** (`P_ARTICLE_DESCR1`) – **Multilingual (`pl_PL`, `en_US`, `de_DE`)**:
 
-  * Concise, accurate functional description (e.g., `Wkładka bezpiecznikowa NEOZED D02 63A gG`).
+  * Concise, accurate functional description along with key technical parameters (e.g., `Obudowa górna revos 24 - boczna, z dławikiem M32, Ø 16 - 25 mm`, `Obudowa cokołowa revos 16H - z pokrywą, 2x dławik M32, Ø 16 - 25 mm`, `Wkładka bezpiecznikowa NEOZED D02 63A gG`).
 
 * **Designation 2** (`P_ARTICLE_DESCR2`) – **Multilingual or Universal**:
 

@@ -2437,9 +2437,9 @@ const CATALOG = {
     height: '98',        // mm
     depth: '57',         // mm
     descr1: {
-      pl_PL: 'Obudowa cokołowa złącza revos BASIC wielkość 16H z pojedynczą dźwignią i pokrywą',
-      en_US: 'revos BASIC surface-mounted housing base size 16H with single locking lever and cover',
-      de_DE: 'revos BASIC Sockelgehäuse Größe 16H mit Längsbügel und Schutzdeckel',
+      pl_PL: 'Obudowa cokołowa revos 16H - z pokrywą, 2x dławik M32, Ø 16 - 25 mm',
+      en_US: 'Surface-mounted housing revos 16H - with cover, 2x cable gland M32, Ø 16 - 25 mm',
+      de_DE: 'Sockelgehäuse revos 16H - mit Deckel, 2x Verschraubung M32, Ø 16 - 25 mm',
     },
     descr2: {
       pl_PL: 'BAS GUT GR 16H M32 A0, 2x M32 (dławnice IP54 Ø16-25mm)',
@@ -2492,9 +2492,9 @@ const CATALOG = {
     height: '70',        // mm
     depth: '43',         // mm
     descr1: {
-      pl_PL: 'Obudowa wtyczki złącza revos BASIC wielkość 24 z wyjściem bocznym',
-      en_US: 'revos BASIC hood size 24 with lateral cable entry',
-      de_DE: 'revos BASIC Tüllengehäuse Größe 24 mit seitlichem Ausgang',
+      pl_PL: 'Obudowa górna revos 24 - boczna, z dławikiem M32, Ø 16 - 25 mm',
+      en_US: 'Hood revos 24 - side entry, with cable gland M32, Ø 16 - 25 mm',
+      de_DE: 'Tüllengehäuse revos 24 - seitlich, mit Verschraubung M32, Ø 16 - 25 mm',
     },
     descr2: {
       pl_PL: 'BAS GOT GG 24 M32 A0, 1x M32 (dławnica IP54 Ø16-25mm)',
@@ -2547,9 +2547,9 @@ const CATALOG = {
     height: '80',        // mm
     depth: '57',         // mm
     descr1: {
-      pl_PL: 'Obudowa cokołowa złącza revos BASIC wielkość 24H z pojedynczą dźwignią bez pokrywy',
-      en_US: 'revos BASIC surface-mounted housing base size 24H with single locking lever without cover',
-      de_DE: 'revos BASIC Sockelgehäuse Größe 24H mit Längsbügel ohne Deckel',
+      pl_PL: 'Obudowa cokołowa revos 24H - 1 dźwignia, 2x dławik M32, Ø 16 - 25 mm',
+      en_US: 'Surface-mounted housing revos 24H - 1 lever, 2x cable gland M32, Ø 16 - 25 mm',
+      de_DE: 'Sockelgehäuse revos 24H - 1 Längsbügel, 2x Verschraubung M32, Ø 16 - 25 mm',
     },
     descr2: {
       pl_PL: 'BAS GUT GL 24H M32 A0, 2x M32 (dławnice IP54 Ø16-25mm)',
