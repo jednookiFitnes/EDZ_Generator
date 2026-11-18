@@ -3881,6 +3881,172 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261118/BAL.BCC0KE3/BAL.BCC0KE3.edz',
   },
+  // ==================== BATCH 4 WIELAND WIPOS & WIENET (18.11.2026) ====================
+  'WIE.81.000.1110.1': {
+    partNr: 'WIE.81.000.1110.1',
+    typeNr: 'WIPOS PSU1 24-10 P',
+    orderNr: '81.000.1110.1',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.POWER_SUPPLY_PLANTS,           // 30
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'G',
+    isAccessory: 0,
+    weight: '0.615',
+    width: '44',
+    height: '125',
+    depth: '127',
+    descr1: {
+      pl_PL: 'Zasilacz impulsowy 1-fazowy wipos PSU1, 24V DC / 10A, 240W, Push-In, szyna DIN',
+      en_US: 'Primary switched-mode power supply wipos PSU1, 24V DC / 10A, 240W, Push-In, DIN rail',
+      de_DE: 'Primär getaktete Stromversorgung wipos PSU1, 24V DC / 10A, 240W, Push-In, Tragschiene',
+    },
+    descr2: {
+      pl_PL: 'WIPOS PSU1 24-10 P, 90-264V AC / 93-300V DC, styk DC OK, IP20',
+      en_US: 'WIPOS PSU1 24-10 P, 90-264V AC / 93-300V DC, DC OK relay, IP20',
+      de_DE: 'WIPOS PSU1 24-10 P, 90-264V AC / 93-300V DC, DC-OK-Relais, IP20',
+    },
+    note: {
+      pl_PL: 'Kompaktowy, wysoce efektywny 1-fazowy zasilacz impulsowy serii wipos PSU1 przeznaczony do montażu na szynie DIN (TS 35). Wyposażony w szybkie bezśrubowe zaciski sprężynowe typu Push-In, układ aktywnej korekcji współczynnika mocy (PFC) oraz funkcję Power Boost (do 130% mocy znamionowej przez 10 s). Zapewnia stabilizowane napięcie wyjściowe 24 V DC (regulowane potencjometrem w zakresie 22.5 – 29 V DC), wysoką sprawność 94.4% oraz bezpotencjałowy styk przekaźnikowy sygnalizacji stanu DC OK.',
+      en_US: 'Compact, high-efficiency single-phase primary switched-mode power supply unit of the wipos PSU1 series designed for DIN rail mounting (TS 35). Features toolless vibration-proof Push-In spring connection terminals, active Power Factor Correction (PFC), and Power Boost capability (up to 130% rated power for 10 s). Provides stabilized 24 V DC output (adjustable from 22.5 to 29 V DC), an outstanding 94.4% energy efficiency, and an integrated dry relay contact for DC OK status monitoring.',
+      de_DE: 'Kompaktes, hocheffizientes 1-phasiges primär getaktetes Schaltnetzteil der wipos PSU1 Serie für die Montage auf Tragschiene (TS 35). Ausgestattet mit werkzeugloser Push-In-Federkraftanschlusstechnik, aktiver Leistungsfaktorkorrektur (PFC) und Power-Boost-Funktion (bis zu 130 % Nennleistung für 10 s). Bietet eine geregelte 24 V DC Ausgangsspannung (einstellbar 22,5 – 29 V DC), einen Wirkungsgrad von 94,4 % und einen potentialfreien Meldekontakt zur DC-OK-Statusüberwachung.',
+    },
+    characteristics: 'wipos PSU1 24-10 P, 24V DC / 10A, 240W, Push-In, DC OK, PFC, IP20',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4049088715167',
+    },
+    functionTemplates: [
+      { connectionDesignation: 'L/+', connectionDescription: 'AC Line / DC+', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 1 },
+      { connectionDesignation: 'N/-', connectionDescription: 'AC Neutral / DC-', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 2 },
+      { connectionDesignation: 'PE', connectionDescription: 'Protective Earth', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 3 },
+      { connectionDesignation: '+', connectionDescription: '+24V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 4 },
+      { connectionDesignation: '+', connectionDescription: '+24V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 5 },
+      { connectionDesignation: '-', connectionDescription: '0V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 6 },
+      { connectionDesignation: '-', connectionDescription: '0V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 7 },
+      { connectionDesignation: '13\n14', connectionDescription: 'DC OK Relay (NO)', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 8 },
+    ],
+    pictureRelPath: 'WIE/81.000.1110.1.png',
+    pictureLocalPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1.png',
+    docs: [
+      {
+        relPath: 'WIE/81.000.1110.1_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.81.000.1110.1/WIE.81.000.1110.1.edz',
+  },
+  'WIE.81.000.1120.1': {
+    partNr: 'WIE.81.000.1120.1',
+    typeNr: 'WIPOS PSU1 24-20 P',
+    orderNr: '81.000.1120.1',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.POWER_SUPPLY_PLANTS,           // 30
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'G',
+    isAccessory: 0,
+    weight: '0.900',
+    width: '60',
+    height: '125',
+    depth: '129',
+    descr1: {
+      pl_PL: 'Zasilacz impulsowy 1-fazowy wipos PSU1, 24V DC / 20A, 480W, Push-In, szyna DIN',
+      en_US: 'Primary switched-mode power supply wipos PSU1, 24V DC / 20A, 480W, Push-In, DIN rail',
+      de_DE: 'Primär getaktete Stromversorgung wipos PSU1, 24V DC / 20A, 480W, Push-In, Tragschiene',
+    },
+    descr2: {
+      pl_PL: 'WIPOS PSU1 24-20 P, 90-264V AC / 93-300V DC, styk DC OK, IP20',
+      en_US: 'WIPOS PSU1 24-20 P, 90-264V AC / 93-300V DC, DC OK relay, IP20',
+      de_DE: 'WIPOS PSU1 24-20 P, 90-264V AC / 93-300V DC, DC-OK-Relais, IP20',
+    },
+    note: {
+      pl_PL: 'Wysokowydajny 1-fazowy zasilacz impulsowy serii wipos PSU1 o mocy ciągłej 480 W montowany na szynę DIN (TS 35). Charakteryzuje się bardzo wąską obudową (zaledwie 60 mm szerokości), technologią szybkiego montażu przewodów Push-In, aktywnym filtrem PFC oraz funkcją Power Boost (do 552 W przez 200 s). Zapewnia stabilizowane napięcie 24 V DC (regulowane 22.5 – 29 V DC), znakomitą sprawność energetyczną 95.1% oraz przekaźnikowy styk sygnalizacji stanu DC OK.',
+      en_US: 'High-performance single-phase primary switched-mode power supply unit of the wipos PSU1 series with 480 W continuous power output for DIN rail mounting (TS 35). Features a slim 60 mm aluminum enclosure, toolless Push-In connection terminals, active Power Factor Correction (PFC), and Power Boost capability (up to 552 W for 200 s). Delivers stabilized 24 V DC (adjustable 22.5 to 29 V DC), an outstanding 95.1% energy efficiency, and a dry relay contact for DC OK status signaling.',
+      de_DE: 'Hochleistungsfähiges 1-phasiges primär getaktetes Schaltnetzteil der wipos PSU1 Serie mit 480 W Dauerleistung für die Montage auf Tragschiene (TS 35). Zeichnet sich durch eine schmale Bauform (nur 60 mm Breite), Push-In-Federkraftanschlusstechnik, aktive Leistungsfaktorkorrektur (PFC) und Power-Boost (bis zu 552 W für 200 s) aus. Bietet eine geregelte 24 V DC Ausgangsspannung (einstellbar 22,5 – 29 V DC), einen Spitzenwirkungsgrad von 95,1 % sowie einen potentialfreien Relaiskontakt zur DC-OK-Überwachung.',
+    },
+    characteristics: 'wipos PSU1 24-20 P, 24V DC / 20A, 480W, Push-In, DC OK, PFC, IP20',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4049088715198',
+    },
+    functionTemplates: [
+      { connectionDesignation: 'L/+', connectionDescription: 'AC Line / DC+', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 1 },
+      { connectionDesignation: 'N/-', connectionDescription: 'AC Neutral / DC-', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 2 },
+      { connectionDesignation: 'PE', connectionDescription: 'Protective Earth', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 3 },
+      { connectionDesignation: '+', connectionDescription: '+24V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 4 },
+      { connectionDesignation: '+', connectionDescription: '+24V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 5 },
+      { connectionDesignation: '-', connectionDescription: '0V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 6 },
+      { connectionDesignation: '-', connectionDescription: '0V DC Out', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 7 },
+      { connectionDesignation: '13\n14', connectionDescription: 'DC OK Relay (NO)', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 8 },
+    ],
+    pictureRelPath: 'WIE/81.000.1120.1.png',
+    pictureLocalPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1.png',
+    docs: [
+      {
+        relPath: 'WIE/81.000.1120.1_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.81.000.1120.1/WIE.81.000.1120.1.edz',
+  },
+  'WIE.PL.040.1281.0': {
+    partNr: 'WIE.PL.040.1281.0',
+    typeNr: 'WIENET IP SWITCH UMS 8-C SLIM',
+    orderNr: 'PL.040.1281.0',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.PLC,                          // 26
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'KF',
+    isAccessory: 0,
+    weight: '0.450',
+    width: '30',
+    height: '140',
+    depth: '95',
+    descr1: {
+      pl_PL: 'Przemysłowy switch Ethernet wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbps, 12-48V DC, szyna DIN',
+      en_US: 'Industrial Ethernet switch wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbps, 12-48V DC, DIN rail',
+      de_DE: 'Industrieller Ethernet-Switch wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbit/s, 12-48V DC, Tragschiene',
+    },
+    descr2: {
+      pl_PL: 'WIENET IP SWITCH UMS 8-C SLIM, niezarządzalny, obudowa metalowa IP30',
+      en_US: 'WIENET IP SWITCH UMS 8-C SLIM, unmanaged, metal housing IP30',
+      de_DE: 'WIENET IP SWITCH UMS 8-C SLIM, unmanaged, Metallgehäuse IP30',
+    },
+    note: {
+      pl_PL: 'Przemysłowy, niezarządzalny przełącznik sieciowy Ethernet (switch) serii wienet UMS 8-C SLIM dedykowany do montażu na szynie DIN w szafach automatyki. Charakteryzuje się wyjątkowo smukłą obudową metalową (szerokość zaledwie 30 mm), 8 ekranowanymi portami RJ45 10/100 Mbps (Auto-Negotiation, Auto-MDI/MDI-X) oraz redundantnym wejściem zasilania 12 – 48 V DC. Zapewnia wysoką odporność na zakłócenia elektromagnetyczne (EMC) oraz bezawaryjną pracę w trudnych warunkach przemysłowych.',
+      en_US: 'Industrial unmanaged Ethernet switch of the wienet UMS 8-C SLIM series designed for space-saving DIN rail installation in control cabinets. Characterized by an ultra-slim metal housing (only 30 mm width), 8 shielded RJ45 ports 10/100 Mbps (Auto-Negotiation, Auto-MDI/MDI-X), and redundant 12 to 48 V DC power supply inputs. Offers superior electromagnetic compatibility (EMC) and robust reliable operation in harsh industrial automation environments.',
+      de_DE: 'Industrieller unmanaged Ethernet-Switch der wienet UMS 8-C SLIM Serie für die platzsparende Tragschienenmontage in Schaltschränken. Ausgestattet mit einem ultraschmalen Metallgehäuse (nur 30 mm Breite), 8 geschirmten RJ45-Ports 10/100 Mbit/s (Auto-Negotiation, Auto-MDI/MDI-X) sowie redundanter 12 – 48 V DC Spannungsversorgung. Bietet höchste elektromagnetische Verträglichkeit (EMV) und ausfallsicheren Dauerbetrieb unter anspruchsvollen industriellen Umgebungsbedingungen.',
+    },
+    characteristics: '8x RJ45 10/100 Mbps, Redundant 12-48V DC, DIN rail, IP30 metal',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4049088600982',
+    },
+    functionTemplates: [
+      { connectionDesignation: 'P1+\nP1-', connectionDescription: 'PWR1 (12-48V DC)', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 1 },
+      { connectionDesignation: 'P2+\nP2-', connectionDescription: 'PWR2 (12-48V DC)', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 2 },
+      { connectionDesignation: 'Fault', connectionDescription: 'Power Alarm Relay', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 3 },
+      { connectionDesignation: '1', connectionDescription: 'ETH Port 1 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 4 },
+      { connectionDesignation: '2', connectionDescription: 'ETH Port 2 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 5 },
+      { connectionDesignation: '3', connectionDescription: 'ETH Port 3 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 6 },
+      { connectionDesignation: '4', connectionDescription: 'ETH Port 4 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 7 },
+      { connectionDesignation: '5', connectionDescription: 'ETH Port 5 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 8 },
+      { connectionDesignation: '6', connectionDescription: 'ETH Port 6 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 9 },
+      { connectionDesignation: '7', connectionDescription: 'ETH Port 7 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 10 },
+      { connectionDesignation: '8', connectionDescription: 'ETH Port 8 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 11 },
+    ],
+    pictureRelPath: 'WIE/PL.040.1281.0.png',
+    pictureLocalPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0.png',
+    docs: [
+      {
+        relPath: 'WIE/PL.040.1281.0_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.PL.040.1281.0/WIE.PL.040.1281.0.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
@@ -3945,6 +4111,28 @@ CATALOG['BCC M425-0000-1A-017-VX8534-150'] = CATALOG['BAL.BCC083H'];
 
 CATALOG['BCC0KE3'] = CATALOG['BAL.BCC0KE3'];
 CATALOG['BCC M425-0000-1A-017-VX8534-250'] = CATALOG['BAL.BCC0KE3'];
+
+
+// Aliases for Wieland batch 4
+CATALOG['81.000.1110.1'] = CATALOG['WIE.81.000.1110.1'];
+CATALOG['81.000.1110'] = CATALOG['WIE.81.000.1110.1'];
+CATALOG['WIPOS PSU1 24-10 P'] = CATALOG['WIE.81.000.1110.1'];
+CATALOG['wipos PSU1 24-10 P'] = CATALOG['WIE.81.000.1110.1'];
+CATALOG['PSU1 24-10 P'] = CATALOG['WIE.81.000.1110.1'];
+
+CATALOG['81.000.1120.1'] = CATALOG['WIE.81.000.1120.1'];
+CATALOG['81.000.1120'] = CATALOG['WIE.81.000.1120.1'];
+CATALOG['WIPOS PSU1 24-20 P'] = CATALOG['WIE.81.000.1120.1'];
+CATALOG['wipos PSU1 24-20 P'] = CATALOG['WIE.81.000.1120.1'];
+CATALOG['PSU1 24-20 P'] = CATALOG['WIE.81.000.1120.1'];
+
+CATALOG['PL.040.1281.0'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['83.040.1281.0'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['83.040.1281'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['WIENET IP SWITCH UMS 8-C SLIM'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['WIENET UMS 8-C'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['wienet UMS 8-C'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['UMS 8-C SLIM'] = CATALOG['WIE.PL.040.1281.0'];
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
 // or for any key passed in argv
