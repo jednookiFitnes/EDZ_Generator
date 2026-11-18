@@ -429,6 +429,20 @@ const KNOWN_MANUFACTURERS = {
     zipTown: '518057',
     state: 'CHINA',
   },
+  WIE: {
+    shortName: 'WIE',
+    longName: 'Wieland Electric GmbH',
+    name1: 'Wieland Electric GmbH',
+    name2: 'Verbindungstechnik & Elektronische Schnittstellen',
+    email: 'info@wieland-electric.com',
+    phone: '+49 951 9324-0',
+    fax: '+49 951 9324-198',
+    note: '??_??@www.wieland-electric.com;',
+    street: 'Brennerstraße 10 - 14',
+    town: 'Bamberg',
+    zipTown: '96052',
+    state: 'DEUTSCHLAND',
+  },
 };
 
 function buildManufacturerXml(mfgData) {
@@ -2407,6 +2421,61 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261109/TPL.TL-POE150S/TPL.TL-POE150S.edz',
   },
+  'WIE.76.344.4035.0': {
+    partNr: 'WIE.76.344.4035.0',
+    typeNr: 'BAS GUT GR 16H M32 A0',
+    orderNr: '76.344.4035.0',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1 (Elektrotechnika)
+    productGroup: EPLAN_PRODUCT_GROUPS.PLUGS,                       // 4 (Wtyki / Plugs)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.PLUG_HOUSING,          // 15 (Obudowa wtyku / Plug housing)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.48',      // kg (480 g)
+    width: '117',        // mm
+    height: '98',        // mm
+    depth: '57',         // mm
+    descr1: {
+      pl_PL: 'Obudowa cokołowa złącza revos BASIC wielkość 16H z pojedynczą dźwignią i pokrywą',
+      en_US: 'revos BASIC surface-mounted housing base size 16H with single locking lever and cover',
+      de_DE: 'revos BASIC Sockelgehäuse Größe 16H mit Längsbügel und Schutzdeckel',
+    },
+    descr2: {
+      pl_PL: 'BAS GUT GR 16H M32 A0, 2x M32 (dławnice IP54 Ø16-25mm)',
+      en_US: 'BAS GUT GR 16H M32 A0, 2x M32 (cable glands IP54 Ø16-25mm)',
+      de_DE: 'BAS GUT GR 16H M32 A0, 2x M32 (Verschraubung IP54 Ø16-25mm)',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii revos BASIC. Obudowa cokołowa (podstawa gniazda) wysoka (rozmiar 16H / 40-biegunowa) z odlewu aluminiowego, malowana proszkowo (szary). Wyposażona w pokrywę ochronną z tworzywa oraz pojedynczą dźwignię ryglującą (stal nierdzewna V2A / poliamid UL94-V0). Uszczelnienie NBR. Dwa boczne wprowadzenia kablowe M32 z fabrycznie zamontowanymi dławnicami kablowymi (zakres mocowania kabla Ø 16-25 mm). Stopień ochrony: IP54 (IP65 przy zastosowaniu dławnic szczelnych). Zakres temperatur pracy: od -40 °C do +120 °C. Zastosowanie: aplikacje przemysłowe, budowa maszyn i szaf sterowniczych.',
+      en_US: 'Heavy-duty industrial multipole connector revos BASIC series. Surface-mounted housing base increased height design (size 16H / 40-pole) made of die-cast aluminum alloy, powder-coated (grey). Equipped with protective cover and single locking lever (stainless steel V2A / polyamide UL94-V0). NBR gasket. Two-sided M32 cable entries with pre-installed cable glands (cable clamping range Ø 16-25 mm). Degree of protection: IP54 (IP65 with appropriate sealed cable glands). Operating temperature range: -40 °C to +120 °C. Application: industrial machinery, automation systems and control cabinets.',
+      de_DE: 'Schwerer Industriesteckverbinder der revos BASIC Serie. Sockelgehäuse hohe Bauform (Größe 16H / 40-polig) aus Aluminiumdruckguss, pulverbeschichtet (grau). Ausgestattet mit Kunststoff-Schutzdeckel und Längsbügel (Edelstahl V2A / Polyamid UL94-V0). NBR-Dichtung. Zwei seitliche M32 Leitungseinführungen mit vormontierten Kabelverschraubungen (Klemmbereich Ø 16-25 mm). Schutzart: IP54 (IP65 mit entsprechenden dichten Verschraubungen). Temperaturbereich: -40 °C bis +120 °C. Einsatzbereich: Industriemaschinen, Automatisierungsanlagen und Schaltschränke.',
+    },
+    characteristics: 'revos BASIC 16H, 2x M32, IP54 (Ø16-25mm), 1 Dźwignia / 1 Lever, z pokrywą / with cover',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4015573630048',
+    },
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'revos BASIC 16H',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'WIE/76.344.4035.0.png',
+    pictureLocalPath: 'EDZ/261118/WIE.76.344.4035.0/76.344.4035.0.png',
+    docs: [
+      {
+        relPath: 'WIE/76.344.4035.0_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.76.344.4035.0/76.344.4035.0_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.76.344.4035.0/WIE.76.344.4035.0.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
@@ -2425,6 +2494,11 @@ CATALOG['5AP112M'] = CATALOG['BIR.5AP112M-2K'];
 CATALOG['7AA112M-02'] = CATALOG['STU.7AA112M-02'];
 CATALOG['7AA 112 M-02'] = CATALOG['STU.7AA112M-02'];
 CATALOG['7AA112M'] = CATALOG['STU.7AA112M-02'];
+CATALOG['76.344.4035.0'] = CATALOG['WIE.76.344.4035.0'];
+CATALOG['76.344.4035'] = CATALOG['WIE.76.344.4035.0'];
+CATALOG['BAS GUT GR 16H M32 A0'] = CATALOG['WIE.76.344.4035.0'];
+CATALOG['BAS GUT GR 16HM32 A0'] = CATALOG['WIE.76.344.4035.0'];
+CATALOG['BAS GUT GR 40HM32 50 A0'] = CATALOG['WIE.76.344.4035.0'];
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
 // or for any key passed in argv
