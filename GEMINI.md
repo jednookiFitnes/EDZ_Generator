@@ -15,7 +15,8 @@
 
 **EPLAN EDZ Generator** automates the creation of structurally valid **`.edz`** (*EPLAN Data Archive Zipped*) article exchange packages for **EPLAN Electric P8** and **EPLAN Pro Panel** based on PDF datasheets, technical specifications, manufacturer URLs, and product images.
 
-* **Project Root**: `C:\Dev\Trinitec\Eplan EDZ generator\`
+* **Project Root (JEDYNA ŚCIEŻKA PROJEKTU)**: `C:\Dev\Trinitec\Eplan EDZ generator\`
+  * **BEZWZGLĘDNY ZAKAZ UŻYWANIA DYSKU G**: Projekt znajduje się i funkcjonuje wyłącznie lokalnie na dysku C (`C:\Dev\Trinitec\Eplan EDZ generator\`). Obowiązuje całkowity zakaz odwoływania się do dysku G (`G:\Mój dysk\...`), synchronizowania na nim zmian, wykonywania `git pull`/`git push` czy tworzenia tam jakichkolwiek plików. Dysk G ma być całkowicie ignorowany.
 
 * **`EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/`**: Daily article working directory (e.g., `EDZ/261030/PXC.3270531/`) containing:
 

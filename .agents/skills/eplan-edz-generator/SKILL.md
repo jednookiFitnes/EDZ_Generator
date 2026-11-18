@@ -264,7 +264,7 @@ Gdy użytkownik wskaże folder lub poprosi o utworzenie artykułu EDZ:
    * Zweryfikuj poprawność XML parserem `.NET` / `powershell`.
 6. **Raport**:
    * Przedstaw użytkownikowi podsumowanie wprowadzonych wartości i potwierdzenie utworzenia plików `.edz` oraz archiwum ZIP.
-   * **Wymóg obowiązkowy (Clickable links)**: Na koniec odpowiedzi **ZAWSZE** wygeneruj klikalne linki Markdown (ze schematem `file:///...`) bezpośrednio do folderów z nowo utworzonymi plikami EDZ (np. `[EDZ/261027/SIE.5SG6206](file:///g:/Mój%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261027/SIE.5SG6206)`) oraz bezpośredni link do wygenerowanego archiwum ZIP `YYMMDD-HHMMSS.zip`, umożliwiające użytkownikowi natychmiastowe pobranie paczki.
+   * **Wymóg obowiązkowy (Clickable links)**: Na koniec odpowiedzi **ZAWSZE** wygeneruj klikalne linki Markdown (ze schematem `file:///...`) bezpośrednio do folderów z nowo utworzonymi plikami EDZ (np. `[EDZ/261027/SIE.5SG6206](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261027/SIE.5SG6206)`) oraz bezpośredni link do wygenerowanego archiwum ZIP `YYMMDD-HHMMSS.zip`, umożliwiające użytkownikowi natychmiastowe pobranie paczki.
 
 ---
 
