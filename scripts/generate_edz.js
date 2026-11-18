@@ -2476,6 +2476,116 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261118/WIE.76.344.4035.0/WIE.76.344.4035.0.edz',
   },
+  'WIE.71.353.2435.0': {
+    partNr: 'WIE.71.353.2435.0',
+    typeNr: 'BAS GOT GG 24 M32 A0',
+    orderNr: '71.353.2435.0',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1 (Elektrotechnika)
+    productGroup: EPLAN_PRODUCT_GROUPS.PLUGS,                       // 4 (Wtyki / Plugs)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.PLUG_HOUSING,          // 15 (Obudowa wtyku / Plug housing)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.269',     // kg (269 g)
+    width: '120',        // mm
+    height: '70',        // mm
+    depth: '43',         // mm
+    descr1: {
+      pl_PL: 'Obudowa wtyczki złącza revos BASIC wielkość 24 z wyjściem bocznym',
+      en_US: 'revos BASIC hood size 24 with lateral cable entry',
+      de_DE: 'revos BASIC Tüllengehäuse Größe 24 mit seitlichem Ausgang',
+    },
+    descr2: {
+      pl_PL: 'BAS GOT GG 24 M32 A0, 1x M32 (dławnica IP54 Ø16-25mm)',
+      en_US: 'BAS GOT GG 24 M32 A0, 1x M32 (cable gland IP54 Ø16-25mm)',
+      de_DE: 'BAS GOT GG 24 M32 A0, 1x M32 (Verschraubung IP54 Ø16-25mm)',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii revos BASIC. Obudowa wtyczki górna (hood / Tüllengehäuse) wielkość 24 (do wkładów 24/64-biegunowych) z odlewu aluminiowego, malowana proszkowo (szary RAL 7001). Ryglowanie: sworznie rygla wzdłużnego. Boczne wprowadzenie kablowe M32 z fabrycznie zamontowaną dławnicą kablową (zakres mocowania kabla Ø 16-25 mm). Stopień ochrony: IP54 (IP65 przy zastosowaniu dławnic szczelnych). Zakres temperatur pracy: od -40 °C do +120 °C. Zastosowanie: aplikacje przemysłowe, budowa maszyn i szaf sterowniczych.',
+      en_US: 'Heavy-duty industrial multipole connector revos BASIC series. Hood size 24 (for 24/64-pole inserts) made of die-cast aluminum alloy, powder-coated (grey RAL 7001). Locking system: pins for single locking lever. Lateral M32 cable entry with pre-installed cable gland (cable clamping range Ø 16-25 mm). Degree of protection: IP54 (IP65 with appropriate sealed cable glands). Operating temperature range: -40 °C to +120 °C. Application: industrial machinery, automation systems and control cabinets.',
+      de_DE: 'Schwerer Industriesteckverbinder der revos BASIC Serie. Tüllengehäuse Größe 24 (für 24/64-polige Einsätze) aus Aluminiumdruckguss, pulverbeschichtet (grau RAL 7001). Verriegelung: Bolzen für Längsbügel. Seitliche M32 Leitungseinführung mit vormontierter Kabelverschraubung (Klemmbereich Ø 16-25 mm). Schutzart: IP54 (IP65 mit entsprechenden dichten Verschraubungen). Temperaturbereich: -40 °C bis +120 °C. Einsatzbereich: Industriemaschinen, Automatisierungsanlagen und Schaltschränke.',
+    },
+    characteristics: 'revos BASIC 24, 1x M32 boczny, IP54 (Ø16-25mm), sworznie rygla',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4015573651685',
+    },
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'revos BASIC 24',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'WIE/71.353.2435.0.png',
+    pictureLocalPath: 'EDZ/261118/WIE.71.353.2435.0/71.353.2435.0.png',
+    docs: [
+      {
+        relPath: 'WIE/71.353.2435.0_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.71.353.2435.0/71.353.2435.0_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.71.353.2435.0/WIE.71.353.2435.0.edz',
+  },
+  'WIE.76.334.6435.0': {
+    partNr: 'WIE.76.334.6435.0',
+    typeNr: 'BAS GUT GL 24H M32 A0',
+    orderNr: '76.334.6435.0',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1 (Elektrotechnika)
+    productGroup: EPLAN_PRODUCT_GROUPS.PLUGS,                       // 4 (Wtyki / Plugs)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.PLUG_HOUSING,          // 15 (Obudowa wtyku / Plug housing)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.465',     // kg (464.7 g)
+    width: '144',        // mm
+    height: '80',        // mm
+    depth: '57',         // mm
+    descr1: {
+      pl_PL: 'Obudowa cokołowa złącza revos BASIC wielkość 24H z pojedynczą dźwignią bez pokrywy',
+      en_US: 'revos BASIC surface-mounted housing base size 24H with single locking lever without cover',
+      de_DE: 'revos BASIC Sockelgehäuse Größe 24H mit Längsbügel ohne Deckel',
+    },
+    descr2: {
+      pl_PL: 'BAS GUT GL 24H M32 A0, 2x M32 (dławnice IP54 Ø16-25mm)',
+      en_US: 'BAS GUT GL 24H M32 A0, 2x M32 (cable glands IP54 Ø16-25mm)',
+      de_DE: 'BAS GUT GL 24H M32 A0, 2x M32 (Verschraubung IP54 Ø16-25mm)',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii revos BASIC. Obudowa cokołowa (podstawa gniazda) wysoka (rozmiar 24H / do wkładów 24/64-biegunowych) z odlewu aluminiowego, malowana proszkowo (szary RAL 7001). Wersja bez pokrywy ochronnej. Wyposażona w pojedynczą dźwignię ryglującą wzdłużną (stal nierdzewna V2A / poliamid UL94-V0). Uszczelnienie NBR. Dwa boczne wprowadzenia kablowe M32 z fabrycznie zamontowanymi dławnicami kablowymi (zakres mocowania kabla Ø 16-25 mm). Rozstaw otworów montażowych: 132 x 32 mm (4 otwory Ø 4.5 mm). Stopień ochrony: IP54 (IP65 przy zastosowaniu dławnic szczelnych). Zakres temperatur pracy: od -40 °C do +120 °C. Zastosowanie: aplikacje przemysłowe, budowa maszyn i szaf sterowniczych.',
+      en_US: 'Heavy-duty industrial multipole connector revos BASIC series. Surface-mounted housing base high design (size 24H / for 24/64-pole inserts) made of die-cast aluminum alloy, powder-coated (grey RAL 7001). Version without protective cover. Equipped with single longitudinal locking lever (stainless steel V2A / polyamide UL94-V0). NBR gasket. Two-sided M32 cable entries with pre-installed cable glands (cable clamping range Ø 16-25 mm). Mounting hole pattern: 132 x 32 mm (4 holes Ø 4.5 mm). Degree of protection: IP54 (IP65 with appropriate sealed cable glands). Operating temperature range: -40 °C to +120 °C. Application: industrial machinery, automation systems and control cabinets.',
+      de_DE: 'Schwerer Industriesteckverbinder der revos BASIC Serie. Sockelgehäuse hohe Bauform (Größe 24H / für 24/64-polige Einsätze) aus Aluminiumdruckguss, pulverbeschichtet (grau RAL 7001). Ausführung ohne Schutzdeckel. Ausgestattet mit Längsbügel (Edelstahl V2A / Polyamid UL94-V0). NBR-Dichtung. Zwei seitliche M32 Leitungseinführungen mit vormontierten Kabelverschraubungen (Klemmbereich Ø 16-25 mm). Befestigungsbohrungen: 132 x 32 mm (4 Bohrungen Ø 4.5 mm). Schutzart: IP54 (IP65 mit entsprechenden dichten Verschraubungen). Temperaturbereich: -40 °C bis +120 °C. Einsatzbereich: Industriemaschinen, Automatisierungsanlagen und Schaltschränke.',
+    },
+    characteristics: 'revos BASIC 24H, 2x M32, IP54 (Ø16-25mm), 1 Dźwignia / 1 Lever, bez pokrywy / without cover',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4015573624627',
+    },
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'revos BASIC 24H',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'WIE/76.334.6435.0.png',
+    pictureLocalPath: 'EDZ/261118/WIE.76.334.6435.0/76.334.6435.0.png',
+    docs: [
+      {
+        relPath: 'WIE/76.334.6435.0_datasheet.pdf',
+        localPath: 'EDZ/261118/WIE.76.334.6435.0/76.334.6435.0_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261118/WIE.76.334.6435.0/WIE.76.334.6435.0.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
@@ -2499,6 +2609,12 @@ CATALOG['76.344.4035'] = CATALOG['WIE.76.344.4035.0'];
 CATALOG['BAS GUT GR 16H M32 A0'] = CATALOG['WIE.76.344.4035.0'];
 CATALOG['BAS GUT GR 16HM32 A0'] = CATALOG['WIE.76.344.4035.0'];
 CATALOG['BAS GUT GR 40HM32 50 A0'] = CATALOG['WIE.76.344.4035.0'];
+CATALOG['71.353.2435.0'] = CATALOG['WIE.71.353.2435.0'];
+CATALOG['71.353.2435'] = CATALOG['WIE.71.353.2435.0'];
+CATALOG['BAS GOT GG 24 M32 A0'] = CATALOG['WIE.71.353.2435.0'];
+CATALOG['76.334.6435.0'] = CATALOG['WIE.76.334.6435.0'];
+CATALOG['76.334.6435'] = CATALOG['WIE.76.334.6435.0'];
+CATALOG['BAS GUT GL 24H M32 A0'] = CATALOG['WIE.76.334.6435.0'];
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
 // or for any key passed in argv
