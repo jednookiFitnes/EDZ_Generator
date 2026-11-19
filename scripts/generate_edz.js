@@ -443,6 +443,19 @@ const KNOWN_MANUFACTURERS = {
     zipTown: '96052',
     state: 'DEUTSCHLAND',
   },
+  LEN: {
+    shortName: 'LEN',
+    longName: 'Lenovo Group Limited',
+    name1: 'Lenovo Group Limited',
+    name2: 'ThinkStation Workstations',
+    email: 'support@lenovo.com',
+    phone: '+49 (0) 711 6569-0',
+    note: '??_??@www.lenovo.com;',
+    street: 'Meitnerstraße 9',
+    town: 'Stuttgart',
+    zipTown: '70563',
+    state: 'DEUTSCHLAND',
+  },
   BAL: {
     shortName: 'BAL',
     longName: 'Balluff GmbH',
@@ -4161,9 +4174,104 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261119/WIE.71.330.2435.1/WIE.71.330.2435.1.edz',
   },
+  'LEN.30K5CTO1WW': {
+    partNr: 'LEN.30K5CTO1WW',
+    typeNr: 'ThinkStation P3 Tiny Gen 2',
+    orderNr: '30K5CTO1WW',
+    manufacturer: 'LEN',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 26,   // Sterowniki PLC / Komputery przemysłowe (PLC)
+    productSubGroup: 1, // Urządzenie kompaktowe / ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'KF',
+    isAccessory: 0,
+    weight: '1.4',      // kg
+    width: '179',       // mm
+    height: '37',       // mm
+    depth: '182.9',     // mm
+    mountingSpace: '6623', // mm2
+    descr1: {
+      pl_PL: 'Stacja robocza ThinkStation P3 Tiny Gen 2, Intel Core Ultra 5 225, 16GB RAM, 512GB SSD, Win 11 Pro',
+      en_US: 'Workstation ThinkStation P3 Tiny Gen 2, Intel Core Ultra 5 225, 16GB RAM, 512GB SSD, Win 11 Pro',
+      de_DE: 'Workstation ThinkStation P3 Tiny Gen 2, Intel Core Ultra 5 225, 16GB RAM, 512GB SSD, Win 11 Pro',
+    },
+    descr2: {
+      pl_PL: 'Intel Graphics, 1x GbE LAN, USB-C 20Gbps, DP 1.4, HDMI 2.1, zasilacz 170W, 3 lata gwarancji',
+      en_US: 'Intel Graphics, 1x GbE LAN, USB-C 20Gbps, DP 1.4, HDMI 2.1, 170W PSU, 3-Year Warranty',
+      de_DE: 'Intel Graphics, 1x GbE LAN, USB-C 20Gbps, DP 1.4, HDMI 2.1, 170W Netzteil, 3 Jahre Garantie',
+    },
+    note: {
+      pl_PL: 'Kompaktowa stacja robocza ThinkStation P3 Tiny Gen 2 (pojemność 1 litr). Procesor Intel Core Ultra 5 225 (10 rdzeni: 6P+4E, 14 wątków, taktowanie do 4.9 GHz, 20 MB Cache, zintegrowany NPU Intel AI Boost do 13 TOPS). Pamięć RAM 16 GB DDR5 SO-DIMM (obsługa do 128 GB, 2 sloty). Dysk 512 GB SSD M.2 2280 PCIe 4.0x4 Performance NVMe Opal 2.0 (obsługa do 2 dysków M.2 SSD). Zintegrowany układ graficzny Intel Graphics. Karta sieciowa 1x Gigabit Ethernet RJ-45 (Intel I219-LM). Interfejsy przód: 1x USB-C 20Gbps (USB 3.2 Gen 2x2 z ładowaniem 15W), 2x USB-A 10Gbps (USB 3.2 Gen 2, 1x Always On), 1x gniazdo audio combo jack 3.5mm; tył: 1x HDMI 2.1 TMDS, 1x DisplayPort 1.4, 2x USB-A 10Gbps, 2x USB-A 5Gbps, 1x RJ-45 GbE LAN, 1x gniazdo zasilania Slim Tip DC-in. W zestawie zewnętrzny zasilacz 170W Slim Tip (100–240 V AC, 50/60 Hz, sprawność 89%). Preinstalowany system operacyjny Microsoft Windows 11 Pro 64-bit. Certyfikaty: MIL-STD-810H, ENERGY STAR 8.0, EPEAT Gold, RoHS, TCO 9.0. Gwarancja: 3 lata Premier Support Onsite.',
+      en_US: 'Compact workstation ThinkStation P3 Tiny Gen 2 (1-liter form factor). Intel Core Ultra 5 225 processor (10 cores: 6P+4E, 14 threads, up to 4.9 GHz, 20 MB Cache, integrated Intel AI Boost NPU up to 13 TOPS). 16 GB DDR5 SO-DIMM memory (supports up to 128 GB, 2 slots). 512 GB SSD M.2 2280 PCIe 4.0x4 Performance NVMe Opal 2.0 (supports up to 2x M.2 SSDs). Integrated Intel Graphics. Network: 1x Gigabit Ethernet RJ-45 (Intel I219-LM). Front I/O: 1x USB-C 20Gbps (USB 3.2 Gen 2x2 with 15W charging), 2x USB-A 10Gbps (USB 3.2 Gen 2, 1x Always On), 1x 3.5mm combo audio jack; Rear I/O: 1x HDMI 2.1 TMDS, 1x DisplayPort 1.4, 2x USB-A 10Gbps, 2x USB-A 5Gbps, 1x RJ-45 GbE LAN, 1x Slim Tip DC-in. Includes external 170W Slim Tip AC power supply (100–240 V AC, 50/60 Hz, 89% efficiency). Pre-installed operating system: Microsoft Windows 11 Pro 64-bit. Certifications: MIL-STD-810H, ENERGY STAR 8.0, EPEAT Gold, RoHS, TCO 9.0. Warranty: 3-Year Lenovo Premier Support Onsite.',
+      de_DE: 'Kompakte Workstation ThinkStation P3 Tiny Gen 2 (1-Liter-Gehäuse). Intel Core Ultra 5 225 Prozessor (10 Kerne: 6P+4E, 14 Threads, bis zu 4,9 GHz, 20 MB Cache, integrierte Intel AI Boost NPU bis zu 13 TOPS). 16 GB DDR5 SO-DIMM Arbeitsspeicher (erweiterbar bis 128 GB, 2 Steckplätze). 512 GB SSD M.2 2280 PCIe 4.0x4 Performance NVMe Opal 2.0 (unterstützt bis zu 2x M.2 SSDs). Integrierte Intel Graphics. Netzwerk: 1x Gigabit Ethernet RJ-45 (Intel I219-LM). Frontanschlüsse: 1x USB-C 20Gbps (USB 3.2 Gen 2x2 mit 15W Ladefunktion), 2x USB-A 10Gbps (USB 3.2 Gen 2, 1x Always On), 1x 3,5 mm Kombi-Audiobuchse; Rückseite: 1x HDMI 2.1 TMDS, 1x DisplayPort 1.4, 2x USB-A 10Gbps, 2x USB-A 5Gbps, 1x RJ-45 GbE LAN, 1x Slim Tip DC-in. Inklusive externem 170W Slim Tip Netzteil (100–240 V AC, 50/60 Hz, 89% Wirkungsgrad). Vorinstalliertes Betriebssystem: Microsoft Windows 11 Pro 64-Bit. Zertifizierungen: MIL-STD-810H, ENERGY STAR 8.0, EPEAT Gold, RoHS, TCO 9.0. Garantie: 3 Jahre Lenovo Premier Support Vor-Ort.',
+    },
+    characteristics: 'Intel Core Ultra 5 225, 16GB DDR5, 512GB NVMe, Intel Graphics, Win11 Pro',
+    functionTemplates: [
+      {
+        connectionDesignation: '+/-\nPE',
+        connectionDescription: '+20V DC / GND\nPE',
+        functiondefcategory: '200',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: 'ETH1',
+        connectionDescription: 'LAN 1GbE RJ45',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: 'DP1',
+        connectionDescription: 'DisplayPort 1.4',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 3,
+      },
+      {
+        connectionDesignation: 'HDMI1',
+        connectionDescription: 'HDMI 2.1 TMDS',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 4,
+      },
+      {
+        connectionDesignation: 'USB-C',
+        connectionDescription: 'USB-C 20Gbps (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 5,
+      },
+    ],
+    pictureRelPath: 'LEN/30K5CTO1WW.png',
+    pictureLocalPath: 'EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW.png',
+    docs: [
+      {
+        relPath: 'LEN/30K5CTO1WW_datasheet.pdf',
+        localPath: 'EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261119/LEN.30K5CTO1WW/LEN.30K5CTO1WW.edz',
+  },
+
 };
 
 // Aliases for convenient CLI usage
+CATALOG['30K5CTO1WW'] = CATALOG['LEN.30K5CTO1WW'];
+CATALOG['ThinkStation P3 Tiny Gen 2'] = CATALOG['LEN.30K5CTO1WW'];
+CATALOG['P3 Tiny Gen 2'] = CATALOG['LEN.30K5CTO1WW'];
+CATALOG['ThinkStation P3 Tiny'] = CATALOG['LEN.30K5CTO1WW'];
+
 CATALOG['ADMITTO-D'] = CATALOG['PHG.ADMITTO-D'];
 CATALOG['TL-POE150S'] = CATALOG['TPL.TL-POE150S'];
 CATALOG['RL28-8-H-2000-IR-3974/47/112'] = CATALOG['PF.205804'];
