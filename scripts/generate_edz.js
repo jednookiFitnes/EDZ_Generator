@@ -523,6 +523,34 @@ UGREEN: {
     zipTown: '35745',
     state: 'DEUTSCHLAND',
   },
+  EATON: {
+    shortName: 'EATON',
+    longName: 'Eaton Corporation plc',
+    name1: 'Eaton Industries GmbH',
+    name2: 'Electrical Sector',
+    email: 'info@eaton.com',
+    phone: '+49 (0) 228 602-0',
+    fax: '+49 (0) 228 602-2275',
+    note: '??_??@www.eaton.com;',
+    street: 'Hein-Moeller-Straße 7-11',
+    town: 'Bonn',
+    zipTown: '53115',
+    state: 'DEUTSCHLAND',
+  },
+  EAT: {
+    shortName: 'EATON',
+    longName: 'Eaton Corporation plc',
+    name1: 'Eaton Industries GmbH',
+    name2: 'Electrical Sector',
+    email: 'info@eaton.com',
+    phone: '+49 (0) 228 602-0',
+    fax: '+49 (0) 228 602-2275',
+    note: '??_??@www.eaton.com;',
+    street: 'Hein-Moeller-Straße 7-11',
+    town: 'Bonn',
+    zipTown: '53115',
+    state: 'DEUTSCHLAND',
+  },
 };
 
 function buildManufacturerXml(mfgData) {
@@ -5214,6 +5242,89 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/UGREEN/UGREEN.CM664/UGREEN.CM664.edz',
   },
+  'EATON.289968': {
+    partNr: 'EATON.289968',
+    typeNr: 'BPZ-KB-8/125',
+    orderNr: '289968',
+    manufacturer: 'EATON',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 3,    // Zaciski (Terminals)
+    productSubGroup: 4, // Zacisk / Złączka szynowa (Terminal)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.32',     // kg (320 g netto)
+    width: '98',        // mm
+    height: '74.5',     // mm
+    depth: '49',        // mm
+    mountingSpace: '7301', // mm2 (98 * 74.5)
+    descr1: {
+      pl_PL: 'Modułowy blok listew rozdzielczych 4-biegunowy 125A (BPZ-KB-8/125)',
+      en_US: 'Modular distribution terminal block 4-pole 125A (BPZ-KB-8/125)',
+      de_DE: 'Modularer Hauptleitungs-Abzweigblock 4-polig 125A (BPZ-KB-8/125)',
+    },
+    descr2: {
+      pl_PL: 'xEnergy Basic / Profi+, 4P, 125A, Ui 690V AC/DC, montaż DIN / płyta',
+      en_US: 'xEnergy Basic / Profi+, 4P, 125A, Ui 690V AC/DC, DIN-rail / screw mount',
+      de_DE: 'xEnergy Basic / Profi+, 4P, 125A, Ui 690V AC/DC, DIN-Hutschiene / Schraubmontage',
+    },
+    note: {
+      pl_PL: 'Czterobiegunowy modułowy blok rozdzielczy (rozdzielacz potencjałów) serii xEnergy Basic / Profi+ firmy Eaton (typ BPZ-KB-8/125, nr kat. 289968). Prąd znamionowy Ie: 125 A (Cu), napięcie znamionowe robocze Ue: do 690 V AC / 690 V DC, napięcie izolacji Ui: 690 V AC. Prąd krótkotrwały wytrzymywany Icw: 4,2 kA (1 s), prąd szczytowy Ipk: 24 kA. Łącznie 35 zacisków śrubowych: tory fazowe L1, L2, L3 po 8 zacisków (wejście 1x 6-35 mm2, wyjścia 2x 4-16 mm2 + 5x 1,5-6 mm2); tor neutralny N z 11 zaciskami (wejście 1x 6-35 mm2, wyjścia 2x 4-16 mm2 + 8x 1,5-6 mm2). Obudowa z samogasnącego tworzywa UL 94 V-0 z przezroczystą pokrywą ochronną IP20. Uniwersalny montaż zatrzaskowy na szynie DIN TS 35 (EN 60715) lub śrubowy na płycie montażowej. Zgodność z normami: IEC 60947-7-1, IEC/EN 61439, RoHS.',
+      en_US: 'Four-pole modular distribution terminal block (potential distributor) of the Eaton xEnergy Basic / Profi+ series (type BPZ-KB-8/125, catalog no. 289968). Rated current Ie: 125 A (Cu), rated operational voltage Ue: up to 690 V AC / 690 V DC, rated insulation voltage Ui: 690 V AC. Short-time withstand current Icw: 4.2 kA (1 s), peak withstand current Ipk: 24 kA. Total of 35 screw clamp terminals: phase poles L1, L2, L3 with 8 terminals each (input 1x 6-35 mm2, outputs 2x 4-16 mm2 + 5x 1.5-6 mm2); neutral pole N with 11 terminals (input 1x 6-35 mm2, outputs 2x 4-16 mm2 + 8x 1.5-6 mm2). Self-extinguishing thermoplastic housing UL 94 V-0 with transparent IP20 touch-safe protective cover. Universal mounting: snap-on for 35 mm DIN rail (EN 60715) or screw mounting onto base plate. Standards: IEC 60947-7-1, IEC/EN 61439, RoHS compliant.',
+      de_DE: 'Vierpoliger modularer Hauptleitungs-Abzweigblock / Phasenverteilerblock der Eaton Serie xEnergy Basic / Profi+ (Typ BPZ-KB-8/125, Art.-Nr. 289968). Bemessungsstrom Ie: 125 A (Cu), Bemessungsbetriebsspannung Ue: bis 690 V AC / 690 V DC, Bemessungsisolationsspannung Ui: 690 V AC. Bemessungskurzzeitstromfestigkeit Icw: 4,2 kA (1 s), Stoßstromfestigkeit Ipk: 24 kA. Insgesamt 35 Schraubklemmen: Phasenleiter L1, L2, L3 mit je 8 Klemmen (Eingang 1x 6-35 mm2, Ausgaenge 2x 4-16 mm2 + 5x 1,5-6 mm2); Neutralleiter N mit 11 Klemmen (Eingang 1x 6-35 mm2, Ausgaenge 2x 4-16 mm2 + 8x 1,5-6 mm2). Selbstverloeschendes Thermoplastgehaeuse UL 94 V-0 mit transparenter Schutzabdeckung IP20. Universelle Montage: Schnappbefestigung fuer Hutschiene DIN TS 35 (EN 60715) oder Schraubbefestigung auf Montageplatte. Normen: IEC 60947-7-1, IEC/EN 61439, RoHS-konform.',
+    },
+    characteristics: '4P 125A 690V, 35 terminals, DIN rail / screw mount, IP20',
+    functionTemplates: [
+      // Phase L1
+      { connectionDesignation: 'L1.IN', connectionDescription: 'L1 In (6-35 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 1 },
+      { connectionDesignation: 'L1.1', connectionDescription: 'L1 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 2 },
+      { connectionDesignation: 'L1.2', connectionDescription: 'L1 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 3 },
+      { connectionDesignation: 'L1.3', connectionDescription: 'L1 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 4 },
+      { connectionDesignation: 'L1.4', connectionDescription: 'L1 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 5 },
+      { connectionDesignation: 'L1.5', connectionDescription: 'L1 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 6 },
+      { connectionDesignation: 'L1.6', connectionDescription: 'L1 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 7 },
+      { connectionDesignation: 'L1.7', connectionDescription: 'L1 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 8 },
+      // Phase L2
+      { connectionDesignation: 'L2.IN', connectionDescription: 'L2 In (6-35 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 9 },
+      { connectionDesignation: 'L2.1', connectionDescription: 'L2 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 10 },
+      { connectionDesignation: 'L2.2', connectionDescription: 'L2 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 11 },
+      { connectionDesignation: 'L2.3', connectionDescription: 'L2 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 12 },
+      { connectionDesignation: 'L2.4', connectionDescription: 'L2 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 13 },
+      { connectionDesignation: 'L2.5', connectionDescription: 'L2 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 14 },
+      { connectionDesignation: 'L2.6', connectionDescription: 'L2 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 15 },
+      { connectionDesignation: 'L2.7', connectionDescription: 'L2 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 16 },
+      // Phase L3
+      { connectionDesignation: 'L3.IN', connectionDescription: 'L3 In (6-35 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 17 },
+      { connectionDesignation: 'L3.1', connectionDescription: 'L3 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 18 },
+      { connectionDesignation: 'L3.2', connectionDescription: 'L3 Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 19 },
+      { connectionDesignation: 'L3.3', connectionDescription: 'L3 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 20 },
+      { connectionDesignation: 'L3.4', connectionDescription: 'L3 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 21 },
+      { connectionDesignation: 'L3.5', connectionDescription: 'L3 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 22 },
+      { connectionDesignation: 'L3.6', connectionDescription: 'L3 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 23 },
+      { connectionDesignation: 'L3.7', connectionDescription: 'L3 Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 24 },
+      // Neutral N
+      { connectionDesignation: 'N.IN', connectionDescription: 'N In (6-35 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 25 },
+      { connectionDesignation: 'N.1', connectionDescription: 'N Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 26 },
+      { connectionDesignation: 'N.2', connectionDescription: 'N Out (4-16 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 27 },
+      { connectionDesignation: 'N.3', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 28 },
+      { connectionDesignation: 'N.4', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 29 },
+      { connectionDesignation: 'N.5', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 30 },
+      { connectionDesignation: 'N.6', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 31 },
+      { connectionDesignation: 'N.7', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 32 },
+      { connectionDesignation: 'N.8', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 33 },
+      { connectionDesignation: 'N.9', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 34 },
+      { connectionDesignation: 'N.10', connectionDescription: 'N Out (1.5-6 mm²)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 35 },
+    ],
+    pictureRelPath: 'EATON/289968.png',
+    pictureLocalPath: 'EDZ/EATON/EATON.289968/289968.png',
+    docs: [
+      {
+        relPath: 'EATON/289968_datasheet.pdf',
+        localPath: 'EDZ/EATON/EATON.289968/289968_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/EATON/EATON.289968/EATON.289968.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
@@ -5334,6 +5445,12 @@ CATALOG['SE 5840.600'] = CATALOG['RIT.5840600'];
 CATALOG['SE 5840600'] = CATALOG['RIT.5840600'];
 CATALOG['VX SE 5840.600'] = CATALOG['RIT.5840600'];
 CATALOG['VX SE 5840600'] = CATALOG['RIT.5840600'];
+
+CATALOG['289968'] = CATALOG['EATON.289968'];
+CATALOG['BPZ-KB-8/125'] = CATALOG['EATON.289968'];
+CATALOG['BPZ-KB-8125'] = CATALOG['EATON.289968'];
+CATALOG['EAT.289968'] = CATALOG['EATON.289968'];
+CATALOG['EATON.BPZ-KB-8/125'] = CATALOG['EATON.289968'];
 
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
