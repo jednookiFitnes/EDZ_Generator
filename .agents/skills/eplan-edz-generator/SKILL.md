@@ -13,7 +13,8 @@ Ten skill służy do automatycznego generowania gotowych plików **`.edz`** (EPL
   `EDZ/<Producent>/<Producent>.<NumerArtykułu>/` (np. `EDZ/SIE/SIE.5SG6206/`, `EDZ/RIT/RIT.5840600/`).
 * Wewnątrz folderu artykułu znajdują się karty katalogowe w formacie PDF, zdjęcia urządzenia oraz wygenerowany plik `.edz`.
 * Nazwa podfolderu artykułu jest jednocześnie numerem artykułu (`P_ARTICLE_PARTNR`).
-* **Automatyczna synchronizacja na Pulpicie**: Każdy nowo wygenerowany plik `.edz` jest automatycznie kopiowany do folderu `EDZ` na pulpicie użytkownika (`C:\Users\pswie\Desktop\EDZ` oraz `OneDrive - Trinitec\Pulpit\EDZ`).
+* **Folder roboczy na Pulpicie**: Każdy nowo wygenerowany plik `.edz` z bieżącego zapytania jest automatycznie kopiowany do aktywnego folderu `EDZ` na pulpicie użytkownika (`C:\Users\pswie\OneDrive - Trinitec\Pulpit\EDZ`).
+* **BEZWZGLĘDNY ZAKAZ PRZYWRACANIA USUNIĘTYCH PLIKÓW NA PULPICIE**: Gdy użytkownik usunie pliki `.edz` z Pulpitu, oznacza to, że zostały zaimportowane lub nie są potrzebne. Nigdy nie przywracaj, nie uzupełniaj i nie kopiuj ponownie na Pulpit plików z poprzednich zapytań! Na Pulpit trafiają WYŁĄCZNIE artykuły wygenerowane w bieżącym zadaniu.
 * **Zakaz generowania paczek ZIP**: W projekcie nie generuje się już archiwów `.zip` (użytkownik pobiera pliki `.edz` bezpośrednio z projektu lub pulpitu).
 
 ---

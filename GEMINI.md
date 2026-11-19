@@ -26,7 +26,9 @@
 
   * Wygenerowany pakiet wymiany artykułu: `<Manufacturer>.<SanitizedPartNr>.edz`
 
-* **`Desktop/EDZ/`** (`C:\Users\pswie\Desktop\EDZ` oraz `OneDrive - Trinitec\Pulpit\EDZ`): Każdy nowo wygenerowany plik `.edz` jest automatycznie zapisywany / kopiowany do folderu `EDZ` na pulpicie użytkownika do natychmiastowego importu w EPLAN.
+* **`Desktop/EDZ/`** (`C:\Users\pswie\OneDrive - Trinitec\Pulpit\EDZ`): Folder na Pulpicie użytkownika, do którego automatycznie kopiowane są WYŁĄCZNIE pliki `.edz` wygenerowane w ramach BIEŻĄCEGO zapytania do natychmiastowego importu w EPLAN.
+
+* **BEZWZGLĘDNY ZAKAZ PRZYWRACANIA USUNIĘTYCH PLIKÓW NA PULPICIE**: Gdy użytkownik usunie pliki `.edz` z folderu na Pulpicie, oznacza to, że zostały już zaimportowane do bazy EPLAN i nie są więcej potrzebne na Pulpicie. Obowiązuje CAŁKOWITY ZAKAZ ich ponownego kopiowania, przywracania czy uzupełniania z poprzednich zadań. Kopiowane na Pulpit mogą być WYŁĄCZNIE pliki nowo utworzone dla aktualnego polecenia.
 
 * **BEZWZGLĘDNY ZAKAZ GENEROWANIA PACZEK ZIP**: Całkowity zakaz tworzenia archiwów `.zip` (paczki zip zostały usunięte z projektu i nie są już generowane).
 
@@ -254,7 +256,7 @@ At the end of every completion report:
      `[<Manufacturer>.<SanitizedPartNr>.edz](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz)`
 
    * The Desktop EDZ folder:
-     `[Folder EDZ na Pulpicie](file:///C:/Users/pswie/Desktop/EDZ)`
+     `[Folder EDZ na Pulpicie](file:///C:/Users/pswie/OneDrive%20-%20Trinitec/Pulpit/EDZ)`
 
 ## 4. Critical Rules & Guardrails
 

@@ -552,10 +552,18 @@ function buildManufacturerXml(mfgData) {
  * Resolves user Desktop EDZ directory candidates
  */
 function getDesktopEdzDirs() {
-  const userHome = process.env.USERPROFILE || process.env.HOME || 'C:\\Users\\pswie';
+  const userHome = process.env.USERPROFILE || process.env.HOME || 'C:\Users\pswie';
+  const activePulpit = path.join(userHome, 'OneDrive - Trinitec', 'Pulpit', 'EDZ');
+  if (fs.existsSync(path.dirname(activePulpit))) {
+    if (!fs.existsSync(activePulpit)) {
+      fs.mkdirSync(activePulpit, { recursive: true });
+    }
+    return [activePulpit];
+  }
+
   const candidates = [
-    path.join(userHome, 'Desktop', 'EDZ'),
     path.join(userHome, 'OneDrive - Trinitec', 'Pulpit', 'EDZ'),
+    path.join(userHome, 'Desktop', 'EDZ'),
     path.join(userHome, 'OneDrive', 'Pulpit', 'EDZ'),
     path.join(userHome, 'OneDrive', 'Desktop', 'EDZ'),
     path.join(userHome, 'Pulpit', 'EDZ'),
@@ -766,7 +774,9 @@ function generateEDZ(options) {
   console.log(`Packaging ${zipFiles.length} items into EDZ archive: ${targetPath}`);
   const edzBuffer = createZip(zipFiles);
   fs.writeFileSync(targetPath, edzBuffer);
-  copyToDesktopEdz(targetPath);
+  if (options && options.copyToDesktop !== false) {
+    copyToDesktopEdz(targetPath);
+  }
   console.log(`Successfully generated EDZ: ${targetPath} (${edzBuffer.length} bytes)`);
 
   return {
@@ -5347,7 +5357,7 @@ if (require.main === module) {
       const edzFile = cfg.outputEdzPath || path.join('EDZ', key, `${key}.edz`);
       if (force || !fs.existsSync(edzFile)) {
         console.log(`\n=== Generating EDZ for ${key} ===`);
-        generateEDZ(cfg);
+        generateEDZ({ ...cfg, copyToDesktop: false });
         generatedCount++;
       } else {
         console.log(`EDZ already exists for ${key}: ${edzFile}`);
