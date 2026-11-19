@@ -470,6 +470,20 @@ const KNOWN_MANUFACTURERS = {
     zipTown: '73765',
     state: 'DEUTSCHLAND',
   },
+  RIT: {
+    shortName: 'RIT',
+    longName: 'Rittal GmbH & Co. KG',
+    name1: 'Rittal GmbH & Co. KG',
+    name2: 'Schaltschrank-Systeme & System-Klimatechnik',
+    email: 'info@rittal.de',
+    phone: '+49 (0) 2772 505-0',
+    fax: '+49 (0) 2772 505-2319',
+    note: '??_??@www.rittal.de&#10;www.rittal.com;',
+    street: 'Auf dem Stützelberg',
+    town: 'Herborn',
+    zipTown: '35745',
+    state: 'DEUTSCHLAND',
+  },
 };
 
 function buildManufacturerXml(mfgData) {
@@ -4264,6 +4278,59 @@ const CATALOG = {
     outputEdzPath: 'EDZ/261119/LEN.30K5CTO1WW/LEN.30K5CTO1WW.edz',
   },
 
+  'RIT.5840600': {
+    partNr: 'RIT.5840600',
+    typeNr: '5840.600',
+    orderNr: '5840600',
+    manufacturer: 'RIT',
+    productTopGroup: 3, // Mechanika (Mechanics)
+    productGroup: 55,   // Szafa sterownicza (Enclosure)
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'U',
+    isAccessory: 0,
+    weight: '142.7',    // kg
+    width: '1000',      // mm
+    height: '1800',     // mm
+    depth: '400',       // mm
+    mountingSpace: '1800000', // mm2
+    descr1: {
+      pl_PL: 'VX SE Systemowa szafa pojedyncza, SxWxG: 1000x1800x400 mm, blacha stalowa, z płytą montażową, drzwi podwójne z przodu',
+      en_US: 'VX SE free-standing enclosure system, WHD: 1000x1800x400 mm, sheet steel, with mounting plate, two doors at the front',
+      de_DE: 'VX SE System-Einzelschrank, BHT: 1000x1800x400 mm, Stahlblech, mit Montageplatte, zweitürig an Frontseite',
+    },
+    descr2: {
+      pl_PL: '1000x1800x400 mm, IP55, RAL 7035',
+      en_US: '1000x1800x400 mm, IP55, RAL 7035',
+      de_DE: '1000x1800x400 mm, IP55, RAL 7035',
+    },
+    note: {
+      pl_PL: 'Pojedyncza szafa z blachy stalowej o stabilnym korpusie, z dwoma zintegrowanymi płaszczyznami montażowymi, przykręconą ścianą tylną i drzwiami. Stanowiące całość dach i boki z wyprofilowaną ramą. Możliwość rozbudowy z wykorzystaniem akcesoriów systemu VX25. Większa efektywność, ponieważ nie ma konieczności montowania ścian bocznych a duże szerokości szaf zastępują małe kombinacje szeregowe.',
+      en_US: 'Free-standing sheet steel enclosure with stable enclosure body, two integral mounting levels, screw-fastened rear panel and door. Roof and sides from a single piece with roll-formed frame. System-compatible for configuration with VX25 accessories. Efficiency is enhanced, as the side panels no longer need to be fitted and large enclosure widths replace small bayed suites.',
+      de_DE: 'Einzelschrank aus Stahlblech mit stabilen Schrankkorpus, zwei integrierten Montageebenen, verschraubter Rückwand und Tür. Dach und Seiten bestehen aus einem Stück mit anprofiliertem Rahmen. Systemkompatibel mit dem Zubehör des VX25 ausbaubar. Effizienzsteigernd, da Seitenwände nicht montiert werden müssen und große Schrankbreiten kleine Anreih-Kombinationen ersetzen.',
+    },
+    characteristics: '1000x1800x400mm, IP55, RAL7035, MP 899x1696mm',
+    functionTemplates: [
+      {
+        connectionDesignation: 'PE',
+        connectionDescription: 'PE Schutzerdung / Protective conductor bolt',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'RIT/5840600.png',
+    pictureLocalPath: 'EDZ/261119/RIT.5840600/5840600.png',
+    docs: [
+      {
+        relPath: 'RIT/5840600_datasheet.pdf',
+        localPath: 'EDZ/261119/RIT.5840600/5840600_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261119/RIT.5840600/RIT.5840600.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
@@ -4355,6 +4422,13 @@ CATALOG['WIENET IP SWITCH UMS 8-C SLIM'] = CATALOG['WIE.PL.040.1281.0'];
 CATALOG['WIENET UMS 8-C'] = CATALOG['WIE.PL.040.1281.0'];
 CATALOG['wienet UMS 8-C'] = CATALOG['WIE.PL.040.1281.0'];
 CATALOG['UMS 8-C SLIM'] = CATALOG['WIE.PL.040.1281.0'];
+CATALOG['5840600'] = CATALOG['RIT.5840600'];
+CATALOG['5840.600'] = CATALOG['RIT.5840600'];
+CATALOG['SE 5840.600'] = CATALOG['RIT.5840600'];
+CATALOG['SE 5840600'] = CATALOG['RIT.5840600'];
+CATALOG['VX SE 5840.600'] = CATALOG['RIT.5840600'];
+CATALOG['VX SE 5840600'] = CATALOG['RIT.5840600'];
+
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
 // or for any key passed in argv
