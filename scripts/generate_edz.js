@@ -256,7 +256,20 @@ const KNOWN_MANUFACTURERS = {
     town: 'Bensheim',
     state: 'DEUTSCHLAND',
   },
-  UGREEN: {
+    ILME: {
+    shortName: 'ILME',
+    longName: 'I.L.M.E. SpA - Industria Lombarda Materiale Elettrico',
+    name1: 'I.L.M.E. SpA',
+    name2: 'Industria Lombarda Materiale Elettrico SpA',
+    email: 'info@ilme.com',
+    phone: '+39 02 453351',
+    note: '??_??@https://www.ilme.com;',
+    street: 'Via Marco Antonio Colonna 9',
+    town: 'Milano',
+    zipTown: '20149',
+    state: 'ITALIA',
+  },
+UGREEN: {
     shortName: 'UGREEN',
     longName: 'Ugreen Group Limited',
     name1: 'Ugreen Group Limited',
@@ -4404,7 +4417,651 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/RIT/RIT.5840600/RIT.5840600.edz',
   },
-  'UGREEN.CM664': {
+    'ILME.CNEM 24 T': {
+    partNr: 'ILME.CNEM 24 T',
+    typeNr: 'CNEM 24 T',
+    orderNr: 'CNEM 24 T',
+    manufacturer: 'ILME',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 4,   // Wtyki / Plugs
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.111',    // kg (111 g)
+    width: '111',       // mm
+    height: '35',       // mm
+    depth: '34',        // mm
+    mountingSpace: '3885', // mm2 (111 * 35)
+    descr1: {
+      pl_PL: 'Wkład męski złącza przemysłowego CNE 24+PE, 16A, 500V, śrubowy, rozmiar 104.27',
+      en_US: 'Male contact insert CNE 24+PE, 16A, 500V, screw terminal, size 104.27',
+      de_DE: 'Stifteinsatz CNE 24+PE, 16A, 500V, Schraubanschluss, Baugröße 104.27',
+    },
+    descr2: {
+      pl_PL: 'CNEM 24 T, seria CNE, z blaszką ochronną, wielkość 24B',
+      en_US: 'CNEM 24 T, CNE series, with wire protection plate, size 24B',
+      de_DE: 'CNEM 24 T, CNE Serie, mit Drahtschutz, Baugröße 24B',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii CNE. Wkładka stykowa męska (wtyk) rozmiar 104.27 (wielkość 24B) z 24 biegunami roboczymi oraz stykiem ochronnym PE. Przyłącze śrubowe z zabezpieczeniem żył (wire protection plate) dla przewodów 0.5 – 2.5 mm² (AWG 20 – 12). Prąd znamionowy 16 A, napięcie znamionowe 500 V (UL/CSA 600 V), napięcie udarowe 6 kV, stopień zanieczyszczenia 3. Styki miedziane toczone, srebrzone (Ag), rezystancja przejścia ≤ 1 mΩ. Zakres temperatur pracy: od -40 °C do +125 °C. Zgodność z normą EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+      en_US: 'Heavy-duty multipole industrial connector CNE series. Male contact insert size 104.27 (size 24B) with 24 power/signal poles plus protective earth (PE). Screw connection with wire protection plate for conductor cross-sections 0.5 – 2.5 mm² (AWG 20 – 12). Rated current 16 A, rated voltage 500 V (UL/CSA 600 V), rated impulse voltage 6 kV, pollution degree 3. Turned copper alloy silver-plated contacts (Ag), contact resistance ≤ 1 mΩ. Operating temperature range: -40 °C to +125 °C. Compliant with EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+      de_DE: 'Schwerer Industriesteckverbinder der CNE-Serie. Stifteinsatz Größe 104.27 (Baugröße 24B) mit 24 Leistungspolen plus voreilendem Schutzleiter (PE). Schraubanschluss mit Drahtschutz für Leiterquerschnitte 0,5 – 2,5 mm² (AWG 20 – 12). Bemessungsstrom 16 A, Bemessungsspannung 500 V (UL/CSA 600 V), Bemessungsstoßspannung 6 kV, Verschmutzungsgrad 3. Gedrehte Kupferlegierungskontakte versilbert (Ag), Durchgangswiderstand ≤ 1 mΩ. Temperaturbereich: -40 °C bis +125 °C. Konform nach DIN EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+    },
+    characteristics: '24P+PE, 16A, 500V, screw terminal, size 104.27',
+    functionTemplates: [
+      {
+        connectionDesignation: '1',
+        connectionDescription: 'Pin 1',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: '2',
+        connectionDescription: 'Pin 2',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: '3',
+        connectionDescription: 'Pin 3',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 3,
+      },
+      {
+        connectionDesignation: '4',
+        connectionDescription: 'Pin 4',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 4,
+      },
+      {
+        connectionDesignation: '5',
+        connectionDescription: 'Pin 5',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 5,
+      },
+      {
+        connectionDesignation: '6',
+        connectionDescription: 'Pin 6',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 6,
+      },
+      {
+        connectionDesignation: '7',
+        connectionDescription: 'Pin 7',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 7,
+      },
+      {
+        connectionDesignation: '8',
+        connectionDescription: 'Pin 8',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 8,
+      },
+      {
+        connectionDesignation: '9',
+        connectionDescription: 'Pin 9',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 9,
+      },
+      {
+        connectionDesignation: '10',
+        connectionDescription: 'Pin 10',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 10,
+      },
+      {
+        connectionDesignation: '11',
+        connectionDescription: 'Pin 11',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 11,
+      },
+      {
+        connectionDesignation: '12',
+        connectionDescription: 'Pin 12',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 12,
+      },
+      {
+        connectionDesignation: '13',
+        connectionDescription: 'Pin 13',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 13,
+      },
+      {
+        connectionDesignation: '14',
+        connectionDescription: 'Pin 14',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 14,
+      },
+      {
+        connectionDesignation: '15',
+        connectionDescription: 'Pin 15',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 15,
+      },
+      {
+        connectionDesignation: '16',
+        connectionDescription: 'Pin 16',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 16,
+      },
+      {
+        connectionDesignation: '17',
+        connectionDescription: 'Pin 17',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 17,
+      },
+      {
+        connectionDesignation: '18',
+        connectionDescription: 'Pin 18',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 18,
+      },
+      {
+        connectionDesignation: '19',
+        connectionDescription: 'Pin 19',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 19,
+      },
+      {
+        connectionDesignation: '20',
+        connectionDescription: 'Pin 20',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 20,
+      },
+      {
+        connectionDesignation: '21',
+        connectionDescription: 'Pin 21',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 21,
+      },
+      {
+        connectionDesignation: '22',
+        connectionDescription: 'Pin 22',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 22,
+      },
+      {
+        connectionDesignation: '23',
+        connectionDescription: 'Pin 23',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 23,
+      },
+      {
+        connectionDesignation: '24',
+        connectionDescription: 'Pin 24',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 24,
+      },
+      {
+        connectionDesignation: 'PE',
+        connectionDescription: 'PE (Schutzleiter / Uziemienie)',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 25,
+      }
+    ],
+    pictureRelPath: 'ILME/CNEM 24 T.png',
+    pictureLocalPath: 'EDZ/ILME/ILME.CNEM 24 T/CNEM 24 T.png',
+    docs: [
+      {
+        relPath: 'ILME/CNEM 24 T_datasheet.pdf',
+        localPath: 'EDZ/ILME/ILME.CNEM 24 T/CNEM 24 T_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/ILME/ILME.CNEM 24 T/ILME.CNEM 24 T.edz',
+  },
+  'ILME.CNEF 24 T': {
+    partNr: 'ILME.CNEF 24 T',
+    typeNr: 'CNEF 24 T',
+    orderNr: 'CNEF 24 T',
+    manufacturer: 'ILME',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 4,   // Wtyki / Plugs
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.120',    // kg (120 g)
+    width: '111',       // mm
+    height: '35',       // mm
+    depth: '34',        // mm
+    mountingSpace: '3885', // mm2 (111 * 35)
+    descr1: {
+      pl_PL: 'Wkład żeński złącza przemysłowego CNE 24+PE, 16A, 500V, śrubowy, rozmiar 104.27',
+      en_US: 'Female contact insert CNE 24+PE, 16A, 500V, screw terminal, size 104.27',
+      de_DE: 'Buchseneinsatz CNE 24+PE, 16A, 500V, Schraubanschluss, Baugröße 104.27',
+    },
+    descr2: {
+      pl_PL: 'CNEF 24 T, seria CNE, z blaszką ochronną, wielkość 24B',
+      en_US: 'CNEF 24 T, CNE series, with wire protection plate, size 24B',
+      de_DE: 'CNEF 24 T, CNE Serie, mit Drahtschutz, Baugröße 24B',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii CNE. Wkładka stykowa żeńska (gniazdo) rozmiar 104.27 (wielkość 24B) z 24 biegunami roboczymi oraz stykiem ochronnym PE. Przyłącze śrubowe z zabezpieczeniem żył (wire protection plate) dla przewodów 0.5 – 2.5 mm² (AWG 20 – 12). Prąd znamionowy 16 A, napięcie znamionowe 500 V (UL/CSA 600 V), napięcie udarowe 6 kV, stopień zanieczyszczenia 3. Styki miedziane toczone, srebrzone (Ag), rezystancja przejścia ≤ 1 mΩ. Zakres temperatur pracy: od -40 °C do +125 °C. Zgodność z normą EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+      en_US: 'Heavy-duty multipole industrial connector CNE series. Female contact insert size 104.27 (size 24B) with 24 power/signal poles plus protective earth (PE). Screw connection with wire protection plate for conductor cross-sections 0.5 – 2.5 mm² (AWG 20 – 12). Rated current 16 A, rated voltage 500 V (UL/CSA 600 V), rated impulse voltage 6 kV, pollution degree 3. Turned copper alloy silver-plated contacts (Ag), contact resistance ≤ 1 mΩ. Operating temperature range: -40 °C to +125 °C. Compliant with EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+      de_DE: 'Schwerer Industriesteckverbinder der CNE-Serie. Buchseneinsatz Größe 104.27 (Baugröße 24B) mit 24 Leistungspolen plus voreilendem Schutzleiter (PE). Schraubanschluss mit Drahtschutz für Leiterquerschnitte 0,5 – 2,5 mm² (AWG 20 – 12). Bemessungsstrom 16 A, Bemessungsspannung 500 V (UL/CSA 600 V), Bemessungsstoßspannung 6 kV, Verschmutzungsgrad 3. Gedrehte Kupferlegierungskontakte versilbert (Ag), Durchgangswiderstand ≤ 1 mΩ. Temperaturbereich: -40 °C bis +125 °C. Konform nach DIN EN 61984, DIN 43652, cURus, CSA, DNV-GL, BV, EAC, CE, RoHS.',
+    },
+    characteristics: '24P+PE, 16A, 500V, screw terminal, size 104.27',
+    functionTemplates: [
+      {
+        connectionDesignation: '1',
+        connectionDescription: 'Pin 1',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: '2',
+        connectionDescription: 'Pin 2',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: '3',
+        connectionDescription: 'Pin 3',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 3,
+      },
+      {
+        connectionDesignation: '4',
+        connectionDescription: 'Pin 4',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 4,
+      },
+      {
+        connectionDesignation: '5',
+        connectionDescription: 'Pin 5',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 5,
+      },
+      {
+        connectionDesignation: '6',
+        connectionDescription: 'Pin 6',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 6,
+      },
+      {
+        connectionDesignation: '7',
+        connectionDescription: 'Pin 7',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 7,
+      },
+      {
+        connectionDesignation: '8',
+        connectionDescription: 'Pin 8',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 8,
+      },
+      {
+        connectionDesignation: '9',
+        connectionDescription: 'Pin 9',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 9,
+      },
+      {
+        connectionDesignation: '10',
+        connectionDescription: 'Pin 10',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 10,
+      },
+      {
+        connectionDesignation: '11',
+        connectionDescription: 'Pin 11',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 11,
+      },
+      {
+        connectionDesignation: '12',
+        connectionDescription: 'Pin 12',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 12,
+      },
+      {
+        connectionDesignation: '13',
+        connectionDescription: 'Pin 13',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 13,
+      },
+      {
+        connectionDesignation: '14',
+        connectionDescription: 'Pin 14',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 14,
+      },
+      {
+        connectionDesignation: '15',
+        connectionDescription: 'Pin 15',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 15,
+      },
+      {
+        connectionDesignation: '16',
+        connectionDescription: 'Pin 16',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 16,
+      },
+      {
+        connectionDesignation: '17',
+        connectionDescription: 'Pin 17',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 17,
+      },
+      {
+        connectionDesignation: '18',
+        connectionDescription: 'Pin 18',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 18,
+      },
+      {
+        connectionDesignation: '19',
+        connectionDescription: 'Pin 19',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 19,
+      },
+      {
+        connectionDesignation: '20',
+        connectionDescription: 'Pin 20',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 20,
+      },
+      {
+        connectionDesignation: '21',
+        connectionDescription: 'Pin 21',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 21,
+      },
+      {
+        connectionDesignation: '22',
+        connectionDescription: 'Pin 22',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 22,
+      },
+      {
+        connectionDesignation: '23',
+        connectionDescription: 'Pin 23',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 23,
+      },
+      {
+        connectionDesignation: '24',
+        connectionDescription: 'Pin 24',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 24,
+      },
+      {
+        connectionDesignation: 'PE',
+        connectionDescription: 'PE (Schutzleiter / Uziemienie)',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 25,
+      }
+    ],
+    pictureRelPath: 'ILME/CNEF 24 T.png',
+    pictureLocalPath: 'EDZ/ILME/ILME.CNEF 24 T/CNEF 24 T.png',
+    docs: [
+      {
+        relPath: 'ILME/CNEF 24 T_datasheet.pdf',
+        localPath: 'EDZ/ILME/ILME.CNEF 24 T/CNEF 24 T_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/ILME/ILME.CNEF 24 T/ILME.CNEF 24 T.edz',
+  },
+  'ILME.MAP 24.232': {
+    partNr: 'ILME.MAP 24.232',
+    typeNr: 'MAP 24.232',
+    orderNr: 'MAP 24.232',
+    manufacturer: 'ILME',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 4,   // Wtyki / Plugs
+    productSubGroup: 15, // Obudowa wtyku / Plug housing
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.430',    // kg (430 g)
+    width: '144',       // mm
+    height: '81',       // mm
+    depth: '57',        // mm
+    mountingSpace: '11664', // mm2 (144 * 81)
+    descr1: {
+      pl_PL: 'Obudowa cokołowa naścienna C-Type 24, 2x M32, 2 klamry ryglowe, wersja wysoka HC',
+      en_US: 'Surface mounting housing C-Type 24, 2x M32, 2 locking levers, high construction HC',
+      de_DE: 'Sockelgehäuse C-Type 24, 2x M32, 2 Querbügel, hohe Bauform HC',
+    },
+    descr2: {
+      pl_PL: 'MAP 24.232, rozmiar 104.27, wielkość 24B, odlew aluminiowy IP66/IP69K',
+      en_US: 'MAP 24.232, size 104.27, size 24B, die-cast aluminum IP66/IP69K',
+      de_DE: 'MAP 24.232, Größe 104.27, Baugröße 24B, Aluminiumdruckguss IP66/IP69K',
+    },
+    note: {
+      pl_PL: 'Przemysłowa obudowa cokołowa naścienna serii C-Type rozmiaru 104.27 (wielkość 24 / 24B). Wersja o podwyższonej wysokości (81 mm) ułatwiająca wprowadzanie i podłączanie kabli o dużych przekrojach. Dwa boczne wejścia gwintowane M32. Dwie klamry ryglujące ze stali nierdzewnej z rolkami termoplastycznymi zapewniają trwały i równomierny docisk uszczelki NBR. Stopień ochrony: IP65, IP66, IP69 / IP69K (wg DIN 40050-9). Odlew ciśnieniowy stopu aluminium malowany proszkowo żywicą epoksydowo-poliestrową w kolorze szarym RAL 7040. Zakres temperatur pracy: od -40 °C do +125 °C. Zgodność z EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+      en_US: 'Industrial heavy-duty surface mounting housing C-Type series, size 104.27 (size 24 / 24B). High construction profile (81 mm) providing enlarged space for heavy-duty multi-core industrial wiring. Two side M32 metric threaded cable entries. Two stainless steel locking levers with thermoplastic rollers ensuring robust and even NBR gasket compression. Ingress protection: IP65, IP66, IP69 / IP69K (acc. to DIN 40050-9). Die-cast aluminum alloy finished with epoxy-polyester powder coating (RAL 7040 grey). Operating temperature range: -40 °C to +125 °C. Compliant with EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+      de_DE: 'Industrielles Sockelgehäuse der C-Type-Serie in Baugröße 104.27 (Größe 24 / 24B). Hohe Bauform (81 mm) für großzügigen Verdrahtungsraum und optimale Leitungsführung. Zwei seitliche metrische Kabeleinführungen M32. Zwei Edelstahl-Querbügel mit Rollen für zuverlässigen NBR-Dichtungsanpressdruck. Schutzart: IP65, IP66, IP69 / IP69K (nach DIN 40050-9). Aluminiumdruckguss mit Epoxid-Polyester-Pulverbeschichtung in RAL 7040 grau. Temperaturbereich: -40 °C bis +125 °C. Konform nach EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+    },
+    characteristics: 'Size 104.27, 2x M32 side, 2 levers, high construction, IP66/IP69K',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'ILME C-Type 24 (104.27) Surface Housing',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'ILME/MAP 24.232.png',
+    pictureLocalPath: 'EDZ/ILME/ILME.MAP 24.232/MAP 24.232.png',
+    docs: [
+      {
+        relPath: 'ILME/MAP 24.232_datasheet.pdf',
+        localPath: 'EDZ/ILME/ILME.MAP 24.232/MAP 24.232_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/ILME/ILME.MAP 24.232/ILME.MAP 24.232.edz',
+  },
+  'ILME.MAO 24.32': {
+    partNr: 'ILME.MAO 24.32',
+    typeNr: 'MAO 24.32',
+    orderNr: 'MAO 24.32',
+    manufacturer: 'ILME',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 4,   // Wtyki / Plugs
+    productSubGroup: 15, // Obudowa wtyku / Plug housing
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.270',    // kg (270 g)
+    width: '120',       // mm
+    height: '76',       // mm
+    depth: '43',        // mm
+    mountingSpace: '9120', // mm2 (120 * 76)
+    descr1: {
+      pl_PL: 'Obudowa górna wtykowa C-Type 24, wyjście boczne M32, 4 sworznie, wersja wysoka HC',
+      en_US: 'Hood C-Type 24, side cable entry M32, 4 pegs, high construction HC',
+      de_DE: 'Tüllengehäuse C-Type 24, seitlicher Abgang M32, 4 Bolzen, hohe Bauform HC',
+    },
+    descr2: {
+      pl_PL: 'MAO 24.32, rozmiar 104.27, wielkość 24B, odlew aluminiowy IP66/IP69K',
+      en_US: 'MAO 24.32, size 104.27, size 24B, die-cast aluminum IP66/IP69K',
+      de_DE: 'MAO 24.32, Größe 104.27, Baugröße 24B, Aluminiumdruckguss IP66/IP69K',
+    },
+    note: {
+      pl_PL: 'Przemysłowa obudowa górna wtykowa (hood) serii C-Type rozmiaru 104.27 (wielkość 24 / 24B). Wersja wysoka (76 mm) z bocznym wyjściem kablowym gwintowanym M32. Wyposażona w 4 sworznie ryglujące (pegs) do współpracy z obudowami dolnymi z podwójną klamrą (2 levers). Stopień ochrony po zaryglowaniu: IP65, IP66, IP69 / IP69K (wg DIN 40050-9). Odlew ciśnieniowy stopu aluminium malowany proszkowo żywicą epoksydowo-poliestrową w kolorze szarym RAL 7040. Zakres temperatur pracy: od -40 °C do +125 °C. Zgodność z EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+      en_US: 'Industrial heavy-duty connector hood C-Type series, size 104.27 (size 24 / 24B). High construction profile (76 mm) with side entry M32 metric threaded cable port. Equipped with 4 locking pegs designed to engage double-lever base enclosures. Ingress protection when mated: IP65, IP66, IP69 / IP69K (acc. to DIN 40050-9). Die-cast aluminum alloy finished with epoxy-polyester powder coating (RAL 7040 grey). Operating temperature range: -40 °C to +125 °C. Compliant with EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+      de_DE: 'Industrielles Tüllengehäuse der C-Type-Serie in Baugröße 104.27 (Größe 24 / 24B). Hohe Ausführung (76 mm) mit seitlichem M32 Kabeleingang. Ausgestattet mit 4 Verriegelungsbolzen für Unterteile mit 2 Querbügeln. Schutzart im verriegelten Zustand: IP65, IP66, IP69 / IP69K (nach DIN 40050-9). Aluminiumdruckguss mit Epoxid-Polyester-Pulverbeschichtung in RAL 7040 grau. Temperaturbereich: -40 °C bis +125 °C. Konform nach EN 61984, cURus, DNV-GL, BV, CE, RoHS.',
+    },
+    characteristics: 'Size 104.27, M32 side entry, 4 pegs, high construction, IP66/IP69K',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'ILME C-Type 24 (104.27) Hood',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'ILME/MAO 24.32.png',
+    pictureLocalPath: 'EDZ/ILME/ILME.MAO 24.32/MAO 24.32.png',
+    docs: [
+      {
+        relPath: 'ILME/MAO 24.32_datasheet.pdf',
+        localPath: 'EDZ/ILME/ILME.MAO 24.32/MAO 24.32_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/ILME/ILME.MAO 24.32/ILME.MAO 24.32.edz',
+  },
+'UGREEN.CM664': {
     partNr: 'UGREEN.CM664',
     typeNr: 'CM664',
     orderNr: '15707',
@@ -4550,6 +5207,26 @@ const CATALOG = {
 };
 
 // Aliases for convenient CLI usage
+CATALOG['CNEM 24 T'] = CATALOG['ILME.CNEM 24 T'];
+CATALOG['CNEM24T'] = CATALOG['ILME.CNEM 24 T'];
+CATALOG['CNEM-24-T'] = CATALOG['ILME.CNEM 24 T'];
+CATALOG['ILME.CNEM24T'] = CATALOG['ILME.CNEM 24 T'];
+CATALOG['ILME.CNEM-24-T'] = CATALOG['ILME.CNEM 24 T'];
+CATALOG['CNEF 24 T'] = CATALOG['ILME.CNEF 24 T'];
+CATALOG['CNEF24T'] = CATALOG['ILME.CNEF 24 T'];
+CATALOG['CNEF-24-T'] = CATALOG['ILME.CNEF 24 T'];
+CATALOG['ILME.CNEF24T'] = CATALOG['ILME.CNEF 24 T'];
+CATALOG['ILME.CNEF-24-T'] = CATALOG['ILME.CNEF 24 T'];
+CATALOG['MAP 24.232'] = CATALOG['ILME.MAP 24.232'];
+CATALOG['MAP24.232'] = CATALOG['ILME.MAP 24.232'];
+CATALOG['MAP-24.232'] = CATALOG['ILME.MAP 24.232'];
+CATALOG['ILME.MAP24.232'] = CATALOG['ILME.MAP 24.232'];
+CATALOG['ILME.MAP-24.232'] = CATALOG['ILME.MAP 24.232'];
+CATALOG['MAO 24.32'] = CATALOG['ILME.MAO 24.32'];
+CATALOG['MAO24.32'] = CATALOG['ILME.MAO 24.32'];
+CATALOG['MAO-24.32'] = CATALOG['ILME.MAO 24.32'];
+CATALOG['ILME.MAO24.32'] = CATALOG['ILME.MAO 24.32'];
+CATALOG['ILME.MAO-24.32'] = CATALOG['ILME.MAO 24.32'];
 CATALOG['CM664'] = CATALOG['UGREEN.CM664'];
 CATALOG['15707'] = CATALOG['UGREEN.CM664'];
 CATALOG['UGR.CM664'] = CATALOG['UGREEN.CM664'];
