@@ -141,7 +141,7 @@ function getBaseStyle() {
 
 // 1. Generate PHG.ADMITTO-D HTML
 function generateAdmittoHtml() {
-  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261109/PHG.ADMITTO-D/ADMITTO-D.png';
+  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/PHG/PHG.ADMITTO-D/ADMITTO-D.png';
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -361,7 +361,7 @@ function generateAdmittoHtml() {
 
 // 2. Generate TPL.TL-POE150S HTML
 function generateTplHtml() {
-  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261109/TPL.TL-POE150S/TL-POE150S.png';
+  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/TPL/TPL.TL-POE150S/TL-POE150S.png';
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -614,6 +614,6 @@ function renderPdf(htmlPath, pdfPath) {
   console.log('Rendered PDF:', pdfResolved, fs.statSync(pdfResolved).size, 'bytes');
 }
 
-renderPdf('scripts/ADMITTO-D_datasheet.html', 'EDZ/261109/PHG.ADMITTO-D/ADMITTO-D_datasheet.pdf');
-renderPdf('scripts/TL-POE150S_datasheet.html', 'EDZ/261109/TPL.TL-POE150S/TL-POE150S_datasheet.pdf');
+renderPdf('scripts/ADMITTO-D_datasheet.html', 'EDZ/PHG/PHG.ADMITTO-D/ADMITTO-D_datasheet.pdf');
+renderPdf('scripts/TL-POE150S_datasheet.html', 'EDZ/TPL/TPL.TL-POE150S/TL-POE150S_datasheet.pdf');
 console.log('Datasheet generation complete.');

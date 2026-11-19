@@ -509,6 +509,51 @@ function buildManufacturerXml(mfgData) {
   return `<?xml version="1.0" encoding="utf-8" ?>\n<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">\n <address ${attrs.join(' ')}/>\n</partsmanagement>\n`;
 }
 
+/**
+ * Resolves user Desktop EDZ directory candidates
+ */
+function getDesktopEdzDirs() {
+  const userHome = process.env.USERPROFILE || process.env.HOME || 'C:\\Users\\pswie';
+  const candidates = [
+    path.join(userHome, 'Desktop', 'EDZ'),
+    path.join(userHome, 'OneDrive - Trinitec', 'Pulpit', 'EDZ'),
+    path.join(userHome, 'OneDrive', 'Pulpit', 'EDZ'),
+    path.join(userHome, 'OneDrive', 'Desktop', 'EDZ'),
+    path.join(userHome, 'Pulpit', 'EDZ'),
+  ];
+  const validDirs = [];
+  for (const c of candidates) {
+    try {
+      const parent = path.dirname(c);
+      if (fs.existsSync(parent)) {
+        if (!fs.existsSync(c)) {
+          fs.mkdirSync(c, { recursive: true });
+        }
+        validDirs.push(c);
+      }
+    } catch (_) {}
+  }
+  return [...new Set(validDirs)];
+}
+
+/**
+ * Copies a file (EDZ package or batch ZIP) to all detected Desktop EDZ directories
+ */
+function copyToDesktopEdz(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  const fileName = path.basename(filePath);
+  const dirs = getDesktopEdzDirs();
+  for (const dir of dirs) {
+    try {
+      const dest = path.join(dir, fileName);
+      fs.copyFileSync(filePath, dest);
+      console.log(`Copied to Desktop EDZ: ${dest}`);
+    } catch (err) {
+      console.warn(`Could not copy to ${dir}: ${err.message}`);
+    }
+  }
+}
+
 function generateEDZ(options) {
   const {
     partNr,
@@ -677,10 +722,12 @@ function generateEDZ(options) {
   }
 
   // 5. Generate ZIP
-  const targetPath = outputEdzPath || path.join('EDZ', partNr, `${partNr}.edz`);
+  const mfgDir = manufacturer || partNr.split('.')[0];
+  const targetPath = outputEdzPath || path.join('EDZ', mfgDir, partNr, `${partNr}.edz`);
   console.log(`Packaging ${zipFiles.length} items into EDZ archive: ${targetPath}`);
   const edzBuffer = createZip(zipFiles);
   fs.writeFileSync(targetPath, edzBuffer);
+  copyToDesktopEdz(targetPath);
   console.log(`Successfully generated EDZ: ${targetPath} (${edzBuffer.length} bytes)`);
 
   return {
@@ -730,18 +777,18 @@ const CATALOG = {
       { connectionDesignation: '21\n22\n24', connectionDescription: 'COM\nNC\nNO', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;1261;0', pos: 4 },
     ],
     pictureRelPath: 'ELB/KR-163B.png',
-    pictureLocalPath: 'EDZ/261008/ELB.KR-163B/KR-163B.png',
+    pictureLocalPath: 'EDZ/ELB/ELB.KR-163B/KR-163B.png',
     docs: [
       {
         relPath: 'ELB/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
-        localPath: 'EDZ/261008/ELB.KR-163B/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
+        localPath: 'EDZ/ELB/ELB.KR-163B/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
       },
       {
         relPath: 'ELB/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
-        localPath: 'EDZ/261008/ELB.KR-163B/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
+        localPath: 'EDZ/ELB/ELB.KR-163B/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261008/ELB.KR-163B/ELB.KR-163B.edz',
+    outputEdzPath: 'EDZ/ELB/ELB.KR-163B/ELB.KR-163B.edz',
   },
 
   'ELB.KR-163-B-2W600': {
@@ -782,18 +829,18 @@ const CATALOG = {
       { connectionDesignation: '21\n22\n24', connectionDescription: 'COM\nNC\nNO', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;1261;0', pos: 4 },
     ],
     pictureRelPath: 'ELB/KR-163-B-2W600.png',
-    pictureLocalPath: 'EDZ/261019/ELB.KR-163-B-2W600/KR-163-B-2W600.png',
+    pictureLocalPath: 'EDZ/ELB/ELB.KR-163-B-2W600/KR-163-B-2W600.png',
     docs: [
       {
         relPath: 'ELB/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
-        localPath: 'EDZ/261019/ELB.KR-163-B-2W600/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
+        localPath: 'EDZ/ELB/ELB.KR-163-B-2W600/10-05-01-E_kr_allgemein_kr-163a_1-kanal.pdf',
       },
       {
         relPath: 'ELB/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
-        localPath: 'EDZ/261019/ELB.KR-163-B-2W600/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
+        localPath: 'EDZ/ELB/ELB.KR-163-B-2W600/Z-65.11-404 -- EN -- 04 Technische Beschreibung.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261019/ELB.KR-163-B-2W600/ELB.KR-163-B-2W600.edz',
+    outputEdzPath: 'EDZ/ELB/ELB.KR-163-B-2W600/ELB.KR-163-B-2W600.edz',
   },
 
   'SIE.5SH5050': {
@@ -839,14 +886,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'SIE/5SH5050.png',
-    pictureLocalPath: 'EDZ/261009/SIE.5SH5050/5SH5050.png',
+    pictureLocalPath: 'EDZ/SIE/SIE.5SH5050/5SH5050.png',
     docs: [
       {
         relPath: 'SIE/5SH5050_datasheet_en.pdf',
-        localPath: 'EDZ/261009/SIE.5SH5050/5SH5050_datasheet_en.pdf',
+        localPath: 'EDZ/SIE/SIE.5SH5050/5SH5050_datasheet_en.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261009/SIE.5SH5050/SIE.5SH5050.edz',
+    outputEdzPath: 'EDZ/SIE/SIE.5SH5050/SIE.5SH5050.edz',
   },
 
   'FRAKO.DVH3113': {
@@ -888,14 +935,14 @@ const CATALOG = {
       { connectionDesignation: '+\n-', connectionDescription: '+\n-', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 5 },
     ],
     pictureRelPath: 'FRAKO/DVH3113.png',
-    pictureLocalPath: 'EDZ/261009/FRAKO.DVH3113/DVH3113.png',
+    pictureLocalPath: 'EDZ/FRAKO/FRAKO.DVH3113/DVH3113.png',
     docs: [
       {
         relPath: 'FRAKO/55-00592_emc1203mdvh_dvh_ba.pdf',
-        localPath: 'EDZ/261009/FRAKO.DVH3113/55-00592_emc1203mdvh_dvh_ba.pdf',
+        localPath: 'EDZ/FRAKO/FRAKO.DVH3113/55-00592_emc1203mdvh_dvh_ba.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261009/FRAKO.DVH3113/FRAKO.DVH3113.edz',
+    outputEdzPath: 'EDZ/FRAKO/FRAKO.DVH3113/FRAKO.DVH3113.edz',
   },
 
   'ESKA.522715': {
@@ -941,14 +988,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'ESKA/522715.png',
-    pictureLocalPath: 'EDZ/261019/ESKA.522715/522715.png',
+    pictureLocalPath: 'EDZ/ESKA/ESKA.522715/522715.png',
     docs: [
       {
         relPath: 'ESKA/DS_522700.pdf',
-        localPath: 'EDZ/261019/ESKA.522715/DS_522700.pdf',
+        localPath: 'EDZ/ESKA/ESKA.522715/DS_522700.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261019/ESKA.522715/ESKA.522715.edz',
+    outputEdzPath: 'EDZ/ESKA/ESKA.522715/ESKA.522715.edz',
   },
 
   'ESKA.522718': {
@@ -994,14 +1041,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'ESKA/522718.png',
-    pictureLocalPath: 'EDZ/261019/ESKA.522718/522718.png',
+    pictureLocalPath: 'EDZ/ESKA/ESKA.522718/522718.png',
     docs: [
       {
         relPath: 'ESKA/DS_522700.pdf',
-        localPath: 'EDZ/261019/ESKA.522718/DS_522700.pdf',
+        localPath: 'EDZ/ESKA/ESKA.522718/DS_522700.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261019/ESKA.522718/ESKA.522718.edz',
+    outputEdzPath: 'EDZ/ESKA/ESKA.522718/ESKA.522718.edz',
   },
 
   'EFB.537051V3': {
@@ -1047,14 +1094,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'EFB/537051V3.png',
-    pictureLocalPath: 'EDZ/261020/EFB.537051V3/537051V3.png',
+    pictureLocalPath: 'EDZ/EFB/EFB.537051V3/537051V3.png',
     docs: [
       {
         relPath: 'EFB/53705.1V3_EN.pdf',
-        localPath: 'EDZ/261020/EFB.537051V3/53705.1V3_EN.pdf',
+        localPath: 'EDZ/EFB/EFB.537051V3/53705.1V3_EN.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261020/EFB.537051V3/EFB.537051V3.edz',
+    outputEdzPath: 'EDZ/EFB/EFB.537051V3/EFB.537051V3.edz',
   },
 
   'EFB.537053V2B2': {
@@ -1100,14 +1147,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'EFB/537053V2B2.png',
-    pictureLocalPath: 'EDZ/261020/EFB.537053V2B2/537053V2B2.png',
+    pictureLocalPath: 'EDZ/EFB/EFB.537053V2B2/537053V2B2.png',
     docs: [
       {
         relPath: 'EFB/53705.1V3_EN.pdf',
-        localPath: 'EDZ/261020/EFB.537053V2B2/53705.1V3_EN.pdf',
+        localPath: 'EDZ/EFB/EFB.537053V2B2/53705.1V3_EN.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261020/EFB.537053V2B2/EFB.537053V2B2.edz',
+    outputEdzPath: 'EDZ/EFB/EFB.537053V2B2/EFB.537053V2B2.edz',
   },
 
   'PXC.1115634': {
@@ -1174,14 +1221,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'PXC/1115634.png',
-    pictureLocalPath: 'EDZ/261020/PXC.1115634/1115634.png',
+    pictureLocalPath: 'EDZ/PXC/PXC.1115634/1115634.png',
     docs: [
       {
         relPath: 'PXC/1115634_datasheet.pdf',
-        localPath: 'EDZ/261020/PXC.1115634/1115634_datasheet.pdf',
+        localPath: 'EDZ/PXC/PXC.1115634/1115634_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261020/PXC.1115634/PXC.1115634.edz',
+    outputEdzPath: 'EDZ/PXC/PXC.1115634/PXC.1115634.edz',
   },
 
   'PXC.1333136': {
@@ -1275,14 +1322,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'PXC/1333136.png',
-    pictureLocalPath: 'EDZ/261021/PXC.1333136/1333136.png',
+    pictureLocalPath: 'EDZ/PXC/PXC.1333136/1333136.png',
     docs: [
       {
         relPath: 'PXC/1333136_datasheet.pdf',
-        localPath: 'EDZ/261021/PXC.1333136/1333136_datasheet.pdf',
+        localPath: 'EDZ/PXC/PXC.1333136/1333136_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/PXC.1333136/PXC.1333136.edz',
+    outputEdzPath: 'EDZ/PXC/PXC.1333136/PXC.1333136.edz',
   },
 
   'GFK.113030': {
@@ -1364,14 +1411,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'GFK/113030.png',
-    pictureLocalPath: 'EDZ/261021/GFK.113030/113030.png',
+    pictureLocalPath: 'EDZ/GFK/GFK.113030/113030.png',
     docs: [
       {
         relPath: 'GFK/113030_datasheet.pdf',
-        localPath: 'EDZ/261021/GFK.113030/113030_datasheet.pdf',
+        localPath: 'EDZ/GFK/GFK.113030/113030_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/GFK.113030/GFK.113030.edz',
+    outputEdzPath: 'EDZ/GFK/GFK.113030/GFK.113030.edz',
   },
 
   'SIE.9LA1110-6SP31-7EA0': {
@@ -1462,14 +1509,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'SIE/9LA1110-6SP31-7EA0.png',
-    pictureLocalPath: 'EDZ/261021/SIE.9LA1110-6SP31-7EA0/9LA1110-6SP31-7EA0.png',
+    pictureLocalPath: 'EDZ/SIE/SIE.9LA1110-6SP31-7EA0/9LA1110-6SP31-7EA0.png',
     docs: [
       {
         relPath: 'SIE/9LA1110-6SP31-7EA0_datasheet.pdf',
-        localPath: 'EDZ/261021/SIE.9LA1110-6SP31-7EA0/9LA1110-6SP31-7EA0_datasheet.pdf',
+        localPath: 'EDZ/SIE/SIE.9LA1110-6SP31-7EA0/9LA1110-6SP31-7EA0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/SIE.9LA1110-6SP31-7EA0/SIE.9LA1110-6SP31-7EA0.edz',
+    outputEdzPath: 'EDZ/SIE/SIE.9LA1110-6SP31-7EA0/SIE.9LA1110-6SP31-7EA0.edz',
   },
 
   'LIN.41081': {
@@ -1581,14 +1628,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'LIN/41081.png',
-    pictureLocalPath: 'EDZ/261021/LIN.41081/41081.png',
+    pictureLocalPath: 'EDZ/LIN/LIN.41081/41081.png',
     docs: [
       {
         relPath: 'LIN/41081_datasheet.pdf',
-        localPath: 'EDZ/261021/LIN.41081/41081_datasheet.pdf',
+        localPath: 'EDZ/LIN/LIN.41081/41081_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/LIN.41081/LIN.41081.edz',
+    outputEdzPath: 'EDZ/LIN/LIN.41081/LIN.41081.edz',
   },
 
   'LIN.42782': {
@@ -1682,14 +1729,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'LIN/42782.png',
-    pictureLocalPath: 'EDZ/261021/LIN.42782/42782.png',
+    pictureLocalPath: 'EDZ/LIN/LIN.42782/42782.png',
     docs: [
       {
         relPath: 'LIN/42782_datasheet.pdf',
-        localPath: 'EDZ/261021/LIN.42782/42782_datasheet.pdf',
+        localPath: 'EDZ/LIN/LIN.42782/42782_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/LIN.42782/LIN.42782.edz',
+    outputEdzPath: 'EDZ/LIN/LIN.42782/LIN.42782.edz',
   },
 
   'SIE.6XV1840-2AH10': {
@@ -1783,14 +1830,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'SIE/6XV1840-2AH10.png',
-    pictureLocalPath: 'EDZ/261021/SIE.6XV1840-2AH10/6XV1840-2AH10.png',
+    pictureLocalPath: 'EDZ/SIE/SIE.6XV1840-2AH10/6XV1840-2AH10.png',
     docs: [
       {
         relPath: 'SIE/6XV1840-2AH10_datasheet.pdf',
-        localPath: 'EDZ/261021/SIE.6XV1840-2AH10/6XV1840-2AH10_datasheet.pdf',
+        localPath: 'EDZ/SIE/SIE.6XV1840-2AH10/6XV1840-2AH10_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261021/SIE.6XV1840-2AH10/SIE.6XV1840-2AH10.edz',
+    outputEdzPath: 'EDZ/SIE/SIE.6XV1840-2AH10/SIE.6XV1840-2AH10.edz',
   },
 
   'PF.205804': {
@@ -1867,14 +1914,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'PF/205804.png',
-    pictureLocalPath: 'EDZ/261023/PF.205804/205804.png',
+    pictureLocalPath: 'EDZ/PF/PF.205804/205804.png',
     docs: [
       {
         relPath: 'PF/205804_datasheet.pdf',
-        localPath: 'EDZ/261023/PF.205804/205804_datasheet.pdf',
+        localPath: 'EDZ/PF/PF.205804/205804_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261023/PF.205804/PF.205804.edz',
+    outputEdzPath: 'EDZ/PF/PF.205804/PF.205804.edz',
   },
 
   'SIE.5SG6206': {
@@ -1941,14 +1988,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'SIE/5SG6206.png',
-    pictureLocalPath: 'EDZ/261027/SIE.5SG6206/5SG6206.png',
+    pictureLocalPath: 'EDZ/SIE/SIE.5SG6206/5SG6206.png',
     docs: [
       {
         relPath: 'SIE/5SG6206_datasheet.pdf',
-        localPath: 'EDZ/261027/SIE.5SG6206/5SG6206_datasheet.pdf',
+        localPath: 'EDZ/SIE/SIE.5SG6206/5SG6206_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261027/SIE.5SG6206/SIE.5SG6206.edz',
+    outputEdzPath: 'EDZ/SIE/SIE.5SG6206/SIE.5SG6206.edz',
   },
 
   'SIE.5SH4163': {
@@ -1994,14 +2041,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'SIE/5SH4163.png',
-    pictureLocalPath: 'EDZ/261027/SIE.5SH4163/5SH4163.png',
+    pictureLocalPath: 'EDZ/SIE/SIE.5SH4163/5SH4163.png',
     docs: [
       {
         relPath: 'SIE/5SH4163_datasheet.pdf',
-        localPath: 'EDZ/261027/SIE.5SH4163/5SH4163_datasheet.pdf',
+        localPath: 'EDZ/SIE/SIE.5SH4163/5SH4163_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261027/SIE.5SH4163/SIE.5SH4163.edz',
+    outputEdzPath: 'EDZ/SIE/SIE.5SH4163/SIE.5SH4163.edz',
   },
 
   'ESKA.522517': {
@@ -2047,14 +2094,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'ESKA/522517.png',
-    pictureLocalPath: 'EDZ/261027/ESKA.522517/522517.png',
+    pictureLocalPath: 'EDZ/ESKA/ESKA.522517/522517.png',
     docs: [
       {
         relPath: 'ESKA/DS_522500.pdf',
-        localPath: 'EDZ/261027/ESKA.522517/DS_522500.pdf',
+        localPath: 'EDZ/ESKA/ESKA.522517/DS_522500.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261027/ESKA.522517/ESKA.522517.edz',
+    outputEdzPath: 'EDZ/ESKA/ESKA.522517/ESKA.522517.edz',
   },
 
   'PXC.3270531': {
@@ -2103,14 +2150,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'PXC/3270531.png',
-    pictureLocalPath: 'EDZ/261028/PXC.3270531/3270531.png',
+    pictureLocalPath: 'EDZ/PXC/PXC.3270531/3270531.png',
     docs: [
       {
         relPath: 'PXC/3270531_datasheet.pdf',
-        localPath: 'EDZ/261028/PXC.3270531/3270531_datasheet.pdf',
+        localPath: 'EDZ/PXC/PXC.3270531/3270531_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261028/PXC.3270531/PXC.3270531.edz',
+    outputEdzPath: 'EDZ/PXC/PXC.3270531/PXC.3270531.edz',
   },
 
   'HP.2FT00AA': {
@@ -2159,14 +2206,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'HP/2FT00AA.png',
-    pictureLocalPath: 'EDZ/261028/HP.2FT00AA/2FT00AA.png',
+    pictureLocalPath: 'EDZ/HP/HP.2FT00AA/2FT00AA.png',
     docs: [
       {
         relPath: 'HP/2FT00AA_datasheet.pdf',
-        localPath: 'EDZ/261028/HP.2FT00AA/2FT00AA_datasheet.pdf',
+        localPath: 'EDZ/HP/HP.2FT00AA/2FT00AA_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261028/HP.2FT00AA/HP.2FT00AA.edz',
+    outputEdzPath: 'EDZ/HP/HP.2FT00AA/HP.2FT00AA.edz',
   },
 
   'HP.9UB87AA': {
@@ -2212,14 +2259,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'HP/9UB87AA.png',
-    pictureLocalPath: 'EDZ/261109/HP.9UB87AA/9UB87AA.png',
+    pictureLocalPath: 'EDZ/HP/HP.9UB87AA/9UB87AA.png',
     docs: [
       {
         relPath: 'HP/9UB87AA_datasheet.pdf',
-        localPath: 'EDZ/261109/HP.9UB87AA/9UB87AA_datasheet.pdf',
+        localPath: 'EDZ/HP/HP.9UB87AA/9UB87AA_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261109/HP.9UB87AA/HP.9UB87AA.edz',
+    outputEdzPath: 'EDZ/HP/HP.9UB87AA/HP.9UB87AA.edz',
   },
 
   'BIR.5AP112M-2K': {
@@ -2271,14 +2318,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'BIR/5AP112M-2K.png',
-    pictureLocalPath: 'EDZ/261029/BIR.5AP112M-2K/5AP112M-2K.png',
+    pictureLocalPath: 'EDZ/BIR/BIR.5AP112M-2K/5AP112M-2K.png',
     docs: [
       {
         relPath: 'BIR/5AP112M-2K_datasheet.pdf',
-        localPath: 'EDZ/261029/BIR.5AP112M-2K/5AP112M-2K_datasheet.pdf',
+        localPath: 'EDZ/BIR/BIR.5AP112M-2K/5AP112M-2K_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261029/BIR.5AP112M-2K/BIR.5AP112M-2K.edz',
+    outputEdzPath: 'EDZ/BIR/BIR.5AP112M-2K/BIR.5AP112M-2K.edz',
   },
 
   'STU.7AA112M-02': {
@@ -2330,14 +2377,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'STU/7AA112M-02.png',
-    pictureLocalPath: 'EDZ/261029/STU.7AA112M-02/7AA112M-02.png',
+    pictureLocalPath: 'EDZ/STU/STU.7AA112M-02/7AA112M-02.png',
     docs: [
       {
         relPath: 'STU/7AA112M-02_datasheet.pdf',
-        localPath: 'EDZ/261029/STU.7AA112M-02/7AA112M-02_datasheet.pdf',
+        localPath: 'EDZ/STU/STU.7AA112M-02/7AA112M-02_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261029/STU.7AA112M-02/STU.7AA112M-02.edz',
+    outputEdzPath: 'EDZ/STU/STU.7AA112M-02/STU.7AA112M-02.edz',
   },
   'PHG.ADMITTO-D': {
     partNr: 'PHG.ADMITTO-D',
@@ -2382,14 +2429,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'PHG/ADMITTO-D.png',
-    pictureLocalPath: 'EDZ/261109/PHG.ADMITTO-D/ADMITTO-D.png',
+    pictureLocalPath: 'EDZ/PHG/PHG.ADMITTO-D/ADMITTO-D.png',
     docs: [
       {
         relPath: 'PHG/ADMITTO-D_datasheet.pdf',
-        localPath: 'EDZ/261109/PHG.ADMITTO-D/ADMITTO-D_datasheet.pdf',
+        localPath: 'EDZ/PHG/PHG.ADMITTO-D/ADMITTO-D_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261109/PHG.ADMITTO-D/PHG.ADMITTO-D.edz',
+    outputEdzPath: 'EDZ/PHG/PHG.ADMITTO-D/PHG.ADMITTO-D.edz',
     constructionXml: `<?xml version="1.0" encoding="utf-8" ?>\n<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">\n <construction class="6" P_PART_CONSTRUCTION_NAME="PHG.ADMITTO-D" P_PART_CONSTRUCTION_CREATE="2026-11-09" P_PART_CONSTRUCTION_LASTCHANGE="2026-11-09">\n  <P_PART_CONSTRUCTION_DESCRIPTION>pl_PL@Szablon wycięcia płyty czołowej czytnika RFID ADMITTO-D (110x62 mm, montaż wpuszczany);en_US@Front panel cutout pattern for ADMITTO-D RFID reader (110x62 mm, flush mount);de_DE@Frontplatten-Ausschnitt für ADMITTO-D RFID-Leser (110x62 mm, Paneleinbau);</P_PART_CONSTRUCTION_DESCRIPTION>\n  <drillingpattern P_DRILLING_NAME="PHG.ADMITTO-D" P_DRILLING_WIDTH="110.0" P_DRILLING_HEIGHT="62.0" P_DRILLING_DEPTH="24.0">\n    <cutout type="cutout" shape="rectangle" width="110.0" height="62.0" x="0.0" y="0.0" depth="24.0" usage="flush_panel_cutout"/>\n  </drillingpattern>\n </construction>\n</partsmanagement>\n`,
   },
   'TPL.TL-POE150S': {
@@ -2453,14 +2500,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'TPL/TL-POE150S.png',
-    pictureLocalPath: 'EDZ/261109/TPL.TL-POE150S/TL-POE150S.png',
+    pictureLocalPath: 'EDZ/TPL/TPL.TL-POE150S/TL-POE150S.png',
     docs: [
       {
         relPath: 'TPL/TL-POE150S_datasheet.pdf',
-        localPath: 'EDZ/261109/TPL.TL-POE150S/TL-POE150S_datasheet.pdf',
+        localPath: 'EDZ/TPL/TPL.TL-POE150S/TL-POE150S_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261109/TPL.TL-POE150S/TPL.TL-POE150S.edz',
+    outputEdzPath: 'EDZ/TPL/TPL.TL-POE150S/TPL.TL-POE150S.edz',
   },
   'WIE.76.344.4035.0': {
     partNr: 'WIE.76.344.4035.0',
@@ -2508,14 +2555,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'WIE/76.344.4035.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.76.344.4035.0/76.344.4035.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.76.344.4035.0/76.344.4035.0.png',
     docs: [
       {
         relPath: 'WIE/76.344.4035.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.76.344.4035.0/76.344.4035.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.76.344.4035.0/76.344.4035.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.76.344.4035.0/WIE.76.344.4035.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.76.344.4035.0/WIE.76.344.4035.0.edz',
   },
   'WIE.71.353.2435.0': {
     partNr: 'WIE.71.353.2435.0',
@@ -2563,14 +2610,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'WIE/71.353.2435.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.71.353.2435.0/71.353.2435.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.71.353.2435.0/71.353.2435.0.png',
     docs: [
       {
         relPath: 'WIE/71.353.2435.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.71.353.2435.0/71.353.2435.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.71.353.2435.0/71.353.2435.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.71.353.2435.0/WIE.71.353.2435.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.71.353.2435.0/WIE.71.353.2435.0.edz',
   },
   'WIE.76.334.6435.0': {
     partNr: 'WIE.76.334.6435.0',
@@ -2618,14 +2665,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'WIE/76.334.6435.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.76.334.6435.0/76.334.6435.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.76.334.6435.0/76.334.6435.0.png',
     docs: [
       {
         relPath: 'WIE/76.334.6435.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.76.334.6435.0/76.334.6435.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.76.334.6435.0/76.334.6435.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.76.334.6435.0/WIE.76.334.6435.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.76.334.6435.0/WIE.76.334.6435.0.edz',
   },
   // ==================== BATCH 3 WIELAND + BALLUFF (18.11.2026) ====================
   'WIE.70.310.2440.0': {
@@ -2890,14 +2937,14 @@ const CATALOG = {
       }
     ],
     pictureRelPath: 'WIE/70.310.2440.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.70.310.2440.0/70.310.2440.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.70.310.2440.0/70.310.2440.0.png',
     docs: [
       {
         relPath: 'WIE/70.310.2440.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.70.310.2440.0/70.310.2440.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.70.310.2440.0/70.310.2440.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.70.310.2440.0/WIE.70.310.2440.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.70.310.2440.0/WIE.70.310.2440.0.edz',
   },
   'WIE.70.300.2440.0': {
     partNr: 'WIE.70.300.2440.0',
@@ -3161,14 +3208,14 @@ const CATALOG = {
       }
     ],
     pictureRelPath: 'WIE/70.300.2440.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.70.300.2440.0/70.300.2440.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.70.300.2440.0/70.300.2440.0.png',
     docs: [
       {
         relPath: 'WIE/70.300.2440.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.70.300.2440.0/70.300.2440.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.70.300.2440.0/70.300.2440.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.70.300.2440.0/WIE.70.300.2440.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.70.300.2440.0/WIE.70.300.2440.0.edz',
   },
   'WIE.71.350.1635.0': {
     partNr: 'WIE.71.350.1635.0',
@@ -3216,14 +3263,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'WIE/71.350.1635.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.71.350.1635.0/71.350.1635.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.71.350.1635.0/71.350.1635.0.png',
     docs: [
       {
         relPath: 'WIE/71.350.1635.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.71.350.1635.0/71.350.1635.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.71.350.1635.0/71.350.1635.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.71.350.1635.0/WIE.71.350.1635.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.71.350.1635.0/WIE.71.350.1635.0.edz',
   },
   'WIE.70.310.1640.0': {
     partNr: 'WIE.70.310.1640.0',
@@ -3415,14 +3462,14 @@ const CATALOG = {
       }
     ],
     pictureRelPath: 'WIE/70.310.1640.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.70.310.1640.0/70.310.1640.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.70.310.1640.0/70.310.1640.0.png',
     docs: [
       {
         relPath: 'WIE/70.310.1640.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.70.310.1640.0/70.310.1640.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.70.310.1640.0/70.310.1640.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.70.310.1640.0/WIE.70.310.1640.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.70.310.1640.0/WIE.70.310.1640.0.edz',
   },
   'WIE.70.300.1640.0': {
     partNr: 'WIE.70.300.1640.0',
@@ -3614,14 +3661,14 @@ const CATALOG = {
       }
     ],
     pictureRelPath: 'WIE/70.300.1640.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.70.300.1640.0/70.300.1640.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.70.300.1640.0/70.300.1640.0.png',
     docs: [
       {
         relPath: 'WIE/70.300.1640.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.70.300.1640.0/70.300.1640.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.70.300.1640.0/70.300.1640.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.70.300.1640.0/WIE.70.300.1640.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.70.300.1640.0/WIE.70.300.1640.0.edz',
   },
   'BAL.BCC06U4': {
     partNr: 'BAL.BCC06U4',
@@ -3703,14 +3750,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'BAL/BCC06U4.png',
-    pictureLocalPath: 'EDZ/261118/BAL.BCC06U4/BCC06U4.png',
+    pictureLocalPath: 'EDZ/BAL/BAL.BCC06U4/BCC06U4.png',
     docs: [
       {
         relPath: 'BAL/BCC06U4_datasheet.pdf',
-        localPath: 'EDZ/261118/BAL.BCC06U4/BCC06U4_datasheet.pdf',
+        localPath: 'EDZ/BAL/BAL.BCC06U4/BCC06U4_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/BAL.BCC06U4/BAL.BCC06U4.edz',
+    outputEdzPath: 'EDZ/BAL/BAL.BCC06U4/BAL.BCC06U4.edz',
   },
   'BAL.BCC083H': {
     partNr: 'BAL.BCC083H',
@@ -3801,14 +3848,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'BAL/BCC083H.png',
-    pictureLocalPath: 'EDZ/261118/BAL.BCC083H/BCC083H.png',
+    pictureLocalPath: 'EDZ/BAL/BAL.BCC083H/BCC083H.png',
     docs: [
       {
         relPath: 'BAL/BCC083H_datasheet.pdf',
-        localPath: 'EDZ/261118/BAL.BCC083H/BCC083H_datasheet.pdf',
+        localPath: 'EDZ/BAL/BAL.BCC083H/BCC083H_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/BAL.BCC083H/BAL.BCC083H.edz',
+    outputEdzPath: 'EDZ/BAL/BAL.BCC083H/BAL.BCC083H.edz',
   },
   'BAL.BCC0KE3': {
     partNr: 'BAL.BCC0KE3',
@@ -3899,14 +3946,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'BAL/BCC0KE3.png',
-    pictureLocalPath: 'EDZ/261118/BAL.BCC0KE3/BCC0KE3.png',
+    pictureLocalPath: 'EDZ/BAL/BAL.BCC0KE3/BCC0KE3.png',
     docs: [
       {
         relPath: 'BAL/BCC0KE3_datasheet.pdf',
-        localPath: 'EDZ/261118/BAL.BCC0KE3/BCC0KE3_datasheet.pdf',
+        localPath: 'EDZ/BAL/BAL.BCC0KE3/BCC0KE3_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/BAL.BCC0KE3/BAL.BCC0KE3.edz',
+    outputEdzPath: 'EDZ/BAL/BAL.BCC0KE3/BAL.BCC0KE3.edz',
   },
   // ==================== BATCH 4 WIELAND WIPOS & WIENET (18.11.2026) ====================
   'WIE.81.000.1110.1': {
@@ -3954,14 +4001,14 @@ const CATALOG = {
       { connectionDesignation: '13\n14', connectionDescription: 'DC OK Relay (NO)', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 8 },
     ],
     pictureRelPath: 'WIE/81.000.1110.1.png',
-    pictureLocalPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.81.000.1110.1/81.000.1110.1.png',
     docs: [
       {
         relPath: 'WIE/81.000.1110.1_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.81.000.1110.1/81.000.1110.1_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.81.000.1110.1/WIE.81.000.1110.1.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.81.000.1110.1/WIE.81.000.1110.1.edz',
   },
   'WIE.81.000.1120.1': {
     partNr: 'WIE.81.000.1120.1',
@@ -4008,14 +4055,14 @@ const CATALOG = {
       { connectionDesignation: '13\n14', connectionDescription: 'DC OK Relay (NO)', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 8 },
     ],
     pictureRelPath: 'WIE/81.000.1120.1.png',
-    pictureLocalPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.81.000.1120.1/81.000.1120.1.png',
     docs: [
       {
         relPath: 'WIE/81.000.1120.1_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.81.000.1120.1/81.000.1120.1_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.81.000.1120.1/WIE.81.000.1120.1.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.81.000.1120.1/WIE.81.000.1120.1.edz',
   },
   'WIE.PL.040.1281.0': {
     partNr: 'WIE.PL.040.1281.0',
@@ -4065,14 +4112,14 @@ const CATALOG = {
       { connectionDesignation: '8', connectionDescription: 'ETH Port 8 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 11 },
     ],
     pictureRelPath: 'WIE/PL.040.1281.0.png',
-    pictureLocalPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.PL.040.1281.0/PL.040.1281.0.png',
     docs: [
       {
         relPath: 'WIE/PL.040.1281.0_datasheet.pdf',
-        localPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.PL.040.1281.0/PL.040.1281.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261118/WIE.PL.040.1281.0/WIE.PL.040.1281.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.PL.040.1281.0/WIE.PL.040.1281.0.edz',
   },
 
   'WIE.83.040.1281.0': {
@@ -4123,14 +4170,14 @@ const CATALOG = {
       { connectionDesignation: '8', connectionDescription: 'ETH Port 8 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 11 },
     ],
     pictureRelPath: 'WIE/83.040.1281.0.png',
-    pictureLocalPath: 'EDZ/261119/WIE.83.040.1281.0/83.040.1281.0.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.83.040.1281.0/83.040.1281.0.png',
     docs: [
       {
         relPath: 'WIE/83.040.1281.0_datasheet.pdf',
-        localPath: 'EDZ/261119/WIE.83.040.1281.0/83.040.1281.0_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.83.040.1281.0/83.040.1281.0_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261119/WIE.83.040.1281.0/WIE.83.040.1281.0.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.83.040.1281.0/WIE.83.040.1281.0.edz',
   },
 
   'WIE.71.330.2435.1': {
@@ -4179,14 +4226,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'WIE/71.330.2435.1.png',
-    pictureLocalPath: 'EDZ/261119/WIE.71.330.2435.1/71.330.2435.1.png',
+    pictureLocalPath: 'EDZ/WIE/WIE.71.330.2435.1/71.330.2435.1.png',
     docs: [
       {
         relPath: 'WIE/71.330.2435.1_datasheet.pdf',
-        localPath: 'EDZ/261119/WIE.71.330.2435.1/71.330.2435.1_datasheet.pdf',
+        localPath: 'EDZ/WIE/WIE.71.330.2435.1/71.330.2435.1_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261119/WIE.71.330.2435.1/WIE.71.330.2435.1.edz',
+    outputEdzPath: 'EDZ/WIE/WIE.71.330.2435.1/WIE.71.330.2435.1.edz',
   },
   'LEN.30K5CTO1WW': {
     partNr: 'LEN.30K5CTO1WW',
@@ -4268,14 +4315,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'LEN/30K5CTO1WW.png',
-    pictureLocalPath: 'EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW.png',
+    pictureLocalPath: 'EDZ/LEN/LEN.30K5CTO1WW/30K5CTO1WW.png',
     docs: [
       {
         relPath: 'LEN/30K5CTO1WW_datasheet.pdf',
-        localPath: 'EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW_datasheet.pdf',
+        localPath: 'EDZ/LEN/LEN.30K5CTO1WW/30K5CTO1WW_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261119/LEN.30K5CTO1WW/LEN.30K5CTO1WW.edz',
+    outputEdzPath: 'EDZ/LEN/LEN.30K5CTO1WW/LEN.30K5CTO1WW.edz',
   },
 
   'RIT.5840600': {
@@ -4322,14 +4369,14 @@ const CATALOG = {
       },
     ],
     pictureRelPath: 'RIT/5840600.png',
-    pictureLocalPath: 'EDZ/261119/RIT.5840600/5840600.png',
+    pictureLocalPath: 'EDZ/RIT/RIT.5840600/5840600.png',
     docs: [
       {
         relPath: 'RIT/5840600_datasheet.pdf',
-        localPath: 'EDZ/261119/RIT.5840600/5840600_datasheet.pdf',
+        localPath: 'EDZ/RIT/RIT.5840600/5840600_datasheet.pdf',
       },
     ],
-    outputEdzPath: 'EDZ/261119/RIT.5840600/RIT.5840600.edz',
+    outputEdzPath: 'EDZ/RIT/RIT.5840600/RIT.5840600.edz',
   },
 };
 
@@ -4464,6 +4511,8 @@ if (require.main === module) {
 module.exports = {
   generateEDZ,
   createZip,
+  copyToDesktopEdz,
+  getDesktopEdzDirs,
   CATALOG,
   KNOWN_MANUFACTURERS,
   EPLAN_PRODUCT_TOP_GROUPS,

@@ -134,7 +134,7 @@ function getBaseStyle() {
 }
 
 function generateDatasheetHTML() {
-  const imgPath = path.resolve('EDZ/261119/WIE.83.040.1281.0/83.040.1281.0.png');
+  const imgPath = path.resolve('EDZ/WIE/WIE.83.040.1281.0/83.040.1281.0.png');
   const imgBase64 = fs.readFileSync(imgPath).toString('base64');
   const imgSrc = `data:image/png;base64,${imgBase64}`;
 
@@ -404,7 +404,7 @@ async function main() {
   const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
   const html = generateDatasheetHTML();
   const tempHtmlPath = path.resolve('scripts/83_040_1281_0_datasheet.html');
-  const targetPdfPath = path.resolve('EDZ/261119/WIE.83.040.1281.0/83.040.1281.0_datasheet.pdf');
+  const targetPdfPath = path.resolve('EDZ/WIE/WIE.83.040.1281.0/83.040.1281.0_datasheet.pdf');
 
   fs.writeFileSync(tempHtmlPath, html, 'utf8');
   console.log('Saved HTML to:', tempHtmlPath);

@@ -9,8 +9,8 @@ const articles = [
     partNr: 'WIE.81.000.1110.1',
     orderNr: '81.000.1110.1',
     typeNr: 'WIPOS PSU1 24-10 P',
-    imgPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1.png',
-    pdfPath: 'EDZ/261118/WIE.81.000.1110.1/81.000.1110.1_datasheet.pdf',
+    imgPath: 'EDZ/WIE/WIE.81.000.1110.1/81.000.1110.1.png',
+    pdfPath: 'EDZ/WIE/WIE.81.000.1110.1/81.000.1110.1_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Zasilacz impulsowy 24V / 10A (240W)',
     subtitle_pl: 'wipos PSU1 24-10 P, 1-fazowy zasilacz na szynę DIN, Push-In, styk DC OK',
@@ -114,8 +114,8 @@ const articles = [
     partNr: 'WIE.81.000.1120.1',
     orderNr: '81.000.1120.1',
     typeNr: 'WIPOS PSU1 24-20 P',
-    imgPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1.png',
-    pdfPath: 'EDZ/261118/WIE.81.000.1120.1/81.000.1120.1_datasheet.pdf',
+    imgPath: 'EDZ/WIE/WIE.81.000.1120.1/81.000.1120.1.png',
+    pdfPath: 'EDZ/WIE/WIE.81.000.1120.1/81.000.1120.1_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Zasilacz impulsowy 24V / 20A (480W)',
     subtitle_pl: 'wipos PSU1 24-20 P, 1-fazowy zasilacz na szynę DIN, Push-In, styk DC OK',
@@ -219,8 +219,8 @@ const articles = [
     partNr: 'WIE.PL.040.1281.0',
     orderNr: 'PL.040.1281.0',
     typeNr: 'WIENET IP SWITCH UMS 8-C SLIM',
-    imgPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0.png',
-    pdfPath: 'EDZ/261118/WIE.PL.040.1281.0/PL.040.1281.0_datasheet.pdf',
+    imgPath: 'EDZ/WIE/WIE.PL.040.1281.0/PL.040.1281.0.png',
+    pdfPath: 'EDZ/WIE/WIE.PL.040.1281.0/PL.040.1281.0_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Switch przemysłowy 8x RJ45 Fast Ethernet',
     subtitle_pl: 'wienet UMS 8-C SLIM, niezarządzalny switch Ethernet, 12-48V DC, szyna DIN',

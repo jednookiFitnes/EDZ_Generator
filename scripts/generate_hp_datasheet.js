@@ -140,7 +140,7 @@ function getBaseStyle() {
 }
 
 function generateHp9ubHtml() {
-  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261109/HP.9UB87AA/9UB87AA.png';
+  const imgUrl = 'file:///g:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/HP/HP.9UB87AA/9UB87AA.png';
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -357,7 +357,7 @@ console.log('Created scripts/9UB87AA_datasheet.html');
 
 const edge = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const htmlResolved = path.resolve('scripts/9UB87AA_datasheet.html');
-const pdfResolved = path.resolve('EDZ/261109/HP.9UB87AA/9UB87AA_datasheet.pdf');
+const pdfResolved = path.resolve('EDZ/HP/HP.9UB87AA/9UB87AA_datasheet.pdf');
 const cmd = `"${edge}" --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf="${pdfResolved}" --no-pdf-header-footer "${htmlResolved}"`;
 cp.execSync(cmd);
 console.log('Rendered PDF:', pdfResolved, fs.statSync(pdfResolved).size, 'bytes');

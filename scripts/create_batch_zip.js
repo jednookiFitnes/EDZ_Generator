@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { createZip } = require('./generate_edz');
+const { createZip, copyToDesktopEdz } = require('./generate_edz');
 
 function getTimestamp() {
   const d = new Date();
@@ -46,6 +46,9 @@ function createBatchZip(edzFilePaths, outputDir) {
   const outputPath = path.join(targetDir, zipFileName);
   fs.writeFileSync(outputPath, zipBuffer);
   console.log(`Created flat EDZ batch zip: ${outputPath} (${zipBuffer.length} bytes, ${filesForZip.length} files)`);
+  if (typeof copyToDesktopEdz === 'function') {
+    copyToDesktopEdz(outputPath);
+  }
   return outputPath;
 }
 

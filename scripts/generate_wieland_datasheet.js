@@ -138,7 +138,7 @@ function getBaseStyle() {
 }
 
 function generateWielandHtml() {
-  const imgUrl = 'file:///G:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/261118/WIE.76.344.4035.0/76.344.4035.0.png';
+  const imgUrl = 'file:///G:/M%C3%B3j%20dysk/Projekty%20Antigravity/Eplan%20EDZ%20generator/EDZ/WIE/WIE.76.344.4035.0/76.344.4035.0.png';
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -370,7 +370,7 @@ const htmlPath = 'scripts/76.344.4035.0_datasheet.html';
 fs.writeFileSync(htmlPath, htmlContent, 'utf8');
 
 const edge = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
-const targetPdf = 'EDZ/261118/WIE.76.344.4035.0/76.344.4035.0_datasheet.pdf';
+const targetPdf = 'EDZ/WIE/WIE.76.344.4035.0/76.344.4035.0_datasheet.pdf';
 
 const htmlResolved = path.resolve(htmlPath);
 const pdfResolved = path.resolve(targetPdf);

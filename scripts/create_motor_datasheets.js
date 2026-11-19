@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
 
-const img1Base64 = fs.readFileSync('EDZ/261029/BIR.5AP112M-2K/5AP112M-2K.png').toString('base64');
-const img2Base64 = fs.readFileSync('EDZ/261029/STU.7AA112M-02/7AA112M-02.png').toString('base64');
+const img1Base64 = fs.readFileSync('EDZ/BIR/BIR.5AP112M-2K/5AP112M-2K.png').toString('base64');
+const img2Base64 = fs.readFileSync('EDZ/STU/STU.7AA112M-02/7AA112M-02.png').toString('base64');
 
 // 1. HTML for Robert Birkenbeul 5AP112M-2K
 const html1 = `<!DOCTYPE html>

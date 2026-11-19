@@ -9,8 +9,8 @@ const articles = [
     partNr: 'BAL.BCC06U4',
     orderNr: 'BCC06U4',
     typeNr: 'BCC M425-0000-1A-008-PX0434-150',
-    imgPath: 'EDZ/261118/BAL.BCC06U4/BCC06U4.png',
-    pdfPath: 'EDZ/261118/BAL.BCC06U4/BCC06U4_datasheet.pdf',
+    imgPath: 'EDZ/BAL/BAL.BCC06U4/BCC06U4.png',
+    pdfPath: 'EDZ/BAL/BAL.BCC06U4/BCC06U4_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Przewód czujnikowy M12 15m',
     subtitle_pl: 'Przewód ze złączem M12x1 kątowy żeński 5-pin, 3x LED PNP, PUR 4x0.34 mm², 15 m',
@@ -111,8 +111,8 @@ const articles = [
     partNr: 'BAL.BCC083H',
     orderNr: 'BCC083H',
     typeNr: 'BCC M425-0000-1A-017-VX8534-150',
-    imgPath: 'EDZ/261118/BAL.BCC083H/BCC083H.png',
-    pdfPath: 'EDZ/261118/BAL.BCC083H/BCC083H_datasheet.pdf',
+    imgPath: 'EDZ/BAL/BAL.BCC083H/BCC083H.png',
+    pdfPath: 'EDZ/BAL/BAL.BCC083H/BCC083H_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Przewód czujnikowy M12 5x0.34 15m',
     subtitle_pl: 'Przewód ze złączem M12x1 kątowy żeński 5-pin, PVC szary 5x0.34 mm², 15 m',
@@ -210,8 +210,8 @@ const articles = [
     partNr: 'BAL.BCC0KE3',
     orderNr: 'BCC0KE3',
     typeNr: 'BCC M425-0000-1A-017-VX8534-250',
-    imgPath: 'EDZ/261118/BAL.BCC0KE3/BCC0KE3.png',
-    pdfPath: 'EDZ/261118/BAL.BCC0KE3/BCC0KE3_datasheet.pdf',
+    imgPath: 'EDZ/BAL/BAL.BCC0KE3/BCC0KE3.png',
+    pdfPath: 'EDZ/BAL/BAL.BCC0KE3/BCC0KE3_datasheet.pdf',
 
     title_pl: 'Karta katalogowa / DTR: Przewód czujnikowy M12 5x0.34 25m',
     subtitle_pl: 'Przewód ze złączem M12x1 kątowy żeński 5-pin, PVC szary 5x0.34 mm², 25 m',

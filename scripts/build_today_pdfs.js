@@ -134,7 +134,7 @@ function getBaseStyle() {
 }
 
 function generate71330HTML() {
-  const imgPath = path.resolve('EDZ/261119/WIE.71.330.2435.1/71.330.2435.1.png');
+  const imgPath = path.resolve('EDZ/WIE/WIE.71.330.2435.1/71.330.2435.1.png');
   const imgBase64 = fs.readFileSync(imgPath).toString('base64');
   const imgSrc = `data:image/png;base64,${imgBase64}`;
 
@@ -406,7 +406,7 @@ async function main() {
   // 1. Render 71.330.2435.1
   const html71 = generate71330HTML();
   const tempHtml71 = path.resolve('scripts/71_330_2435_1_datasheet.html');
-  const targetPdf71 = path.resolve('EDZ/261119/WIE.71.330.2435.1/71.330.2435.1_datasheet.pdf');
+  const targetPdf71 = path.resolve('EDZ/WIE/WIE.71.330.2435.1/71.330.2435.1_datasheet.pdf');
   
   fs.writeFileSync(tempHtml71, html71, 'utf8');
   console.log('Rendering 71.330.2435.1 PDF...');

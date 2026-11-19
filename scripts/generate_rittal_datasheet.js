@@ -152,7 +152,7 @@ function getBaseStyle() {
 }
 
 function buildHtml() {
-  const imgPath = path.resolve('EDZ/261119/RIT.5840600/5840600.png');
+  const imgPath = path.resolve('EDZ/RIT/RIT.5840600/5840600.png');
   const imgBase64 = fs.readFileSync(imgPath).toString('base64');
   const imgSrc = `data:image/png;base64,${imgBase64}`;
 
@@ -386,7 +386,7 @@ function buildHtml() {
 
 const htmlContent = buildHtml();
 const tempHtmlPath = path.resolve('scripts/5840600_datasheet.html');
-const outputPdfPath = path.resolve('EDZ/261119/RIT.5840600/5840600_datasheet.pdf');
+const outputPdfPath = path.resolve('EDZ/RIT/RIT.5840600/5840600_datasheet.pdf');
 
 fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
 console.log('HTML written to:', tempHtmlPath);

@@ -18,17 +18,19 @@
 * **Project Root (JEDYNA ŚCIEŻKA PROJEKTU)**: `C:\Dev\Trinitec\Eplan EDZ generator\`
   * **BEZWZGLĘDNY ZAKAZ UŻYWANIA DYSKU G**: Projekt znajduje się i funkcjonuje wyłącznie lokalnie na dysku C (`C:\Dev\Trinitec\Eplan EDZ generator\`). Obowiązuje całkowity zakaz odwoływania się do dysku G (`G:\Mój dysk\...`), synchronizowania na nim zmian, wykonywania `git pull`/`git push` czy tworzenia tam jakichkolwiek plików. Dysk G ma być całkowicie ignorowany.
 
-* **`EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/`**: Daily article working directory (e.g., `EDZ/261030/PXC.3270531/`) containing:
+* **`EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/`**: Główny folder roboczy artykułu podzielony według producentów (np. `EDZ/RIT/RIT.5840600/`, `EDZ/PXC/PXC.3270531/`) zawierający:
 
-  * Trilingual Datasheet / DTR PDF (`PL` $\rightarrow$ `ENG` $\rightarrow$ `DE`): `<SanitizedPartNr>_datasheet.pdf`
+  * Trójjęzyczną kartę techniczną / DTR PDF (`PL` $\rightarrow$ `ENG` $\rightarrow$ `DE`): `<SanitizedPartNr>_datasheet.pdf`
 
-  * Product photo PNG: `<SanitizedPartNr>.png`
+  * Zdjęcie produktu PNG: `<SanitizedPartNr>.png`
 
-  * Generated exchange package: `<Manufacturer>.<SanitizedPartNr>.edz`
+  * Wygenerowany pakiet wymiany artykułu: `<Manufacturer>.<SanitizedPartNr>.edz`
 
-* **`EDZ/<YYMMDD>/<YYMMDD>-<HHMMSS>.zip`**: Flat batch ZIP archive containing **only** `.edz` files from the current task (zero subfolders inside the ZIP) for one-click user download and EPLAN import.
+* **`Desktop/EDZ/`** (`C:\Users\pswie\Desktop\EDZ` oraz `OneDrive - Trinitec\Pulpit\EDZ`): Każdy nowo wygenerowany plik `.edz` jest automatycznie zapisywany / kopiowany do folderu `EDZ` na pulpicie użytkownika do natychmiastowego importu w EPLAN.
 
-* **`scripts/generate_edz.js`**: Core `.edz` generator engine with UTF-8 ZIP handling, `KNOWN_MANUFACTURERS` dictionary, and persistent `CATALOG` article registry.
+* **BEZWZGLĘDNY ZAKAZ GENEROWANIA PACZEK ZIP**: Całkowity zakaz tworzenia archiwów `.zip` (paczki zip zostały usunięte z projektu i nie są już generowane).
+
+* **`scripts/generate_edz.js`**: Core `.edz` generator engine with UTF-8 ZIP handling, automatic Desktop EDZ copying, `KNOWN_MANUFACTURERS` dictionary, and persistent `CATALOG` article registry.
 
 * **`scripts/create_batch_zip.js`**: Packs multiple `.edz` files from a task into a flat `EDZ/<YYMMDD>/<YYMMDD>-<HHMMSS>.zip` archive.
 
@@ -168,14 +170,14 @@ Define accurate terminal connection points inside `<variant>` based on the offic
 
 ## 3. Standard Execution Workflow
 
-Execute the following 6 steps in strict sequence whenever asked to generate one or more EDZ articles:
+Execute the following 5 steps in strict sequence whenever asked to generate one or more EDZ articles:
 
-### Step 1: Daily Directory Setup
+### Step 1: Directory Setup by Manufacturer
 
-1. Determine current date in `YYMMDD` format (e.g., `261030`).
+1. Determine the manufacturer short code `<Manufacturer>` (e.g. `RIT`, `SIE`, `PXC`, `WIE`).
 
 2. Sanitize `<PartNr>` for filesystem paths (replace `/`, `\`, `:`, `*`, `?`, `"`, `<`, `>`, `|` with `-` or `_`) and create:
-   `EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/`
+   `EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/`
 
 ### Step 2: Verification of Official Data, Product Image & Trilingual DTR Generation
 
@@ -185,7 +187,7 @@ Execute the following 6 steps in strict sequence whenever asked to generate one 
 
    * **STOP & ASK PROTOCOL**: If any required parameter (especially physical dimensions, weight, electrical ratings, or terminal connection markings) cannot be found in official manufacturer documentation or on the manufacturer's website, **DO NOT GUESS OR FABRICATE IT**. Immediately halt generation for that item, list the found vs. missing parameters to the user in Polish, and ask the user how to proceed (e.g., whether the user will provide the missing values, supply an alternative datasheet, or authorize leaving specific optional fields blank).
 
-   * Extract or download the official product image and save as a clean PNG in `EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/<SanitizedPartNr>.png`.
+   * Extract or download the official product image and save as a clean PNG in `EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<SanitizedPartNr>.png`.
 
 2. **Mandatory Trilingual Technical Datasheet (DTR) in a Single PDF (`PL`** $\rightarrow$ **`ENG`** $\rightarrow$ **`DE`)**:
 
@@ -204,13 +206,12 @@ Execute the following 6 steps in strict sequence whenever asked to generate one 
    * Render the HTML into a single vector PDF via headless Edge:
 
      ```
-     node scripts/html_to_pdf.js "scripts/<SanitizedPartNr>_datasheet.html" "EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/<SanitizedPartNr>_datasheet.pdf"
-     
+     node scripts/html_to_pdf.js "scripts/<SanitizedPartNr>_datasheet.html" "EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<SanitizedPartNr>_datasheet.pdf"
      ```
 
    * Verify the generated PDF exists, has size $> 0\text{ bytes}$, and contains all three language sections (`PL` $\rightarrow$ `ENG` $\rightarrow$ `DE`), then delete the temporary `.html` file from `scripts/`.
 
-### Step 3: Registry Update & `.edz` Generation
+### Step 3: Registry Update, `.edz` Generation & Desktop Sync
 
 1. Append or update the article entry inside `CATALOG` (and manufacturer in `KNOWN_MANUFACTURERS` if new) inside `scripts/generate_edz.js`.
 
@@ -218,41 +219,27 @@ Execute the following 6 steps in strict sequence whenever asked to generate one 
 
    ```
    node scripts/generate_edz.js "<Manufacturer>.<SanitizedPartNr>"
-   
    ```
 
-3. Confirm `EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz` is created and bundles both `<SanitizedPartNr>.png` and the trilingual `<SanitizedPartNr>_datasheet.pdf`.
+3. Confirm `EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz` is created and automatically copied to the user's Desktop `EDZ` folder (`C:\Users\pswie\Desktop\EDZ`).
 
-### Step 4: Flat Batch ZIP Creation
-
-1. Once all requested `.edz` packages in the current task are built, create a single flat batch ZIP archive containing **only the `.edz` files** (no nested folders):
-
-   ```
-   node scripts/create_batch_zip.js "EDZ/<YYMMDD>/<Art1>/<Art1>.edz" "EDZ/<YYMMDD>/<Art2>/<Art2>.edz"
-   
-   ```
-
-2. Confirm output archive `EDZ/<YYMMDD>/<YYMMDD>-<HHMMSS>.zip` exists.
-
-### Step 5: Integrity & Compliance Verification
+### Step 4: Integrity & Compliance Verification
 
 1. Validate XML syntax and tag closure:
 
    ```
-   node scripts/verify_xml.js "EDZ/<YYMMDD>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz"
-   
+   node scripts/verify_xml.js "EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz"
    ```
 
 2. Validate Product Grouping compliance:
 
    ```
    node scripts/verify_grouping.js
-   
    ```
 
-3. Inspect archive entries via `tar.exe -tf "<PathToFile>.edz"` (confirming `manifest.xml`, `part.xml`, `.png`, and trilingual `_datasheet.pdf` are present) and `tar.exe -tf "<PathToBatch>.zip"`.
+3. Inspect archive entries via `tar.exe -tf "<PathToFile>.edz"` (confirming `manifest.xml`, `part.xml`, `.png`, and trilingual `_datasheet.pdf` are present).
 
-### Step 6: User Report with MANDATORY Clickable `file:///` Links
+### Step 5: User Report with MANDATORY Clickable `file:///` Links
 
 At the end of every completion report:
 
@@ -261,10 +248,13 @@ At the end of every completion report:
 2. **STRICT REQUIREMENT**: Provide clickable `file:///` Markdown links (with URL-encoded spaces `%20` and Polish diacritics, e.g., `M%C3%B3j%20dysk`, and forward slashes `/`) pointing to:
 
    * Every created article folder:
-     `[EDZ/261030/PXC.3270531](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261030/PXC.3270531)`
+     `[EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>)`
 
-   * The generated batch ZIP archive:
-     `[Pobierz paczkę EDZ: 261030-115721.zip](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261030/261030-115721.zip)`
+   * Every generated `.edz` file:
+     `[<Manufacturer>.<SanitizedPartNr>.edz](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/<Manufacturer>/<Manufacturer>.<SanitizedPartNr>/<Manufacturer>.<SanitizedPartNr>.edz)`
+
+   * The Desktop EDZ folder:
+     `[Folder EDZ na Pulpicie](file:///C:/Users/pswie/Desktop/EDZ)`
 
 ## 4. Critical Rules & Guardrails
 

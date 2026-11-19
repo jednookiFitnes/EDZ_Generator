@@ -9,10 +9,12 @@ description: >-
 Ten skill służy do automatycznego generowania gotowych plików **`.edz`** (EPLAN Data Archive Zipped) na podstawie kart katalogowych produktów dla programu **EPLAN Electric P8**.
 
 ## 1. Konwencja struktury folderów w projekcie
-* Artykuły są organizowane i generowane do podfolderów powiązanych z dniem ich utworzenia w formacie **`YYMMDD`** (rok, miesiąc, dzień):
-  `EDZ/<YYMMDD>/<Producent>.<NumerArtykułu>/` (np. `EDZ/261027/SIE.5SG6206/`).
+* Artykuły są organizowane i generowane do podfolderów producentów:
+  `EDZ/<Producent>/<Producent>.<NumerArtykułu>/` (np. `EDZ/SIE/SIE.5SG6206/`, `EDZ/RIT/RIT.5840600/`).
 * Wewnątrz folderu artykułu znajdują się karty katalogowe w formacie PDF, zdjęcia urządzenia oraz wygenerowany plik `.edz`.
 * Nazwa podfolderu artykułu jest jednocześnie numerem artykułu (`P_ARTICLE_PARTNR`).
+* **Automatyczna synchronizacja na Pulpicie**: Każdy nowo wygenerowany plik `.edz` jest automatycznie kopiowany do folderu `EDZ` na pulpicie użytkownika (`C:\Users\pswie\Desktop\EDZ` oraz `OneDrive - Trinitec\Pulpit\EDZ`).
+* **Zakaz generowania paczek ZIP**: W projekcie nie generuje się już archiwów `.zip` (użytkownik pobiera pliki `.edz` bezpośrednio z projektu lub pulpitu).
 
 ---
 
@@ -247,24 +249,23 @@ Archiwum `.edz` to archiwum ZIP (kodowanie nazw UTF-8) o następującej struktur
 
 Gdy użytkownik wskaże folder lub poprosi o utworzenie artykułu EDZ:
 1. **Analiza dokumentacji**:
-   * Otwórz i przeanalizuj pliki PDF w folderze artykułu (`view_file` lub skrypt pomocniczy).
-   * Zidentyfikuj konkretny model wskazany w nazwie folderu.
+   * Otwórz i przeanalizuj oficjalne pliki PDF lub strony producenta.
+   * Zidentyfikuj konkretny model wskazany w zapytaniu.
    * Wypisz kluczowe dane: wymiary gabarytowe, wagę, zasilanie, styki, opis i dane producenta.
-2. **Przygotowanie grafiki urządzenia**:
-   * Wyodrębnij obraz z pliku PDF (np. za pomocą skryptu Node.js lub kadrowania bitmapy) do pliku `KR-...png` w folderze artykułu.
-3. **Generowanie pakietu EDZ**:
+2. **Przygotowanie grafiki urządzenia i trójjęzycznej DTR**:
+   * Zapisz wykadrowany obraz z przezroczystym tłem w folderze `EDZ/<Producent>/<Producent>.<NumerArtykułu>/<NumerArtykułu>.png`.
+   * Wygeneruj trójjęzyczną kartę PDF (`PL` -> `ENG` -> `DE`) w jednym pliku: `..._datasheet.pdf`.
+3. **Generowanie pakietu EDZ i synchronizacja na Pulpit**:
    * Wykorzystaj silnik generatora `scripts/generate_edz.js`, konfigurując parametry artykułu.
-   * Zapisz gotowy plik `.edz` w folderze artykułu.
-4. **Tworzenie archiwum paczki EDZ (Batch ZIP)**:
-   * Po wygenerowaniu plików `.edz` utwórz archiwum ZIP zawierające **wyłącznie same pliki `.edz`** z danego zadania (płaska struktura, bezpośrednio w korzeniu archiwum bez podfolderów).
-   * Nazwa archiwum ZIP: **`YYMMDD-HHMMSS.zip`** (np. `EDZ/261027/261027-155704.zip`).
-   * Do wygenerowania archiwum użyj `node scripts/create_batch_zip.js <ścieżki_do_plików_edz>` lub silnika generatora.
-5. **Weryfikacja**:
-   * Sprawdź poprawność archiwum za pomocą `tar.exe -tf "<Plik>.edz"` oraz `tar.exe -tf "<Archiwum>.zip"`.
-   * Zweryfikuj poprawność XML parserem `.NET` / `powershell`.
-6. **Raport**:
-   * Przedstaw użytkownikowi podsumowanie wprowadzonych wartości i potwierdzenie utworzenia plików `.edz` oraz archiwum ZIP.
-   * **Wymóg obowiązkowy (Clickable links)**: Na koniec odpowiedzi **ZAWSZE** wygeneruj klikalne linki Markdown (ze schematem `file:///...`) bezpośrednio do folderów z nowo utworzonymi plikami EDZ (np. `[EDZ/261027/SIE.5SG6206](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/261027/SIE.5SG6206)`) oraz bezpośredni link do wygenerowanego archiwum ZIP `YYMMDD-HHMMSS.zip`, umożliwiające użytkownikowi natychmiastowe pobranie paczki.
+   * Plik `.edz` zostaje automatycznie zapisany w folderze artykułu oraz skopiowany na Pulpit do folderu `Desktop/EDZ/`.
+   * **UWAGA**: Nie tworzymy i nie generujemy żadnych paczek `.zip`!
+4. **Weryfikacja**:
+   * Sprawdź poprawność archiwum za pomocą `tar.exe -tf "<Plik>.edz"`.
+   * Zweryfikuj poprawność XML parserem (`scripts/verify_xml.js`).
+   * Zweryfikuj klasyfikację grup produktów (`scripts/verify_grouping.js`).
+5. **Raport**:
+   * Przedstaw użytkownikowi podsumowanie wprowadzonych wartości i potwierdzenie utworzenia plików `.edz`.
+   * **Wymóg obowiązkowy (Clickable links)**: Na koniec odpowiedzi **ZAWSZE** wygeneruj klikalne linki Markdown (ze schematem `file:///...`) bezpośrednio do folderów z nowo utworzonymi plikami EDZ (np. `[EDZ/RIT/RIT.5840600](file:///C:/Dev/Trinitec/Eplan%20EDZ%20generator/EDZ/RIT/RIT.5840600)`), samego pliku `.edz` oraz bezpośredni link do folderu `Desktop/EDZ/` na pulpicie.
 
 ---
 

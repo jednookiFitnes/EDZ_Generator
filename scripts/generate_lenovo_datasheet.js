@@ -141,7 +141,7 @@ function getBaseStyle() {
 }
 
 function buildHtml() {
-  const imgPath = path.resolve('EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW.png');
+  const imgPath = path.resolve('EDZ/LEN/LEN.30K5CTO1WW/30K5CTO1WW.png');
   const imgBase64 = fs.readFileSync(imgPath).toString('base64');
   const imgSrc = `data:image/png;base64,${imgBase64}`;
 
@@ -388,7 +388,7 @@ function buildHtml() {
 
 function main() {
   const htmlPath = path.resolve('scripts/30K5CTO1WW_datasheet.html');
-  const pdfPath = path.resolve('EDZ/261119/LEN.30K5CTO1WW/30K5CTO1WW_datasheet.pdf');
+  const pdfPath = path.resolve('EDZ/LEN/LEN.30K5CTO1WW/30K5CTO1WW_datasheet.pdf');
 
   console.log('Generating HTML...');
   fs.writeFileSync(htmlPath, buildHtml(), 'utf8');
