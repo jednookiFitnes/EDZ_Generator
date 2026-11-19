@@ -256,6 +256,32 @@ const KNOWN_MANUFACTURERS = {
     town: 'Bensheim',
     state: 'DEUTSCHLAND',
   },
+  UGREEN: {
+    shortName: 'UGREEN',
+    longName: 'Ugreen Group Limited',
+    name1: 'Ugreen Group Limited',
+    name2: 'Shenzhen Ugreen Network Technology Co., Ltd.',
+    email: 'support@ugreen.com',
+    phone: '+86-755-2806-6530',
+    note: '??_??@https://www.ugreen.com;',
+    street: 'Ugreen Building, Longcheng Industrial Park, Longguanxi Road',
+    town: 'Shenzhen',
+    zipTown: '518109',
+    state: 'CHINA',
+  },
+  UGR: {
+    shortName: 'UGREEN',
+    longName: 'Ugreen Group Limited',
+    name1: 'Ugreen Group Limited',
+    name2: 'Shenzhen Ugreen Network Technology Co., Ltd.',
+    email: 'support@ugreen.com',
+    phone: '+86-755-2806-6530',
+    note: '??_??@https://www.ugreen.com;',
+    street: 'Ugreen Building, Longcheng Industrial Park, Longguanxi Road',
+    town: 'Shenzhen',
+    zipTown: '518109',
+    state: 'CHINA',
+  },
   SIE: {
     shortName: 'SIE',
     longName: 'Siemens AG',
@@ -4378,9 +4404,155 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/RIT/RIT.5840600/RIT.5840600.edz',
   },
+  'UGREEN.CM664': {
+    partNr: 'UGREEN.CM664',
+    typeNr: 'CM664',
+    orderNr: '15707',
+    manufacturer: 'UGREEN',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 26,   // Sterowniki PLC / Komputery przemysłowe (PLC / Computers)
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'KF',
+    isAccessory: 0,
+    weight: '0.26',     // kg (260 g netto)
+    width: '143',       // mm
+    height: '22',       // mm
+    depth: '64',        // mm
+    mountingSpace: '3146', // mm2 (143 * 22)
+    descr1: {
+      pl_PL: 'Przełącznik KVM HDMI 2.0 4K@60Hz 2-w-1, Hub 4x USB 3.0 (3x USB-A + 1x USB-C 5Gbps), pilot',
+      en_US: '2-In 1-Out HDMI 2.0 4K@60Hz KVM Switch, 4-Port USB 3.0 Hub (3x USB-A + 1x USB-C 5Gbps), Remote',
+      de_DE: '2-in-1 HDMI 2.0 4K@60Hz KVM-Umschalter, 4-Port USB 3.0 Hub (3x USB-A + 1x USB-C 5Gbit/s), Fernbedienung',
+    },
+    descr2: {
+      pl_PL: 'CM664 / 15707, HDCP 2.2, HDR10, USB-C 5V DC zasilanie pomocnicze, obudowa aluminium Space Gray',
+      en_US: 'CM664 / 15707, HDCP 2.2, HDR10, USB-C 5V DC Auxiliary Power, Space Gray Aluminum Housing',
+      de_DE: 'CM664 / 15707, HDCP 2.2, HDR10, USB-C 5V DC Zusatzstromversorgung, Space Gray Aluminiumgehaeuse',
+    },
+    note: {
+      pl_PL: 'Dwukomputerowy przełącznik KVM HDMI 2.0 i USB 3.0 (2 wejścia Host, 1 wyjście monitorowe HDMI, 4 porty peryferyjne USB). Obsługa rozdzielczości do 4K@60Hz (3840x2160), 2K@120Hz, 1080p@240Hz, HDCP 2.2/1.4, HDR10, CEC, 3D. Porty tył: 2x wejście HDMI, 2x wejście USB-B 3.0, 1x wyjście HDMI OUT, 1x port zasilania USB-C DC 5V/3A. Porty przód: 3x wyjście USB-A 3.0 (5 Gbps), 1x wyjście USB-C 3.0 (5 Gbps), 1x port mini-USB pilota biurkowego. Podwójne przełączanie: przycisk na obudowie oraz przewodowy pilot na biurko (kabel 1.5 m). Diody LED sygnalizujące aktywny kanał PC 1 / PC 2. Aluminiowa obudowa Space Gray o wymiarach 143x22x64 mm, waga netto 0.26 kg. Zgodność: Plug and Play (Windows, macOS, Linux, Chrome OS). Certyfikaty: CE, FCC, RoHS, WEEE, UKCA.',
+      en_US: '2-Port HDMI 2.0 and USB 3.0 KVM Switch (2 Host inputs, 1 HDMI display output, 4 USB peripheral ports). Supports resolutions up to 4K@60Hz (3840x2160), 2K@120Hz, 1080p@240Hz, HDCP 2.2/1.4, HDR10, CEC, 3D. Rear ports: 2x HDMI in, 2x USB-B 3.0 in, 1x HDMI out, 1x USB-C DC 5V/3A power input. Front ports: 3x USB-A 3.0 out (5 Gbps), 1x USB-C 3.0 out (5 Gbps), 1x mini-USB desktop remote jack. Dual switching modes: on-unit push button and 1.5m wired desktop remote controller. LED indicators for active host channel PC 1 / PC 2. Space Gray aluminum enclosure dimensions 143x22x64 mm, net weight 0.26 kg. Compatibility: Plug and Play (Windows, macOS, Linux, Chrome OS). Certifications: CE, FCC, RoHS, WEEE, UKCA.',
+      de_DE: '2-Port HDMI 2.0 und USB 3.0 KVM-Umschalter (2 Host-Eingaenge, 1 HDMI-Bildschirmausgang, 4 USB-Peripherieanschluesse). Unterstuetzt Aufloesungen bis zu 4K@60Hz (3840x2160), 2K@120Hz, 1080p@240Hz, HDCP 2.2/1.4, HDR10, CEC, 3D. Rueckseitige Anschluesse: 2x HDMI-In, 2x USB-B 3.0-In, 1x HDMI-Out, 1x USB-C DC 5V/3A Stromeingang. Frontanschluesse: 3x USB-A 3.0-Out (5 Gbit/s), 1x USB-C 3.0-Out (5 Gbit/s), 1x Mini-USB Buchse fuer Desktop-Fernbedienung. Zwei Umschaltmodi: Geraetetaste und kabelgebundener 1.5m Desktop-Controller. LED-Statusanzeigen fuer aktiven Kanal PC 1 / PC 2. Aluminiumgehaeuse Space Gray mit Abmessungen 143x22x64 mm, Nettogewicht 0.26 kg. Kompatibilitaet: Plug and Play (Windows, macOS, Linux, Chrome OS). Zertifizierungen: CE, FCC, RoHS, WEEE, UKCA.',
+    },
+    characteristics: '4K@60Hz HDMI 2.0, 4x USB 3.0 (5Gbps), 2-In 1-Out, Space Gray',
+    functionTemplates: [
+      {
+        connectionDesignation: '5V\nGND',
+        connectionDescription: 'DC 5V / 3A Power In (USB-C)\nGND',
+        functiondefcategory: '200',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;20;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: 'HDMI_IN1',
+        connectionDescription: 'HDMI 2.0 Input 1 (Host PC 1)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: 'USB_IN1',
+        connectionDescription: 'USB 3.0 Type-B Data Uplink 1 (Host PC 1)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 3,
+      },
+      {
+        connectionDesignation: 'HDMI_IN2',
+        connectionDescription: 'HDMI 2.0 Input 2 (Host PC 2)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 4,
+      },
+      {
+        connectionDesignation: 'USB_IN2',
+        connectionDescription: 'USB 3.0 Type-B Data Uplink 2 (Host PC 2)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 5,
+      },
+      {
+        connectionDesignation: 'HDMI_OUT',
+        connectionDescription: 'HDMI 2.0 Output (Display / Monitor 4K@60Hz)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 6,
+      },
+      {
+        connectionDesignation: 'USB_A1',
+        connectionDescription: 'USB 3.0 Type-A 5Gbps Hub Port 1 (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 7,
+      },
+      {
+        connectionDesignation: 'USB_A2',
+        connectionDescription: 'USB 3.0 Type-A 5Gbps Hub Port 2 (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 8,
+      },
+      {
+        connectionDesignation: 'USB_A3',
+        connectionDescription: 'USB 3.0 Type-A 5Gbps Hub Port 3 (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 9,
+      },
+      {
+        connectionDesignation: 'USB_C',
+        connectionDescription: 'USB 3.0 Type-C 5Gbps Hub Port (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 10,
+      },
+      {
+        connectionDesignation: 'CTRL',
+        connectionDescription: 'Mini-USB Remote Desktop Controller Jack (Front)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 11,
+      },
+    ],
+    pictureRelPath: 'UGREEN/CM664.png',
+    pictureLocalPath: 'EDZ/UGREEN/UGREEN.CM664/CM664.png',
+    docs: [
+      {
+        relPath: 'UGREEN/CM664_datasheet.pdf',
+        localPath: 'EDZ/UGREEN/UGREEN.CM664/CM664_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/UGREEN/UGREEN.CM664/UGREEN.CM664.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
+CATALOG['CM664'] = CATALOG['UGREEN.CM664'];
+CATALOG['15707'] = CATALOG['UGREEN.CM664'];
+CATALOG['UGR.CM664'] = CATALOG['UGREEN.CM664'];
 CATALOG['30K5CTO1WW'] = CATALOG['LEN.30K5CTO1WW'];
 CATALOG['ThinkStation P3 Tiny Gen 2'] = CATALOG['LEN.30K5CTO1WW'];
 CATALOG['P3 Tiny Gen 2'] = CATALOG['LEN.30K5CTO1WW'];
