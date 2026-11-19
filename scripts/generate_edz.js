@@ -4047,6 +4047,120 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/261118/WIE.PL.040.1281.0/WIE.PL.040.1281.0.edz',
   },
+
+  'WIE.83.040.1281.0': {
+    partNr: 'WIE.83.040.1281.0',
+    typeNr: 'WIENET IP SWITCH UMS 8-C SLIM',
+    orderNr: '83.040.1281.0',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1
+    productGroup: EPLAN_PRODUCT_GROUPS.PLC,                          // 26
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL,                 // 1
+    craftElectrical: 1,
+    codeLetter: 'KF',
+    isAccessory: 0,
+    weight: '0.450',
+    width: '30',
+    height: '140',
+    depth: '95',
+    descr1: {
+      pl_PL: 'Przemysłowy switch Ethernet wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbps, 12-48V DC, szyna DIN',
+      en_US: 'Industrial Ethernet switch wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbps, 12-48V DC, DIN rail',
+      de_DE: 'Industrieller Ethernet-Switch wienet UMS 8-C SLIM, 8x RJ45 10/100 Mbit/s, 12-48V DC, Tragschiene',
+    },
+    descr2: {
+      pl_PL: 'WIENET IP SWITCH UMS 8-C SLIM, niezarządzalny, obudowa metalowa IP30',
+      en_US: 'WIENET IP SWITCH UMS 8-C SLIM, unmanaged, metal housing IP30',
+      de_DE: 'WIENET IP SWITCH UMS 8-C SLIM, unmanaged, Metallgehäuse IP30',
+    },
+    note: {
+      pl_PL: 'Przemysłowy, niezarządzalny przełącznik sieciowy Ethernet (switch) serii wienet UMS 8-C SLIM dedykowany do montażu na szynie DIN w szafach automatyki. Charakteryzuje się wyjątkowo smukłą obudową metalową (szerokość zaledwie 30 mm), 8 ekranowanymi portami RJ45 10/100 Mbps (Auto-Negotiation, Auto-MDI/MDI-X) oraz redundantnym wejściem zasilania 12 – 48 V DC. Zapewnia wysoką odporność na zakłócenia elektromagnetyczne (EMC) oraz bezawaryjną pracę w trudnych warunkach przemysłowych. EAN: 4049088600982.',
+      en_US: 'Industrial unmanaged Ethernet switch of the wienet UMS 8-C SLIM series designed for space-saving DIN rail installation in control cabinets. Characterized by an ultra-slim metal housing (only 30 mm width), 8 shielded RJ45 ports 10/100 Mbps (Auto-Negotiation, Auto-MDI/MDI-X), and redundant 12 to 48 V DC power supply inputs. Offers superior electromagnetic compatibility (EMC) and robust reliable operation in harsh industrial automation environments. EAN: 4049088600982.',
+      de_DE: 'Industrieller unmanaged Ethernet-Switch der wienet UMS 8-C SLIM Serie für die platzsparende Tragschienenmontage in Schaltschränken. Ausgestattet mit einem ultraschmalen Metallgehäuse (nur 30 mm Breite), 8 geschirmten RJ45-Ports 10/100 Mbit/s (Auto-Negotiation, Auto-MDI/MDI-X) sowie redundanter 12 – 48 V DC Spannungsversorgung. Bietet höchste elektromagnetische Verträglichkeit (EMV) und ausfallsicheren Dauerbetrieb unter anspruchsvollen industriellen Umgebungsbedingungen. EAN: 4049088600982.',
+    },
+    characteristics: '8x RJ45 10/100 Mbps, Redundant 12-48V DC, DIN rail, IP30 metal',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4049088600982',
+    },
+    functionTemplates: [
+      { connectionDesignation: 'P1+\nP1-', connectionDescription: 'PWR1 (12-48V DC)', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 1 },
+      { connectionDesignation: 'P2+\nP2-', connectionDescription: 'PWR2 (12-48V DC)', functiondefcategory: '200', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 2 },
+      { connectionDesignation: 'Fault', connectionDescription: 'Power Alarm Relay', functiondefcategory: '202', functiondefgroup: '1', functiondefid: '1', symbol: 'IEC_symbol;1;20;0', pos: 3 },
+      { connectionDesignation: '1', connectionDescription: 'ETH Port 1 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 4 },
+      { connectionDesignation: '2', connectionDescription: 'ETH Port 2 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 5 },
+      { connectionDesignation: '3', connectionDescription: 'ETH Port 3 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 6 },
+      { connectionDesignation: '4', connectionDescription: 'ETH Port 4 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 7 },
+      { connectionDesignation: '5', connectionDescription: 'ETH Port 5 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 8 },
+      { connectionDesignation: '6', connectionDescription: 'ETH Port 6 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 9 },
+      { connectionDesignation: '7', connectionDescription: 'ETH Port 7 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 10 },
+      { connectionDesignation: '8', connectionDescription: 'ETH Port 8 (10/100 Mbps)', functiondefcategory: '300', functiondefgroup: '1', functiondefid: '1', symbol: 'SPECIAL;0;0;0', pos: 11 },
+    ],
+    pictureRelPath: 'WIE/83.040.1281.0.png',
+    pictureLocalPath: 'EDZ/261119/WIE.83.040.1281.0/83.040.1281.0.png',
+    docs: [
+      {
+        relPath: 'WIE/83.040.1281.0_datasheet.pdf',
+        localPath: 'EDZ/261119/WIE.83.040.1281.0/83.040.1281.0_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261119/WIE.83.040.1281.0/WIE.83.040.1281.0.edz',
+  },
+
+  'WIE.71.330.2435.1': {
+    partNr: 'WIE.71.330.2435.1',
+    typeNr: 'BAS GUT GL 24 M25 A1',
+    orderNr: '71.330.2435.1',
+    manufacturer: 'WIE',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.ELECTRICAL_ENGINEERING, // 1 (Elektrotechnika)
+    productGroup: EPLAN_PRODUCT_GROUPS.PLUGS,                       // 4 (Wtyki / Plugs)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.PLUG_HOUSING,          // 15 (Obudowa wtyku / Plug housing)
+    craftElectrical: 1,
+    codeLetter: 'X',
+    isAccessory: 0,
+    weight: '0.216',     // kg (216 g)
+    width: '57',         // mm
+    height: '57',        // mm
+    depth: '144',        // mm (długość obudowy 144 mm)
+    descr1: {
+      pl_PL: 'Obudowa cokołowa revos 24 - 2x gwint boczny M25, 1 dźwignia, niska',
+      en_US: 'Surface-mounted housing revos 24 - 2x side thread M25, 1 locking lever, low',
+      de_DE: 'Sockelgehäuse revos 24 - 2x Gewinde seitlich M25, 1 Längsbügel, niedrige Bauform',
+    },
+    descr2: {
+      pl_PL: 'BAS GUT GL 24 M25 A1, wielkość 24, odlew aluminiowy IP54/IP65',
+      en_US: 'BAS GUT GL 24 M25 A1, size 24, die-cast aluminum IP54/IP65',
+      de_DE: 'BAS GUT GL 24 M25 A1, Baugröße 24, Aluminiumdruckguss IP54/IP65',
+    },
+    note: {
+      pl_PL: 'Wielostykowe złącze przemysłowe heavy-duty serii revos BASIC. Obudowa cokołowa (podstawa gniazda) niska (wielkość 24 / 24-biegunowa) z odlewu aluminiowego, malowana proszkowo (szary). Wyposażona w pojedynczą dźwignię ryglującą wzdłużną (stal nierdzewna V2A / poliamid UL94-V0) oraz uszczelnienie NBR. Dwa boczne wprowadzenia kablowe M25 z kołnierzami gwintowanymi (bez fabrycznych dławnic, wersja A1). Stopień ochrony: IP54 (IP65 przy zastosowaniu odpowiednich dławnic szczelnych). Zakres temperatur pracy: od -40 °C do +120 °C. Zastosowanie: aplikacje przemysłowe, budowa maszyn i szaf sterowniczych. EAN: 4015573620896.',
+      en_US: 'Heavy-duty industrial multipole connector revos BASIC series. Surface-mounted housing base low profile design (size 24 / 24-pole) made of die-cast aluminum alloy, powder-coated (grey). Equipped with single longitudinal locking lever (stainless steel V2A / polyamide UL94-V0) and NBR gasket. Two lateral M25 cable entries with threaded collars (plain threads without pre-installed cable glands, version A1). Degree of protection: IP54 (IP65 with appropriate sealed cable glands). Operating temperature range: -40 °C to +120 °C. Application: industrial machinery, automation systems and control cabinets. EAN: 4015573620896.',
+      de_DE: 'Schwerer Industriesteckverbinder der revos BASIC Serie. Sockelgehäuse niedrige Bauform (Größe 24 / 24-polig) aus Aluminiumdruckguss, pulverbeschichtet (grau). Ausgestattet mit Längsbügel (Edelstahl V2A / Polyamid UL94-V0) und NBR-Dichtung. Zwei seitliche M25 Leitungseinführungen mit Gewindestutzen (ohne vormontierte Verschraubungen, Ausführung A1). Schutzart: IP54 (IP65 mit entsprechenden dichten Verschraubungen). Temperaturbereich: -40 °C bis +120 °C. Einsatzbereich: Industriemaschinen, Automatisierungsanlagen und Schaltschränke. EAN: 4015573620896.',
+    },
+    characteristics: 'revos BASIC 24, 2x M25 boczny, 1 Dźwignia / 1 Lever, niska / low',
+    extraPartAttrs: {
+      P_ARTICLE_EAN: '4015573620896',
+    },
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'revos BASIC 24',
+        functiondefcategory: '300',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'WIE/71.330.2435.1.png',
+    pictureLocalPath: 'EDZ/261119/WIE.71.330.2435.1/71.330.2435.1.png',
+    docs: [
+      {
+        relPath: 'WIE/71.330.2435.1_datasheet.pdf',
+        localPath: 'EDZ/261119/WIE.71.330.2435.1/71.330.2435.1_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/261119/WIE.71.330.2435.1/WIE.71.330.2435.1.edz',
+  },
 };
 
 // Aliases for convenient CLI usage
