@@ -5255,6 +5255,77 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/UGREEN/UGREEN.CM664/UGREEN.CM664.edz',
   },
+  'UGREEN.CM664-RC': {
+    partNr: 'UGREEN.CM664-RC',
+    typeNr: 'CM664-RC',
+    orderNr: '15707-RC',
+    manufacturer: 'UGREEN',
+    productTopGroup: 1, // Elektrotechnika (Electrical engineering)
+    productGroup: 12,   // Czujniki, łączniki i przyciski (Sensor, switch, and pushbutton)
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'S',
+    isAccessory: 1,
+    weight: '0.04',     // kg (40 g netto z kablem)
+    width: '35',        // mm
+    height: '15',       // mm
+    depth: '45',        // mm
+    mountingSpace: '525', // mm2 (35 * 15)
+    descr1: {
+      pl_PL: 'Przewodowy pilot biurkowy do przełącznika KVM Ugreen CM664 (kabel 1.5 m, Mini-USB)',
+      en_US: 'Wired desktop remote controller for Ugreen CM664 KVM switch (1.5 m cable, Mini-USB)',
+      de_DE: 'Kabelgebundene Desktop-Fernbedienung fuer Ugreen CM664 KVM-Switch (1,5 m Kabel, Mini-USB)',
+    },
+    descr2: {
+      pl_PL: 'Akcesorium sterujące CM664 / 15707, przycisk monostabilny, wtyk Mini-USB, kolor czarny/Space Gray',
+      en_US: 'Control accessory for CM664 / 15707, momentary push button, Mini-USB plug, Black/Space Gray',
+      de_DE: 'Steuerzubehoer fuer CM664 / 15707, Tastschalter, Mini-USB-Stecker, Schwarz/Space Gray',
+    },
+    note: {
+      pl_PL: 'Przewodowy kontroler biurkowy (pilot sterujący) przeznaczony do współpracy z 2-portowym przełącznikiem KVM HDMI 2.0 / USB 3.0 Ugreen CM664 (nr kat. 15707). Umożliwia wygodne i ergonomiczne przełączanie aktywnego kanału PC 1 / PC 2 za pomocą monostabilnego przycisku umieszczonego bezpośrednio na biurku lub pulpicie operatorskim, eliminując potrzebę sięgania do jednostki głównej KVM. Zintegrowany przewód o długości 1,5 m zakończony wtykiem Mini-USB podłączanym do dedykowanego portu \'CONTROL\' na panelu przednim przełącznika. Obudowa z trwałego tworzywa ABS w kolorze ciemnoszarym (Space Gray/Black) z antypoślizgową podstawą. Kompatybilność: Ugreen CM664 / 15707. Certyfikaty: CE, FCC, RoHS.',
+      en_US: 'Wired desktop remote controller designed for use with Ugreen CM664 2-port HDMI 2.0 / USB 3.0 KVM switch (part no. 15707). Enables ergonomic and quick one-touch switching between active host computers (PC 1 / PC 2) via a responsive momentary push button placed on the operator desktop, allowing the main KVM switch and cable harness to remain concealed. Features an integrated 1.5-meter flexible cable terminating in a Mini-USB plug that connects directly into the dedicated \'CONTROL\' port on the front panel of the CM664 unit. Durable ABS enclosure in Space Gray/Black finish with non-slip base. Compatibility: Ugreen CM664 / 15707. Certifications: CE, FCC, RoHS.',
+      de_DE: 'Kabelgebundener Desktop-Controller (Fernbedienung) fuer den 2-Port HDMI 2.0 / USB 3.0 KVM-Umschalter Ugreen CM664 (Art.-Nr. 15707). Ermoeglicht die ergonomische und bequeme Umschaltung des aktiven Host-Kanals (PC 1 / PC 2) per Tastendruck direkt am Schreibtisch oder Bedienpult, waehrend die KVM-Haupteinheit verdeckt montiert werden kann. Integriertes 1,5 m langes Anschlusskabel mit Mini-USB-Stecker zum direkten Anschluss an die dedizierte \'CONTROL\'-Buchse an der Frontseite des CM664. Robustes ABS-Gehaeuse in Space Gray/Schwarz mit rutschfester Unterseite. Kompatibilitaet: Ugreen CM664 / 15707. Zertifizierungen: CE, FCC, RoHS.',
+    },
+    characteristics: 'Remote button, 1.5m cable, Mini-USB plug, for KVM CM664 (15707)',
+    functionTemplates: [
+      {
+        connectionDesignation: 'CONTROL',
+        connectionDescription: 'Przewód sterujący pilota (wtyk Mini-USB 1.5 m)',
+        functiondefcategory: '1202',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+      {
+        connectionDesignation: 'CTRL',
+        connectionDescription: 'Przycisk przełączający kanał PC1 / PC2',
+        functiondefcategory: '101',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;110;0',
+        pos: 2,
+      },
+      {
+        connectionDesignation: '1\n2',
+        connectionDescription: 'Styk przycisku pilota (NO)',
+        functiondefcategory: '101',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'IEC_symbol;1;110;0',
+        pos: 3,
+      },
+    ],
+    pictureRelPath: 'UGREEN/CM664-RC.png',
+    pictureLocalPath: 'EDZ/UGREEN/UGREEN.CM664-RC/CM664-RC.png',
+    docs: [
+      {
+        relPath: 'UGREEN/CM664-RC_datasheet.pdf',
+        localPath: 'EDZ/UGREEN/UGREEN.CM664-RC/CM664-RC_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/UGREEN/UGREEN.CM664-RC/UGREEN.CM664-RC.edz',
+  },
   'EATON.289968': {
     partNr: 'EATON.289968',
     typeNr: 'BPZ-KB-8/125',
@@ -5683,6 +5754,17 @@ CATALOG['BPZ-KB-8/125'] = CATALOG['EATON.289968'];
 CATALOG['BPZ-KB-8125'] = CATALOG['EATON.289968'];
 CATALOG['EAT.289968'] = CATALOG['EATON.289968'];
 CATALOG['EATON.BPZ-KB-8/125'] = CATALOG['EATON.289968'];
+
+CATALOG['UGREEN.CM664-PILOT'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['CM664-RC'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['CM664-PILOT'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['CM664_RC'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['15707-RC'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['15707-PILOT'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['UGREEN.15707-RC'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['UGREEN.15707-PILOT'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['PILOT CM664'] = CATALOG['UGREEN.CM664-RC'];
+CATALOG['PILOT-CM664'] = CATALOG['UGREEN.CM664-RC'];
 
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
