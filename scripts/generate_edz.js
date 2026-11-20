@@ -5339,6 +5339,73 @@ const CATALOG = {
     outputEdzPath: 'EDZ/EATON/EATON.289968/EATON.289968.edz',
   },
 
+  'TRN.MNT-P3TINY': {
+    partNr: 'TRN.MNT-P3TINY',
+    typeNr: 'MNT-P3TINY-REVB',
+    orderNr: 'TRN-MNT-P3TINY',
+    manufacturer: 'TRN',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.MECHANICS, // 3 (Mechanika)
+    productGroup: EPLAN_PRODUCT_GROUPS.HOUSING_ACCESSORIES_INTERNAL, // 51 (Akcesoria obudowy, rozbudowa wewnętrzna)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL, // 1 (Ogólne)
+    craftElectrical: 1,
+    codeLetter: 'W',
+    isAccessory: 1,
+    weight: '0.18', // kg
+    width: '182',   // mm
+    height: '199.8',// mm
+    depth: '56.8',  // mm
+    mountingSpace: '36364', // mm2 (182 * 199.8)
+    descr1: {
+      pl_PL: 'Uchwyt 1x Lenovo ThinkStation P3 Tiny Gen 2 - montaż płasko na płycie',
+      en_US: 'Mounting bracket 1x Lenovo ThinkStation P3 Tiny Gen 2 - flat backplate mount',
+      de_DE: 'Halterung 1x Lenovo ThinkStation P3 Tiny Gen 2 - Flachmontage Montageplatte',
+    },
+    descr2: {
+      pl_PL: 'Wariant 2 rev B, pojedynczy, docisk czołowy, PETG, 4x M5',
+      en_US: 'Variant 2 rev B, single unit, front clamp, PETG, 4x M5',
+      de_DE: 'Variante 2 Rev B, Einzeleinheit, Frontklemmung, PETG, 4x M5',
+    },
+    note: {
+      pl_PL: 'Profesjonalny zestaw uchwytu montażowego wariant 2 rev B przeznaczony do bezpiecznego osadzenia pojedynczej stacji roboczej Lenovo ThinkStation P3 Tiny Gen 2 na płycie montażowej szafki pulpitowej lub szafy sterowniczej. Druk 3D z wytrzymałego PETG (wypełnienie 30-40% gyroid, 4 obrysy). Konstrukcja zapewnia 15 mm szczelinę dystansową za komputerem dla swobodnego przepływu powietrza chłodzącego oraz szybki montaż i demontaż komputera od frontu (4 śruby docisku M4x45). Wymiary gabarytowe pola na płycie: 182 x 199.8 mm, wysięg od płyty: 56.8 mm. Rozstaw osiowy szyn: 122 mm. Montaż do płyty za pomocą 4 śrub M5 DIN 912 (szablon 1:1, otwory Ø4,2 pod gwint M5 lub pod nitonakrętki M5 w rozstawie 122 x 119 mm). Wymagany luz do drzwi / monitora >= 65 mm, wolna wysokość sekcji >= 200 mm.',
+      en_US: 'Professional single-unit mounting bracket kit variant 2 rev B designed for secure backplate installation of one Lenovo ThinkStation P3 Tiny Gen 2 workstation in desktop console cabinets or industrial enclosures. 3D-printed from high-grade PETG (30-40% gyroid infill, 4 perimeters). Features an integrated 15 mm ventilation standoff behind computer for optimized airflow and front-accessible clamp brackets allowing quick removal (4x M4x45 clamp screws). Footprint dimensions on mounting plate: 182 x 199.8 mm, projection from plate: 56.8 mm. Rail center distance: 122 mm. Mounting via 4x M5 DIN 912 socket head screws (1:1 drilling template, Ø4.2 mm holes for M5 tap or blind rivet nuts, 122 x 119 mm pitch). Required clearance to cabinet door / monitor >= 65 mm, vertical section clearance >= 200 mm.',
+      de_DE: 'Professionelles Halterungsset für eine einzelne Lenovo ThinkStation P3 Tiny Gen 2 Workstation Variante 2 Rev B zur sicheren Montage auf der Montageplatte von Pultschränken oder Schaltschränken. Gefertigt im 3D-Druckverfahren aus robustem PETG (30-40% Gyroid-Füllung, 4 Wandlinien). Konstruktion mit integriertem 15 mm Hinterlüftungsspalt für optimale Konvektion und frontseitigen Klemmstücken zur schnellen Rechnerentnahme (4x M4x45 Klemmschrauben). Montageflächen-Abmessungen: 182 x 199.8 mm, Ausladung von der Montageplatte: 56.8 mm. Schienenmittenabstand: 122 mm. Befestigung über 4x M5 DIN 912 Zylinderschrauben (Bohrbild 1:1, Ø4,2 mm Bohrungen für M5 Gewinde oder Blindnietmuttern im Raster 122 x 119 mm). Freiraum zu Schranktür / Monitor >= 65 mm, Einbauhöhe >= 200 mm.',
+    },
+    characteristics: '1x Lenovo ThinkStation P3 Tiny, 4x M5, PETG, wariant 2 rev B',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'Uchwyt mechaniczny 1x Lenovo P3 Tiny',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'TRN/MNT-P3TINY.png',
+    pictureLocalPath: 'EDZ/TRN/TRN.MNT-P3TINY/MNT-P3TINY.png',
+    docs: [
+      {
+        relPath: 'TRN/MNT-P3TINY_datasheet.pdf',
+        localPath: 'EDZ/TRN/TRN.MNT-P3TINY/MNT-P3TINY_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/TRN/TRN.MNT-P3TINY/TRN.MNT-P3TINY.edz',
+    constructionXml: `<?xml version="1.0" encoding="utf-8" ?>
+<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">
+ <construction class="6" P_PART_CONSTRUCTION_NAME="TRN.MNT-P3TINY" P_PART_CONSTRUCTION_CREATE="2026-11-20" P_PART_CONSTRUCTION_LASTCHANGE="2026-11-20">
+  <P_PART_CONSTRUCTION_DESCRIPTION>pl_PL@Szablon wiercenia dla uchwytu 1x Lenovo ThinkStation P3 Tiny Gen 2 (4x M5);en_US@Drilling pattern for 1x Lenovo ThinkStation P3 Tiny Gen 2 mount (4x M5);de_DE@Bohrbild für Halterung 1x Lenovo ThinkStation P3 Tiny Gen 2 (4x M5);</P_PART_CONSTRUCTION_DESCRIPTION>
+  <drillingpattern P_DRILLING_NAME="TRN.MNT-P3TINY" P_DRILLING_WIDTH="182.0" P_DRILLING_HEIGHT="199.8" P_DRILLING_DEPTH="56.8">
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="30.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="30.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="149.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="149.0" depth="15.0"/>
+  </drillingpattern>
+ </construction>
+</partsmanagement>
+`,
+  },
+
   'TRN.MNT-2XP3TINY': {
     partNr: 'TRN.MNT-2XP3TINY',
     typeNr: 'MNT-2XP3TINY-REVB',
@@ -5479,6 +5546,10 @@ const CATALOG = {
 };
 
 // Aliases for convenient CLI usage
+CATALOG['MNT-P3TINY'] = CATALOG['TRN.MNT-P3TINY'];
+CATALOG['MNT-P3TINY-REVB'] = CATALOG['TRN.MNT-P3TINY'];
+CATALOG['UCHWYT-P3TINY'] = CATALOG['TRN.MNT-P3TINY'];
+CATALOG['TRN.UCHW-P3TINY'] = CATALOG['TRN.MNT-P3TINY'];
 CATALOG['MNT-2XP3TINY'] = CATALOG['TRN.MNT-2XP3TINY'];
 CATALOG['MNT-2XP3TINY-REVB'] = CATALOG['TRN.MNT-2XP3TINY'];
 CATALOG['UCHWYT-2XP3TINY'] = CATALOG['TRN.MNT-2XP3TINY'];
