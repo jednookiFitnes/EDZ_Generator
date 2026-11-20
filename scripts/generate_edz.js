@@ -551,6 +551,19 @@ UGREEN: {
     zipTown: '53115',
     state: 'DEUTSCHLAND',
   },
+  TRN: {
+    shortName: 'TRN',
+    longName: 'Trinitec Sp. z o.o.',
+    name1: 'Trinitec Sp. z o.o.',
+    name2: 'Automatyka Przemysłowa i Prefabrykacja Szaf Sterowniczych',
+    email: 'biuro@trinitec.pl',
+    phone: '+48 32 790 42 19',
+    note: '??_??@https://www.trinitec.pl;',
+    street: 'ul. Wyzwolenia 26',
+    town: 'Mikołów',
+    zipTown: '43-190',
+    state: 'POLSKA',
+  },
 };
 
 function buildManufacturerXml(mfgData) {
@@ -5325,9 +5338,157 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/EATON/EATON.289968/EATON.289968.edz',
   },
+
+  'TRN.MNT-2XP3TINY': {
+    partNr: 'TRN.MNT-2XP3TINY',
+    typeNr: 'MNT-2XP3TINY-REVB',
+    orderNr: 'TRN-MNT-2XP3TINY',
+    manufacturer: 'TRN',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.MECHANICS, // 3 (Mechanika)
+    productGroup: EPLAN_PRODUCT_GROUPS.HOUSING_ACCESSORIES_INTERNAL, // 51 (Akcesoria obudowy, rozbudowa wewnętrzna)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL, // 1 (Ogólne)
+    craftElectrical: 1,
+    codeLetter: 'W',
+    isAccessory: 1,
+    weight: '0.35', // kg
+    width: '182',   // mm
+    height: '398',  // mm
+    depth: '56.8',  // mm
+    mountingSpace: '72436', // mm2 (182 * 398)
+    descr1: {
+      pl_PL: 'Uchwyt 2x Lenovo ThinkStation P3 Tiny Gen 2 - montaż płasko na płycie',
+      en_US: 'Mounting bracket 2x Lenovo ThinkStation P3 Tiny Gen 2 - flat backplate mount',
+      de_DE: 'Halterung 2x Lenovo ThinkStation P3 Tiny Gen 2 - Flachmontage Montageplatte',
+    },
+    descr2: {
+      pl_PL: 'Wariant 2 rev B, docisk czołowy, niezależny demontaż, PETG, 8x M5',
+      en_US: 'Variant 2 rev B, front clamp, independent removal, PETG, 8x M5',
+      de_DE: 'Variante 2 Rev B, Frontklemmung, unabhängige Entnahme, PETG, 8x M5',
+    },
+    note: {
+      pl_PL: 'Profesjonalny zestaw uchwytów montażowych wariant 2 rev B przeznaczony do bezpiecznego osadzenia dwóch stacji roboczych Lenovo ThinkStation P3 Tiny Gen 2 na płycie montażowej szafki pulpitowej lub szafy sterowniczej. Druk 3D z wytrzymałego PETG (wypełnienie 30-40% gyroid, 4 obrysy). Konstrukcja zapewnia 15 mm szczelinę dystansową za komputerami dla swobodnego przepływu powietrza chłodzącego oraz niezależny demontaż dowolnego komputera od frontu (4 śruby docisku M4x45). Wymiary gabarytowe pola na płycie: 182 x 398 mm, wysięg od płyty: 56.8 mm. Rozstaw osiowy szyn: 122 mm. Montaż do płyty za pomocą 8 śrub M5 DIN 912 (szablon 1:1, otwory Ø4,2 pod gwint M5 lub pod nitonakrętki M5). Wymagany luz do drzwi / monitora >= 65 mm, wolna wysokość sekcji >= 400 mm.',
+      en_US: 'Professional modular mounting bracket assembly variant 2 rev B designed for secure backplate installation of two Lenovo ThinkStation P3 Tiny Gen 2 workstations in desktop console cabinets or industrial enclosures. 3D-printed from high-grade PETG (30-40% gyroid infill, 4 perimeters). Features an integrated 15 mm ventilation standoff behind computers for optimized airflow and front-accessible clamp brackets allowing independent removal of either computer (4x M4x45 clamp screws). Footprint dimensions on mounting plate: 182 x 398 mm, projection from plate: 56.8 mm. Rail center distance: 122 mm. Mounting via 8x M5 DIN 912 socket head screws (1:1 drilling template, Ø4.2 mm holes for M5 tap or blind rivet nuts). Required clearance to cabinet door / monitor >= 65 mm, vertical section clearance >= 400 mm.',
+      de_DE: 'Professionelles modulares Montagehalterungs-Set Variante 2 Rev B zur sicheren Befestigung von zwei Lenovo ThinkStation P3 Tiny Gen 2 Workstations auf der Montageplatte von Pultschränken oder Schaltschränken. Gefertigt im 3D-Druckverfahren aus robustem PETG (30-40% Gyroid-Füllung, 4 Wandlinien). Konstruktion mit integriertem 15 mm Hinterlüftungsspalt für optimale Konvektion und frontseitigen Klemmstücken zur vollkommen unabhängigen Entnahme jedes Rechners (4x M4x45 Klemmschrauben). Montageflächen-Abmessungen: 182 x 398 mm, Ausladung von der Montageplatte: 56.8 mm. Schienenmittenabstand: 122 mm. Befestigung über 8x M5 DIN 912 Zylinderschrauben (Bohrbild 1:1, Ø4,2 mm Bohrungen für M5 Gewinde oder Blindnietmuttern). Freiraum zu Schranktür / Monitor >= 65 mm, Einbauhöhe >= 400 mm.',
+    },
+    characteristics: '2x Lenovo ThinkStation P3 Tiny, 8x M5, PETG, wariant 2 rev B',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'Uchwyt mechaniczny 2x Lenovo P3 Tiny',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'TRN/MNT-2XP3TINY.png',
+    pictureLocalPath: 'EDZ/TRN/TRN.MNT-2XP3TINY/MNT-2XP3TINY.png',
+    docs: [
+      {
+        relPath: 'TRN/MNT-2XP3TINY_datasheet.pdf',
+        localPath: 'EDZ/TRN/TRN.MNT-2XP3TINY/MNT-2XP3TINY_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/TRN/TRN.MNT-2XP3TINY/TRN.MNT-2XP3TINY.edz',
+    constructionXml: `<?xml version="1.0" encoding="utf-8" ?>
+<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">
+ <construction class="6" P_PART_CONSTRUCTION_NAME="TRN.MNT-2XP3TINY" P_PART_CONSTRUCTION_CREATE="2026-11-20" P_PART_CONSTRUCTION_LASTCHANGE="2026-11-20">
+  <P_PART_CONSTRUCTION_DESCRIPTION>pl_PL@Szablon wiercenia dla uchwytu 2x Lenovo ThinkStation P3 Tiny Gen 2 (8x M5);en_US@Drilling pattern for 2x Lenovo ThinkStation P3 Tiny Gen 2 mount (8x M5);de_DE@Bohrbild für Halterung 2x Lenovo ThinkStation P3 Tiny Gen 2 (8x M5);</P_PART_CONSTRUCTION_DESCRIPTION>
+  <drillingpattern P_DRILLING_NAME="TRN.MNT-2XP3TINY" P_DRILLING_WIDTH="182.0" P_DRILLING_HEIGHT="398.0" P_DRILLING_DEPTH="56.8">
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="30.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="30.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="149.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="149.0" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="229.8" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="229.8" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="30.0" y="348.8" depth="15.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="152.0" y="348.8" depth="15.0"/>
+  </drillingpattern>
+ </construction>
+</partsmanagement>
+`,
+  },
+
+  'TRN.MNT-KVM-CM664': {
+    partNr: 'TRN.MNT-KVM-CM664',
+    typeNr: 'MNT-KVM-CM664-REVB',
+    orderNr: 'TRN-MNT-KVM-CM664',
+    manufacturer: 'TRN',
+    productTopGroup: EPLAN_PRODUCT_TOP_GROUPS.MECHANICS, // 3 (Mechanika)
+    productGroup: EPLAN_PRODUCT_GROUPS.HOUSING_ACCESSORIES_INTERNAL, // 51 (Akcesoria obudowy, rozbudowa wewnętrzna)
+    productSubGroup: EPLAN_PRODUCT_SUBGROUPS.GENERAL, // 1 (Ogólne)
+    craftElectrical: 1,
+    codeLetter: 'W',
+    isAccessory: 1,
+    weight: '0.12', // kg
+    width: '64',    // mm
+    height: '198',  // mm
+    depth: '36.6',  // mm
+    mountingSpace: '12672', // mm2 (64 * 198)
+    descr1: {
+      pl_PL: 'Uchwyt przełącznika KVM UGREEN CM664 HDMI 2 in 1 out - montaż na płycie',
+      en_US: 'Mounting bracket for UGREEN CM664 KVM HDMI 2 in 1 out switch - plate mount',
+      de_DE: 'Halterung für UGREEN CM664 KVM HDMI 2-in-1-out Umschalter - Montageplatte',
+    },
+    descr2: {
+      pl_PL: 'Wersja rev B, pełna szerokość 64 mm, docisk czołowy 2x M4, 4x otwory M5',
+      en_US: 'Version rev B, full 64 mm width, front clamp 2x M4, 4x M5 holes',
+      de_DE: 'Version Rev B, volle 64 mm Breite, Frontklemmung 2x M4, 4x M5 Bohrungen',
+    },
+    note: {
+      pl_PL: 'Dedykowany uchwyt montażowy rev B przeznaczony do stabilnego mocowania przełącznika KVM UGREEN CM664 (wymiary KVM 143 x 64 x 22 mm) na płycie montażowej szafy lub szafki sterowniczej. Druk 3D z PETG o grubości pełnej podstawy 10 mm z kieszeniami odciążającymi, wzmocnionym dolnym hakiem oporowym 6 mm oraz dociskiem czołowym przykręcanym 2 śrubami M4x30 do wprasowanych wtopków gwintowanych M4. Umożliwia szybki montaż i demontaż urządzenia (podniesienie o ~6 mm i wysunięcie w przód) bez demontażu podstawy. Wszystkie porty i wtyczki na bocznych krawędziach pozostają w pełni dostępne (rekomendowany zapas boczny min. 50 mm). Wymiary gabarytowe: 64 x 198 mm, wysięg od płyty: 36.6 mm. Montaż na 4 śruby M5 DIN 912 w rozstawie 180 mm w pionie x 36 mm w poziomie.',
+      en_US: 'Dedicated mounting bracket rev B engineered for rigid plate mounting of the UGREEN CM664 KVM switch (KVM dimensions 143 x 64 x 22 mm) inside industrial control enclosures and consoles. 3D-printed from durable PETG filament with solid 10 mm base plate, reinforced 6 mm bottom retainer hook, and front clamp secured with 2x M4x30 socket screws into embedded M4 heat-set threaded inserts. Allows rapid insertion and extraction of KVM unit (~6 mm lift and front pull) while preserving base fixture. Side ports remain completely unhindered with cables clearing base profile (recommended lateral clearance min. 50 mm). Dimensions: 64 x 198 mm, projection from plate: 36.6 mm. 4-point mounting via M5 DIN 912 screws with 180 mm vertical x 36 mm horizontal hole pitch.',
+      de_DE: 'Spezifische Montagehalterung Rev B zur vibrationsfesten Befestigung des UGREEN CM664 KVM-Umschalters (KVM-Maße 143 x 64 x 22 mm) auf der Montageplatte von Schaltschränken und Bedienpulten. 3D-gedruckt aus robustem PETG mit 10 mm massiver Grundplatte, verstärktem 6 mm Rasthaken unten und Frontklemme mit 2x M4x30 Zylinderschrauben in eingepressten M4 Gewindeeinsätzen. Ermöglicht schnelle Entnahme des Geräts (~6 mm anheben und nach vorn herausziehen) ohne Demontage der Grundplatte. Anschlüsse an den Längsseiten sind frei zugänglich (empfohlener seitlicher Freiraum min. 50 mm). Abmessungen: 64 x 198 mm, Ausladung von der Montageplatte: 36.6 mm. 4-Punkt-Befestigung über M5 DIN 912 Schrauben im Bohrraster 180 mm vertikal x 36 mm horizontal.',
+    },
+    characteristics: 'UGREEN CM664 KVM, 4x M5, PETG, rev B, podstawa 10 mm',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'Uchwyt mechaniczny KVM UGREEN CM664',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'TRN/MNT-KVM-CM664.png',
+    pictureLocalPath: 'EDZ/TRN/TRN.MNT-KVM-CM664/MNT-KVM-CM664.png',
+    docs: [
+      {
+        relPath: 'TRN/MNT-KVM-CM664_datasheet.pdf',
+        localPath: 'EDZ/TRN/TRN.MNT-KVM-CM664/MNT-KVM-CM664_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/TRN/TRN.MNT-KVM-CM664/TRN.MNT-KVM-CM664.edz',
+    constructionXml: `<?xml version="1.0" encoding="utf-8" ?>
+<partsmanagement count="1" length-unit="mm" weight-unit="kg" type="EPLAN.PartsManagement" build="137.1">
+ <construction class="6" P_PART_CONSTRUCTION_NAME="TRN.MNT-KVM-CM664" P_PART_CONSTRUCTION_CREATE="2026-11-20" P_PART_CONSTRUCTION_LASTCHANGE="2026-11-20">
+  <P_PART_CONSTRUCTION_DESCRIPTION>pl_PL@Szablon wiercenia dla uchwytu KVM UGREEN CM664 (4x M5);en_US@Drilling pattern for UGREEN CM664 KVM mount (4x M5);de_DE@Bohrbild für UGREEN CM664 KVM Halterung (4x M5);</P_PART_CONSTRUCTION_DESCRIPTION>
+  <drillingpattern P_DRILLING_NAME="TRN.MNT-KVM-CM664" P_DRILLING_WIDTH="64.0" P_DRILLING_HEIGHT="198.0" P_DRILLING_DEPTH="36.6">
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="14.0" y="9.0" depth="12.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="50.0" y="9.0" depth="12.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="14.0" y="189.0" depth="12.0"/>
+    <hole type="drill_hole" subtype="thread" diameter="4.2" thread_type="metric" thread_size="M5" x="50.0" y="189.0" depth="12.0"/>
+  </drillingpattern>
+ </construction>
+</partsmanagement>
+`,
+  },
 };
 
 // Aliases for convenient CLI usage
+CATALOG['MNT-2XP3TINY'] = CATALOG['TRN.MNT-2XP3TINY'];
+CATALOG['MNT-2XP3TINY-REVB'] = CATALOG['TRN.MNT-2XP3TINY'];
+CATALOG['UCHWYT-2XP3TINY'] = CATALOG['TRN.MNT-2XP3TINY'];
+CATALOG['TRN.UCHW-2XP3TINY'] = CATALOG['TRN.MNT-2XP3TINY'];
+CATALOG['P3TINY-MOUNT'] = CATALOG['TRN.MNT-2XP3TINY'];
+CATALOG['MNT-KVM-CM664'] = CATALOG['TRN.MNT-KVM-CM664'];
+CATALOG['MNT-KVM-CM664-REVB'] = CATALOG['TRN.MNT-KVM-CM664'];
+CATALOG['UCHWYT-KVM-CM664'] = CATALOG['TRN.MNT-KVM-CM664'];
+CATALOG['TRN.UCHW-KVM-CM664'] = CATALOG['TRN.MNT-KVM-CM664'];
+CATALOG['KVM-MOUNT'] = CATALOG['TRN.MNT-KVM-CM664'];
 CATALOG['CNEM 24 T'] = CATALOG['ILME.CNEM 24 T'];
 CATALOG['CNEM24T'] = CATALOG['ILME.CNEM 24 T'];
 CATALOG['CNEM-24-T'] = CATALOG['ILME.CNEM 24 T'];
