@@ -5112,6 +5112,59 @@ const CATALOG = {
     ],
     outputEdzPath: 'EDZ/ILME/ILME.MAO 24.32/ILME.MAO 24.32.edz',
   },
+  'ILME.AS M32I': {
+    partNr: 'ILME.AS M32I',
+    typeNr: 'AS M32I',
+    orderNr: 'AS M32I',
+    manufacturer: 'ILME',
+    productTopGroup: 3, // Mechanika (Mechanics)
+    productGroup: 50,   // Akcesoria obudowy, rozbudowa zewnętrzna (Housing accessories, external extension)
+    productSubGroup: 1, // Ogólne (General)
+    craftElectrical: 1,
+    codeLetter: 'W',
+    isAccessory: 1,
+    weight: '0.039',    // kg (39 g)
+    width: '46',        // mm (wymiar po narożach nakrętki)
+    height: '48',       // mm (wysokość całkowita z gwintem)
+    depth: '46',        // mm
+    mountingSpace: '2208', // mm2 (46 * 48)
+    descr1: {
+      pl_PL: 'Dławnica kablowa M32×1,5 poliamidowa IP68, zakres Ø 14–25 mm, RAL 7035',
+      en_US: 'Complete polyamide cable gland M32×1.5 IP68, clamping Ø 14–25 mm, RAL 7035',
+      de_DE: 'Polyamid-Kabelverschraubung M32×1,5 IP68, Klemmbereich Ø 14–25 mm, RAL 7035',
+    },
+    descr2: {
+      pl_PL: 'AS M32I, gwint metryczny M32x1.5, SW 42, uszczelnienie NBR, temp. -20°C...+100°C',
+      en_US: 'AS M32I, metric thread M32x1.5, SW 42, NBR gasket, temp. -20°C...+100°C',
+      de_DE: 'AS M32I, metrisches Gewinde M32x1,5, SW 42, NBR-Dichtung, Temp. -20°C...+100°C',
+    },
+    note: {
+      pl_PL: 'Kompletna poliamidowa dławnica kablowa serii AS producenta I.L.M.E. SpA (oznaczenie typu: AS M32I). Przeznaczona do szczelnego, bezpiecznego i odpornego na wyrwanie wprowadzania kabli do obudów wielostykowych złączy przemysłowych (seria C-TYPE, T-TYPE z wejściem M32), skrzynek zaciskowych oraz szaf sterowniczych. Gwint przyłączeniowy: metryczny M32×1,5 o długości 10 mm. Zakres dławienia średnicy kabla: od 14,0 do 25,0 mm. Rozmiar klucza montażowego: SW 42 mm. Stopień ochrony: IP68 (5 bar wg PN-EN 60529). Wykonana z wysokiej jakości samogasnącego poliamidu 6 (PA6) w kolorze jasnoszarym (RAL 7035) z profilowanym pierścieniem uszczelniającym z kauczuku NBR. Odporna na starzenie, oleje, warunki atmosferyczne i promieniowanie UV. Zakres temperatur pracy: od -20 °C do +100 °C. Zgodność z normami: EN 62444 (DIN EN 50262), RoHS, REACH.',
+      en_US: 'Complete polyamide cable gland of the AS series manufactured by I.L.M.E. SpA (type designation: AS M32I). Engineered for IP68 watertight, dustproof, and strain-relieved entry of round industrial cables into heavy-duty connector enclosures (C-TYPE, T-TYPE with M32 entry), terminal boxes, and control cabinets. Connection thread: metric M32×1.5, thread length 10 mm. Clamping range for cable outer diameter: 14.0 mm to 25.0 mm. Spanner/wrench size: SW 42 mm. Degree of protection: IP68 (5 bar acc. to EN 60529). Body and cap molded from high-grade self-extinguishing polyamide 6 (PA6) in light grey (RAL 7035) equipped with an anti-aging NBR elastomer sealing insert. Excellent resistance to mechanical stress, oils, weathering, and UV radiation. Operating temperature range: -20 °C to +100 °C. Standards: EN 62444, RoHS, REACH compliant.',
+      de_DE: 'Komplette Polyamid-Kabelverschraubung der Serie AS des Herstellers I.L.M.E. SpA (Typenbezeichnung: AS M32I). Entwickelt für die dichte, staub- und wassergeschützte sowie zugentlastete Einführung von Rundleitungen in schwere Industriesteckverbindergehäuse (C-TYPE, T-TYPE mit M32-Eingang), Klemmenkästen und Schaltschränke. Anschlussgewinde: metrisch M32×1,5 mit 10 mm Gewindelänge. Klemmbereich für Kabelaußendurchmesser: 14,0 mm bis 25,0 mm. Schlüsselweite: SW 42 mm. Schutzart: IP68 (5 bar nach DIN EN 60529). Gehäuse und Hutmutter aus hochwertigem, selbstverlöschendem Polyamid 6 (PA6) in Lichtgrau (RAL 7035) mit NBR-Dichtring. Beständig gegen Witterung, Öle, Alterung und UV-Strahlung. Temperaturbereich: -20 °C bis +100 °C. Normenkonformität: EN 62444, RoHS, REACH.',
+    },
+    characteristics: 'M32x1.5, Ø 14-25mm, IP68 (5 bar), SW 42, PA6, RAL 7035',
+    functionTemplates: [
+      {
+        connectionDesignation: '',
+        connectionDescription: 'Dławnica kablowa M32 IP68 (Ø 14-25 mm)',
+        functiondefcategory: '1302',
+        functiondefgroup: '1',
+        functiondefid: '1',
+        symbol: 'SPECIAL;0;0;0',
+        pos: 1,
+      },
+    ],
+    pictureRelPath: 'ILME/AS M32I.png',
+    pictureLocalPath: 'EDZ/ILME/ILME.AS M32I/AS M32I.png',
+    docs: [
+      {
+        relPath: 'ILME/AS M32I_datasheet.pdf',
+        localPath: 'EDZ/ILME/ILME.AS M32I/AS M32I_datasheet.pdf',
+      },
+    ],
+    outputEdzPath: 'EDZ/ILME/ILME.AS M32I/ILME.AS M32I.edz',
+  },
 'UGREEN.CM664': {
     partNr: 'UGREEN.CM664',
     typeNr: 'CM664',
@@ -5765,6 +5818,14 @@ CATALOG['UGREEN.15707-RC'] = CATALOG['UGREEN.CM664-RC'];
 CATALOG['UGREEN.15707-PILOT'] = CATALOG['UGREEN.CM664-RC'];
 CATALOG['PILOT CM664'] = CATALOG['UGREEN.CM664-RC'];
 CATALOG['PILOT-CM664'] = CATALOG['UGREEN.CM664-RC'];
+
+CATALOG['AS M32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['ASM32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['AS-M32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['AS_M32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['ILME.ASM32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['ILME.AS-M32I'] = CATALOG['ILME.AS M32I'];
+CATALOG['ILME.AS_M32I'] = CATALOG['ILME.AS M32I'];
 
 
 // Automatic execution: generate EDZ for any articles in CATALOG that are missing an EDZ file,
